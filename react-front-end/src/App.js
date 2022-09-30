@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.scss';
+import Button from 'react-bootstrap/Button';
 import axios from 'axios';
-import './App.css';
+// import './App.css';
 
 class App extends Component {
   constructor(props) {
@@ -27,9 +30,9 @@ class App extends Component {
     return (
       <div className="App">
         <h1>{ this.state.message }</h1>
-        <button onClick={this.fetchData} >
+        <Button variant="danger" onClick={this.fetchData}>
           Fetch Data
-        </button>        
+        </Button>        
       </div>
     );
   }
