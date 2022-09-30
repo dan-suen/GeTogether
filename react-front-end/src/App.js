@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
-// import './App.css';
+//import './App.css';
 
 class App extends Component {
   constructor(props) {
