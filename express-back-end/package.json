@@ -9,13 +9,19 @@
     "go": "nodemon server.js"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
+    "cookie-session": "^2.0.0",
+    "db-migrate-pg": "^1.2.2",
+    "dotenv": "^16.0.3",
     "express": "^4.16.4",
     "nodemon": "^1.18.7",
     "pg": "^8.8.0",
     "socket.io": "^4.5.2"
   },
   "devDependencies": {
-    "morgan": "^1.10.0"
+    "@faker-js/faker": "^7.5.0",
+    "morgan": "^1.10.0",
+    "prettier": "2.7.1"
   }
 }
