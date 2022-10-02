@@ -16,6 +16,7 @@ module.exports = {
       firstName: 'John',
       lastName: 'Doe',
       email: 'example@example.com',
+      mexican: "appledanish",
       createdAt: new Date(),
       updatedAt: new Date()
     }]);
