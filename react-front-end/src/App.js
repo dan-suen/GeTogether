@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
+import Main from './components/main/Main';
 //import './App.css';
 
 class App extends Component {
@@ -32,7 +33,8 @@ class App extends Component {
         <h1>{ this.state.message }</h1>
         <Button variant="danger" onClick={this.fetchData}>
           Fetch Data
-        </Button>        
+        </Button>
+        <Main></Main>     
       </div>
     );
   }
