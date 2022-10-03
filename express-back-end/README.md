@@ -24,7 +24,7 @@ Run all unperformed migrations:
 (npx dotenv -e .env) sequelize db:migrate  
 
 Undo most recent migration:
-(npx dotenv -e .env) sequelize db:migrate :undo
+(npx dotenv -e .env) sequelize db:migrate:undo
 
 ## to edit an existing table
 https://sequelize.org/docs/v6/other-topics/query-interface/#creating-a-table
@@ -36,7 +36,7 @@ Run all unperformed seeds:
 (npx dotenv -e .env) sequelize db:seed:all 
 
 Undo most recent seed:
-(npx dotenv -e .env) sequelize db:seed :undo
+(npx dotenv -e .env) sequelize db:seed:undo
 
 Undo all seeds:
-(npx dotenv -e .env) sequelize db:seed :undo:all
+(npx dotenv -e .env) sequelize db:seed:undo:all
