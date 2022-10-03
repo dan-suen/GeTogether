@@ -1,0 +1,19 @@
+@import "/src/styles/variables.scss";
+
+.search {
+ 
+
+  &__select {
+    background-color: $royal-blue;
+    color: $white;
+  }
+
+  &__bar {
+    border-radius: 0px;
+  }
+
+  &__btn {
+    background-color: $royal-blue;
+    color: $white;
+  }
+}
