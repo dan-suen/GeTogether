@@ -7,7 +7,7 @@
 .page {
  
   @include flex($d: column, $c: center, $i: center);
-  background-image: url("../../../public/images/background_image2.png");
+  background-image: url("../../../public/images/background_image3.png");
   background-size: contain;
 
   
@@ -18,19 +18,29 @@
 
   &__filters {
     width: 50%;
-
   }
 
   
   &__events-list {
     margin-top: 5em;
+    width: 50%;
+    &__header {
+      @include flex($d: row,$c: space-between);
 
-    &__title {
-      font-weight: bold;
-      font-size: 30px;
-      color: $dark-blue;
-      font-family: $font-sans;
+      h5 {
+        font-weight: bold;
+        font-size: 30px;
+        color: $dark-blue;
+        font-family: $font-sans;
+      }
+  
+     button{
+        border-radius: 50px;
+        color: $dark-blue;
+        background-color: $light-teal;
+      }
     }
+   
   }
 
 }
