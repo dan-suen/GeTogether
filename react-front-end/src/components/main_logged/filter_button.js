@@ -1,8 +1,8 @@
-import "components/filter_button.scss";
+import "./filter_button.scss";
 import classNames from "classnames";
 
 export default function Button(props) {
-  let buttonClass = classNames("button", "button--confirm");
+  let buttonClass = classNames("btn", "btn-outline-info");
   return (
     <button
       className={buttonClass}
