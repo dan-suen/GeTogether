@@ -3,11 +3,11 @@ import Card from 'react-bootstrap/Card';
 import "./event.scss";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faEnvelope} from '@fortawesome/free-solid-svg-icons'
-
+import {faComment} from '@fortawesome/free-regular-svg-icons'
 
 export default function Event(props) {
   return (
-    <Card key="light" style={{ width: '70%' }}>
+    <Card key="light" style={{ width: '600px' }}>
       <div className="card mb-3">
         <div className="row g-0">
           <div className="col-md-4">
@@ -20,7 +20,12 @@ export default function Event(props) {
               
               <Card.Body>
                 <div className="title">
-                  <Card.Title>This is an event name</Card.Title>
+                  <div>
+                    <Card.Title>This is an event name</Card.Title>
+                    <p className="comment-number">
+                      45  <FontAwesomeIcon icon={faComment}/>
+                    </p>
+                  </div>
                   <Button variant="primary">
                     Join <FontAwesomeIcon icon={faEnvelope} />
                   </Button>
@@ -31,7 +36,7 @@ export default function Event(props) {
                     <Card.Header>$4000</Card.Header>
                   </div>
                   <Card.Text>
-                  This is an event descriptionThis is an event descriptionThis is an event descriptionThis is an event descriptionThis is an event descriptionThis is an event descriptionThis is an event descriptionThis is an event description
+                  This is an event descriptionThis is an event descriptionThis is an event descriptionThis is an event descriptionThis is an event descriptionThis is an event descriptionThis is an event description
                   </Card.Text>
                 </div>
                 <Card.Footer>
