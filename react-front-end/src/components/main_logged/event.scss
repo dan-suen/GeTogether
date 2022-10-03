@@ -1,0 +1,53 @@
+@import "/src/styles/variables.scss";
+.card{
+  height: 300px;
+  &:hover{
+   background-color: $light-blue;
+  }
+}
+.btn-primary{
+  background-color: greenyellow;
+  color: black;
+  margin-left: 25%;
+  margin-bottom: 1em;
+}
+.content{
+ div{
+  display: flex;
+  background-color: $light-blue;
+  &.header{
+    display: flex;
+    justify-content: space-between;
+  }
+ }
+ p{
+  display: flex;
+  text-align: left;
+ }
+}
+.card-body{
+  padding:0px;
+}
+.row{
+  display: flex;
+  justify-content: space-between;
+  .col-md-4{
+    max-width: 5em;
+    img{
+      height:15em;
+      width:15em;
+      margin-top:1em;
+      border-radius: 30%;
+    }
+  }
+}
+.title{
+  display: flex;
+  justify-content: space-between;
+  padding:1em
+}
+.card-footer{
+  display: flex;
+  justify-content: space-between;
+}
+
