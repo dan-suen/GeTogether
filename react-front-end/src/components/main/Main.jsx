@@ -9,11 +9,11 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons'
 const Main = () => {
   return (
     <section className='page'>
-      <div className='backdrop'>
-      </div>
       <section className='page__intro'>
         <Intro></Intro>
       </section>
+
+      <section className='page__next-and-calendar'></section>
 
       <section className='page__filters'>
         <Search></Search>
@@ -31,7 +31,6 @@ const Main = () => {
           <li class="list-group-item">A third item</li>
         </ul>
       </section>
-    
 
     </section>
   );
