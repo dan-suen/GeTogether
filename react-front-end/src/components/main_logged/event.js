@@ -19,9 +19,9 @@ export default function Event(props) {
             <div className="main card">
               
               <Card.Body>
-                <div className="title">
-                  <div>
-                    <Card.Title>This is an event name</Card.Title>
+                <div className="titlecard">
+                  <div className='title'>
+                    <Card.Title>This is an event nameThis is an event name</Card.Title>
                     <p className="comment-number">
                       45  <FontAwesomeIcon icon={faComment}/>
                     </p>
