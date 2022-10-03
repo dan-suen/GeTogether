@@ -7,6 +7,8 @@
 .page {
  
   @include flex($d: column, $c: center, $i: center);
+  background-image: url("../../../public/images/background_image2.png");
+  background-size: contain;
 
   
   &__intro {
@@ -16,14 +18,12 @@
 
   &__filters {
     width: 50%;
+
   }
 
   
   &__events-list {
     margin-top: 5em;
- 
-
-  
 
     &__title {
       font-weight: bold;
@@ -33,4 +33,10 @@
     }
   }
 
+}
+
+.backdrop {
+  height: 100%;
+  width: 100%;
+  
 }

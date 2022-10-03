@@ -10,7 +10,7 @@ const Intro = () => {
       </div>
       <div className='intro__div'>
         <a href='/about'>
-          <img className='intro__div__image' src={require('../../images/together.png')} alt='The intro logo'/>
+          <img className='intro__div__image' src='/images/together.png' alt='The intro logo'/>
         </a>
       </div>
     </section>
