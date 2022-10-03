@@ -1,5 +1,4 @@
 'use strict';
-const { faker } = require('@faker-js/faker');
 const { QueryTypes, Sequelize } = require('sequelize');
 require('dotenv').config()
 const sequelize = new Sequelize(
@@ -23,26 +22,23 @@ module.exports = {
      * }], {});
     */
      const users = await sequelize.query(`SELECT MAX(id) FROM "Users"`, { type: QueryTypes.SELECT });
+     const events = await sequelize.query(`SELECT MAX(id) FROM "Events"`, { type: QueryTypes.SELECT });
      let seeds = [];
-     for (let i = 0; i < 10; i ++) {
-       const spots = Math.floor(Math.random()*(99))+1;
-       const remain = Math.floor(Math.random()*(spots))+1;
-       seeds.push({
-         host_id:  Math.floor(Math.random()*(users[0].max-1))+1,
-         event_time: faker.date.future(1) ,
-         location:"662 King St W #101, Toronto, ON M5V 1M7",
-         price: Math.floor(Math.random()*(1000)),
-         spots: spots,
-         remaining_spots: remain,
-         status_active: Math.random() < 0.5,
-         description: faker.commerce.productDescription(),
-         photo: faker.image.animals(),
-         createdAt: new Date()
-        })
+     for (let i = 0; i < events[0].max; i ++) {
+      for (let j = 0; j < 5; j ++) {
+        let query = [];
+        query.push(Math.floor(Math.random()*(users[0].max-1))+1);
+        query.push(Math.floor(Math.random()*(i))+1);
+        let query1 = "(" + query.join(", ") + ")";
+        seeds.push(query1)
       }
-     return queryInterface.bulkInsert('Events', seeds);
+    }
+      return queryInterface.sequelize.query(
+        `INSERT INTO "Event_attendees" (user_id, event_id) VALUES 
+        ${seeds.join(", ")}
+        ON CONFLICT DO NOTHING;`
+      );
   },
-
   async down (queryInterface, Sequelize) {
     /**
      * Add commands to revert seed here.
@@ -50,6 +46,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-    return queryInterface.bulkDelete('Events', null, {});
+    return queryInterface.bulkDelete('Event_attendees', null, {});
   }
 };

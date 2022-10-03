@@ -16,18 +16,11 @@ module.exports = {
         references: {
           model: "Events",
           key: 'id'
-        }
+        },
+        onDelete: 'cascade'
       },
       photo: {
         type: Sequelize.STRING(255)
-      },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
       }
     });
   },

@@ -25,8 +25,7 @@ module.exports = {
       password: hash,
       photo: faker.image.avatar(),
       description: faker.company.bs(),
-      createdAt: new Date(),
-      updatedAt: new Date()
+      createdAt: new Date()
       },
       {
       firstName: faker.name.firstName(),
@@ -36,8 +35,7 @@ module.exports = {
       password: hash,
       photo: faker.image.avatar(),
       description: faker.company.bs(),
-      createdAt: new Date(),
-      updatedAt: new Date()
+      createdAt: new Date()
       },
       {
       firstName: faker.name.firstName(),
@@ -47,8 +45,7 @@ module.exports = {
       password: hash,
       photo: faker.image.avatar(),
       description: faker.company.bs(),
-      createdAt: new Date(),
-      updatedAt: new Date()
+      createdAt: new Date()
       },
       {
       firstName: faker.name.firstName(),
@@ -58,8 +55,7 @@ module.exports = {
       password: hash,
       photo: faker.image.avatar(),
       description: faker.company.bs(),
-      createdAt: new Date(),
-      updatedAt: new Date()
+      createdAt: new Date()
       },
       {
       firstName: faker.name.firstName(),
@@ -69,8 +65,7 @@ module.exports = {
       password: hash,
       photo: faker.image.avatar(),
       description: faker.company.bs(),
-      createdAt: new Date(),
-      updatedAt: new Date()
+      createdAt: new Date()
       },
       {
       firstName: faker.name.firstName(),
@@ -80,19 +75,367 @@ module.exports = {
       password: hash,
       photo: faker.image.avatar(),
       description: faker.company.bs(),
-      createdAt: new Date(),
-      updatedAt: new Date()
+      createdAt: new Date()
       },
       {
-        firstName: faker.name.firstName(),
-        lastName: faker.name.lastName(),
-        email: faker.internet.email(),
-        username: faker.internet.userName(),
-        password: hash,
-        photo: faker.image.avatar(),
-        description: faker.company.bs(),
-        createdAt: new Date(),
-        updatedAt: new Date()
+      firstName: faker.name.firstName(),
+      lastName: faker.name.lastName(),
+      email: faker.internet.email(),
+      username: faker.internet.userName(),
+      password: hash,
+      photo: faker.image.avatar(),
+      description: faker.company.bs(),
+      createdAt: new Date()
+      },
+      {
+      firstName: faker.name.firstName(),
+      lastName: faker.name.lastName(),
+      email: faker.internet.email(),
+      username: faker.internet.userName(),
+      password: hash,
+      photo: faker.image.avatar(),
+      description: faker.company.bs(),
+      createdAt: new Date()
+      },
+      {
+      firstName: faker.name.firstName(),
+      lastName: faker.name.lastName(),
+      email: faker.internet.email(),
+      username: faker.internet.userName(),
+      password: hash,
+      photo: faker.image.avatar(),
+      description: faker.company.bs(),
+      createdAt: new Date()
+      },
+      {
+      firstName: faker.name.firstName(),
+      lastName: faker.name.lastName(),
+      email: faker.internet.email(),
+      username: faker.internet.userName(),
+      password: hash,
+      photo: faker.image.avatar(),
+      description: faker.company.bs(),
+      createdAt: new Date()
+      },
+      {
+      firstName: faker.name.firstName(),
+      lastName: faker.name.lastName(),
+      email: faker.internet.email(),
+      username: faker.internet.userName(),
+      password: hash,
+      photo: faker.image.avatar(),
+      description: faker.company.bs(),
+      createdAt: new Date()
+      },
+      {
+      firstName: faker.name.firstName(),
+      lastName: faker.name.lastName(),
+      email: faker.internet.email(),
+      username: faker.internet.userName(),
+      password: hash,
+      photo: faker.image.avatar(),
+      description: faker.company.bs(),
+      createdAt: new Date()
+      },
+      {
+      firstName: faker.name.firstName(),
+      lastName: faker.name.lastName(),
+      email: faker.internet.email(),
+      username: faker.internet.userName(),
+      password: hash,
+      photo: faker.image.avatar(),
+      description: faker.company.bs(),
+      createdAt: new Date()
+      },
+      {
+      firstName: faker.name.firstName(),
+      lastName: faker.name.lastName(),
+      email: faker.internet.email(),
+      username: faker.internet.userName(),
+      password: hash,
+      photo: faker.image.avatar(),
+      description: faker.company.bs(),
+      createdAt: new Date()
+      },
+      {
+      firstName: faker.name.firstName(),
+      lastName: faker.name.lastName(),
+      email: faker.internet.email(),
+      username: faker.internet.userName(),
+      password: hash,
+      photo: faker.image.avatar(),
+      description: faker.company.bs(),
+      createdAt: new Date()
+      },
+      {
+      firstName: faker.name.firstName(),
+      lastName: faker.name.lastName(),
+      email: faker.internet.email(),
+      username: faker.internet.userName(),
+      password: hash,
+      photo: faker.image.avatar(),
+      description: faker.company.bs(),
+      createdAt: new Date()
+      },
+      {
+      firstName: faker.name.firstName(),
+      lastName: faker.name.lastName(),
+      email: faker.internet.email(),
+      username: faker.internet.userName(),
+      password: hash,
+      photo: faker.image.avatar(),
+      description: faker.company.bs(),
+      createdAt: new Date()
+      },
+      {
+      firstName: faker.name.firstName(),
+      lastName: faker.name.lastName(),
+      email: faker.internet.email(),
+      username: faker.internet.userName(),
+      password: hash,
+      photo: faker.image.avatar(),
+      description: faker.company.bs(),
+      createdAt: new Date()
+      },
+      {
+      firstName: faker.name.firstName(),
+      lastName: faker.name.lastName(),
+      email: faker.internet.email(),
+      username: faker.internet.userName(),
+      password: hash,
+      photo: faker.image.avatar(),
+      description: faker.company.bs(),
+      createdAt: new Date()
+      },
+      {
+      firstName: faker.name.firstName(),
+      lastName: faker.name.lastName(),
+      email: faker.internet.email(),
+      username: faker.internet.userName(),
+      password: hash,
+      photo: faker.image.avatar(),
+      description: faker.company.bs(),
+      createdAt: new Date()
+      },
+      {
+      firstName: faker.name.firstName(),
+      lastName: faker.name.lastName(),
+      email: faker.internet.email(),
+      username: faker.internet.userName(),
+      password: hash,
+      photo: faker.image.avatar(),
+      description: faker.company.bs(),
+      createdAt: new Date()
+      },
+      {
+      firstName: faker.name.firstName(),
+      lastName: faker.name.lastName(),
+      email: faker.internet.email(),
+      username: faker.internet.userName(),
+      password: hash,
+      photo: faker.image.avatar(),
+      description: faker.company.bs(),
+      createdAt: new Date()
+      },
+      {
+      firstName: faker.name.firstName(),
+      lastName: faker.name.lastName(),
+      email: faker.internet.email(),
+      username: faker.internet.userName(),
+      password: hash,
+      photo: faker.image.avatar(),
+      description: faker.company.bs(),
+      createdAt: new Date()
+      },
+      {
+      firstName: faker.name.firstName(),
+      lastName: faker.name.lastName(),
+      email: faker.internet.email(),
+      username: faker.internet.userName(),
+      password: hash,
+      photo: faker.image.avatar(),
+      description: faker.company.bs(),
+      createdAt: new Date()
+      },
+      {
+      firstName: faker.name.firstName(),
+      lastName: faker.name.lastName(),
+      email: faker.internet.email(),
+      username: faker.internet.userName(),
+      password: hash,
+      photo: faker.image.avatar(),
+      description: faker.company.bs(),
+      createdAt: new Date()
+      },
+      {
+      firstName: faker.name.firstName(),
+      lastName: faker.name.lastName(),
+      email: faker.internet.email(),
+      username: faker.internet.userName(),
+      password: hash,
+      photo: faker.image.avatar(),
+      description: faker.company.bs(),
+      createdAt: new Date()
+      },
+      {
+      firstName: faker.name.firstName(),
+      lastName: faker.name.lastName(),
+      email: faker.internet.email(),
+      username: faker.internet.userName(),
+      password: hash,
+      photo: faker.image.avatar(),
+      description: faker.company.bs(),
+      createdAt: new Date()
+      },
+      {
+      firstName: faker.name.firstName(),
+      lastName: faker.name.lastName(),
+      email: faker.internet.email(),
+      username: faker.internet.userName(),
+      password: hash,
+      photo: faker.image.avatar(),
+      description: faker.company.bs(),
+      createdAt: new Date()
+      },
+      {
+      firstName: faker.name.firstName(),
+      lastName: faker.name.lastName(),
+      email: faker.internet.email(),
+      username: faker.internet.userName(),
+      password: hash,
+      photo: faker.image.avatar(),
+      description: faker.company.bs(),
+      createdAt: new Date()
+      },
+      {
+      firstName: faker.name.firstName(),
+      lastName: faker.name.lastName(),
+      email: faker.internet.email(),
+      username: faker.internet.userName(),
+      password: hash,
+      photo: faker.image.avatar(),
+      description: faker.company.bs(),
+      createdAt: new Date()
+      },
+      {
+      firstName: faker.name.firstName(),
+      lastName: faker.name.lastName(),
+      email: faker.internet.email(),
+      username: faker.internet.userName(),
+      password: hash,
+      photo: faker.image.avatar(),
+      description: faker.company.bs(),
+      createdAt: new Date()
+      },
+      {
+      firstName: faker.name.firstName(),
+      lastName: faker.name.lastName(),
+      email: faker.internet.email(),
+      username: faker.internet.userName(),
+      password: hash,
+      photo: faker.image.avatar(),
+      description: faker.company.bs(),
+      createdAt: new Date()
+      },
+      {
+      firstName: faker.name.firstName(),
+      lastName: faker.name.lastName(),
+      email: faker.internet.email(),
+      username: faker.internet.userName(),
+      password: hash,
+      photo: faker.image.avatar(),
+      description: faker.company.bs(),
+      createdAt: new Date()
+      },
+      {
+      firstName: faker.name.firstName(),
+      lastName: faker.name.lastName(),
+      email: faker.internet.email(),
+      username: faker.internet.userName(),
+      password: hash,
+      photo: faker.image.avatar(),
+      description: faker.company.bs(),
+      createdAt: new Date()
+      },
+      {
+      firstName: faker.name.firstName(),
+      lastName: faker.name.lastName(),
+      email: faker.internet.email(),
+      username: faker.internet.userName(),
+      password: hash,
+      photo: faker.image.avatar(),
+      description: faker.company.bs(),
+      createdAt: new Date()
+      },
+      {
+      firstName: faker.name.firstName(),
+      lastName: faker.name.lastName(),
+      email: faker.internet.email(),
+      username: faker.internet.userName(),
+      password: hash,
+      photo: faker.image.avatar(),
+      description: faker.company.bs(),
+      createdAt: new Date()
+      },
+      {
+      firstName: faker.name.firstName(),
+      lastName: faker.name.lastName(),
+      email: faker.internet.email(),
+      username: faker.internet.userName(),
+      password: hash,
+      photo: faker.image.avatar(),
+      description: faker.company.bs(),
+      createdAt: new Date()
+      },
+      {
+      firstName: faker.name.firstName(),
+      lastName: faker.name.lastName(),
+      email: faker.internet.email(),
+      username: faker.internet.userName(),
+      password: hash,
+      photo: faker.image.avatar(),
+      description: faker.company.bs(),
+      createdAt: new Date()
+      },
+      {
+      firstName: faker.name.firstName(),
+      lastName: faker.name.lastName(),
+      email: faker.internet.email(),
+      username: faker.internet.userName(),
+      password: hash,
+      photo: faker.image.avatar(),
+      description: faker.company.bs(),
+      createdAt: new Date()
+      },
+      {
+      firstName: faker.name.firstName(),
+      lastName: faker.name.lastName(),
+      email: faker.internet.email(),
+      username: faker.internet.userName(),
+      password: hash,
+      photo: faker.image.avatar(),
+      description: faker.company.bs(),
+      createdAt: new Date()
+      },
+      {
+      firstName: faker.name.firstName(),
+      lastName: faker.name.lastName(),
+      email: faker.internet.email(),
+      username: faker.internet.userName(),
+      password: hash,
+      photo: faker.image.avatar(),
+      description: faker.company.bs(),
+      createdAt: new Date()
+      },
+      {
+      firstName: faker.name.firstName(),
+      lastName: faker.name.lastName(),
+      email: faker.internet.email(),
+      username: faker.internet.userName(),
+      password: hash,
+      photo: faker.image.avatar(),
+      description: faker.company.bs(),
+      createdAt: new Date()
       }
     ]);
   },

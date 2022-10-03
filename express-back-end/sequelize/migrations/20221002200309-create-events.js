@@ -15,7 +15,8 @@ module.exports = {
         references: {
           model: "Users",
           key: 'id'
-        }
+        },
+        onDelete: 'cascade'
       },
       event_time: {
         type: Sequelize.DATE,
@@ -47,10 +48,6 @@ module.exports = {
         type: Sequelize.STRING(255)
       },
       createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      },
-      updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
       }
