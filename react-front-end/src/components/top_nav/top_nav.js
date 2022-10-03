@@ -20,7 +20,7 @@ export default function TopNav() {
             <NavDropdown title="Login" id="basic-nav-dropdown">
               <Login />
             </NavDropdown>
-            <Nav.Link href="#register">Sign up!+</Nav.Link>
+            <Nav.Link href="#register">Sign up!</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

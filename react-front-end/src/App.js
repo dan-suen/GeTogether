@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
 import Button from 'react-bootstrap/Button';
-import NavBar from  './components/top_nav/top_nav'
+import NavBar from  './components/top_nav/top_nav';
+import Footer from "./components/footer/footer";
 import axios from 'axios';
 import Main from './components/main/Main';
 //import './App.css';
@@ -69,7 +70,8 @@ class App extends Component {
         <h1>{ this.state.message }</h1>
         <h1>{ this.state.message }</h1>
         
-        <Main></Main>     
+        <Main></Main>
+        <Footer></Footer>
       </div>
     );
   }
