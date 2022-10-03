@@ -36,6 +36,39 @@ class App extends Component {
         <Button variant="danger" onClick={this.fetchData}>
           Fetch Data
         </Button>
+        <h1>{ this.state.message }</h1>
+        <h1>{ this.state.message }</h1>
+        <h1>{ this.state.message }</h1>
+        <h1>{ this.state.message }</h1>
+        <h1>{ this.state.message }</h1>
+        <h1>{ this.state.message }</h1>
+        <h1>{ this.state.message }</h1>
+        <h1>{ this.state.message }</h1>
+        <h1>{ this.state.message }</h1>
+        <h1>{ this.state.message }</h1>
+        <h1>{ this.state.message }</h1>
+        <h1>{ this.state.message }</h1>
+        <h1>{ this.state.message }</h1>
+        <h1>{ this.state.message }</h1>
+        <h1>{ this.state.message }</h1>
+        <h1>{ this.state.message }</h1>
+        <h1>{ this.state.message }</h1>
+        <h1>{ this.state.message }</h1>
+        <h1>{ this.state.message }</h1>
+        <h1>{ this.state.message }</h1>
+        <h1>{ this.state.message }</h1>
+        <h1>{ this.state.message }</h1>
+        <h1>{ this.state.message }</h1>
+        <h1>{ this.state.message }</h1>
+        <h1>{ this.state.message }</h1>
+        <h1>{ this.state.message }</h1>
+        <h1>{ this.state.message }</h1>
+        <h1>{ this.state.message }</h1>
+        <h1>{ this.state.message }</h1>
+        <h1>{ this.state.message }</h1>
+        <h1>{ this.state.message }</h1>
+        <h1>{ this.state.message }</h1>
+        
         <Main></Main>     
       </div>
     );
