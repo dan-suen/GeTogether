@@ -1,12 +1,15 @@
 import React from 'react';
 import './main.scss'
 import Intro from './Intro';
+import Event from '../main_logged/event'
 import Search from './Search';
 import NextEvent from './NextEvent';
 
 import Calendar from 'components/main_logged/calender';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 const Main = () => {
   return (
@@ -35,10 +38,10 @@ const Main = () => {
           <button className='btn btn-primary'><FontAwesomeIcon icon={faPlus} /></button>
         </div>
         
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">first item</li>
-          <li class="list-group-item">A second item</li>
-          <li class="list-group-item">A third item</li>
+        <ul className="list-group list-group-flush">
+          <li className="list-group-item"><div><Event></Event></div></li>
+          <li className="list-group-item"><div><Event></Event></div></li>
+          <li className="list-group-item"><div><Event></Event></div></li>
         </ul>
       </section>
 

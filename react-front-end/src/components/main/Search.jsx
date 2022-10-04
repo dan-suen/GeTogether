@@ -18,7 +18,6 @@ const Search = () => {
 
       <input type="search" className="form-control search__bar" placeholder='search'/>
      
-
       <button type="button" className="btn btn-primary input-group-text search__btn">
         <FontAwesomeIcon icon={faMagnifyingGlass} />
       </button>

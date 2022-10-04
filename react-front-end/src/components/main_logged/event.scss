@@ -1,12 +1,12 @@
 @import "/src/styles/variables.scss";
 .card{
   height: 300px;
-  font-family: $font-bungee;
+  font-family: $font-sans;
   &:hover{
    background-color: $light-blue;
   }
 }
-.btn-primary{
+.btn-success{
   background-color: greenyellow;
   color: black;
   width:100px;
