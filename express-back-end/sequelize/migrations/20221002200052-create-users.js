@@ -46,7 +46,7 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Users');
+    await queryInterface.dropTable('users');
     await queryInterface.sequelize.query('DROP EXTENSION citext;');
   }
 };
