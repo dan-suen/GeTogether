@@ -14,42 +14,42 @@ class App extends Component {
     return (
       <div className="App">
         <NavBar></NavBar>
-        <h1>{ this.state.message }</h1>
+        <h1>Random Text Random Text</h1>
         <Button variant="danger" onClick={this.fetchData}>
           Fetch Data
         </Button>
-        <h1>{ this.state.message }</h1>
-        <h1>{ this.state.message }</h1>
-        <h1>{ this.state.message }</h1>
-        <h1>{ this.state.message }</h1>
-        <h1>{ this.state.message }</h1>
-        <h1>{ this.state.message }</h1>
-        <h1>{ this.state.message }</h1>
-        <h1>{ this.state.message }</h1>
-        <h1>{ this.state.message }</h1>
-        <h1>{ this.state.message }</h1>
-        <h1>{ this.state.message }</h1>
-        <h1>{ this.state.message }</h1>
-        <h1>{ this.state.message }</h1>
-        <h1>{ this.state.message }</h1>
-        <h1>{ this.state.message }</h1>
-        <h1>{ this.state.message }</h1>
-        <h1>{ this.state.message }</h1>
-        <h1>{ this.state.message }</h1>
-        <h1>{ this.state.message }</h1>
-        <h1>{ this.state.message }</h1>
-        <h1>{ this.state.message }</h1>
-        <h1>{ this.state.message }</h1>
-        <h1>{ this.state.message }</h1>
-        <h1>{ this.state.message }</h1>
-        <h1>{ this.state.message }</h1>
-        <h1>{ this.state.message }</h1>
-        <h1>{ this.state.message }</h1>
-        <h1>{ this.state.message }</h1>
-        <h1>{ this.state.message }</h1>
-        <h1>{ this.state.message }</h1>
-        <h1>{ this.state.message }</h1>
-        <h1>{ this.state.message }</h1>
+        <h1>Random Text Random Text</h1>
+        <h1>Random Text Random Text</h1>
+        <h1>Random Text Random Text</h1>
+        <h1>Random Text Random Text</h1>
+        <h1>Random Text Random Text</h1>
+        <h1>Random Text Random Text</h1>
+        <h1>Random Text Random Text</h1>
+        <h1>Random Text Random Text</h1>
+        <h1>Random Text Random Text</h1>
+        <h1>Random Text Random Text</h1>
+        <h1>Random Text Random Text</h1>
+        <h1>Random Text Random Text</h1>
+        <h1>Random Text Random Text</h1>
+        <h1>Random Text Random Text</h1>
+        <h1>Random Text Random Text</h1>
+        <h1>Random Text Random Text</h1>
+        <h1>Random Text Random Text</h1>
+        <h1>Random Text Random Text</h1>
+        <h1>Random Text Random Text</h1>
+        <h1>Random Text Random Text</h1>
+        <h1>Random Text Random Text</h1>
+        <h1>Random Text Random Text</h1>
+        <h1>Random Text Random Text</h1>
+        <h1>Random Text Random Text</h1>
+        <h1>Random Text Random Text</h1>
+        <h1>Random Text Random Text</h1>
+        <h1>Random Text Random Text</h1>
+        <h1>Random Text Random Text</h1>
+        <h1>Random Text Random Text</h1>
+        <h1>Random Text Random Text</h1>
+        <h1>Random Text Random Text</h1>
+        <h1>Random Text Random Text</h1>
         <Register></Register>
         <Main></Main>
         <Footer></Footer>
