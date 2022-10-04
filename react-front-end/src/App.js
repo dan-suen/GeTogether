@@ -51,7 +51,6 @@ class App extends Component {
         <h1>Random Text Random Text</h1>
         <h1>Random Text Random Text</h1>
         <Register></Register>
-        <Main></Main>
         <Footer></Footer>
       </div>
     );
