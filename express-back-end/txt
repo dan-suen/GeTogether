@@ -1,0 +1,1 @@
+npx sequelize-cli model:generate --name Events --attributes host:string,date:string,email:string,photo:string,username:string,description:string

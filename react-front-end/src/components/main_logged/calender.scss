@@ -1,0 +1,13 @@
+@import "/src/styles/variables.scss";
+.rdp-day:hover{
+background-color: $mellow-purple !important;
+}
+.rdp-day_selected{
+  &:hover{
+    background-color : $royal-blue;
+  }
+  background-color : $royal-blue;
+}
+.rdp-day_today{
+  font-size: 1.1em;
+}

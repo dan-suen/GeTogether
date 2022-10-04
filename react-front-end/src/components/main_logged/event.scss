@@ -1,0 +1,74 @@
+@import "/src/styles/variables.scss";
+.card{
+  height: 300px;
+  font-family: $font-bungee;
+  &:hover{
+   background-color: $light-blue;
+  }
+}
+.btn-primary{
+  background-color: greenyellow;
+  color: black;
+  width:100px;
+  height: 40px;
+  margin-bottom: 1em;
+}
+.content{
+ div{
+  display: flex;
+  background-color: $light-blue;
+  &.header{
+    display: flex;
+    justify-content: space-between;
+  }
+ }
+ p{
+  display: flex;
+  text-align: left;
+ }
+}
+.card-body{
+  padding:0px;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.row{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .col-md-4{
+    max-width: 15em;
+    max-height: 300px;
+    overflow: hidden;
+    border-radius: 5%;
+    img{
+      border-radius: 10%;
+      max-height: 300px;
+      margin-left: -75px
+    }
+  }
+}
+.titlecard{
+  display: flex;
+  justify-content: space-between;
+  padding:1em 1em 0em 1em;
+  .title{
+    .card-title{
+      text-align: start;
+    }
+    .comment-number{
+      margin:0px;
+    }
+  }
+}
+.card-footer{
+  display: flex;
+  justify-content: space-between;
+}
+.comment-number{
+  text-align: left;
+}
+.card-text{
+  margin:0.5em
+}
