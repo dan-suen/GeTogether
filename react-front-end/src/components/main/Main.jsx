@@ -31,7 +31,7 @@ const Main = () => {
       <section className='page__events-list'>
         <div className='page__events-list__header'>
           <h5>Your Events</h5>
-          <button className=''><FontAwesomeIcon icon={faPlus} /></button>
+          <button className='btn btn-primary'><FontAwesomeIcon icon={faPlus} /></button>
         </div>
         
         <ul class="list-group list-group-flush">
