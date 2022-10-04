@@ -6,7 +6,7 @@ import NavBar from  './components/top_nav/top_nav';
 import Footer from "./components/footer/footer";
 import Register from "./components/register";
 import axios from 'axios';
-import Main from './components/main/Main';
+import Profile from './components/profile/profile';
 
 
 class App extends Component {

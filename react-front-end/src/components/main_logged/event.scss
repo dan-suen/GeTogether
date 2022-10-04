@@ -1,7 +1,9 @@
 @import "/src/styles/variables.scss";
+div.card{
+  font-size: 16px;
+}
 .card{
   height: 300px;
-  font-family: $font-bungee;
   &:hover{
    background-color: $light-blue;
   }
