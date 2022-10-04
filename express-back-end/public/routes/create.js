@@ -1,6 +1,6 @@
 const express = require('express');
 const router  = express.Router();
-
+const createQueries = require('./db/queries/create');
 
 router.get('/', (req, res) => {
 });

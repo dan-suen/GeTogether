@@ -31,7 +31,7 @@ App.use('/join',joinRoutes);
 
 // Main
 
-const userQueries = require('./db/queries/users');
+const mainQueries = require('./db/queries/main');
 
 App.get('/', (req, res) => {
 });
