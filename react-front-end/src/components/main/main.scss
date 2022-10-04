@@ -16,6 +16,20 @@
     @include flex($c: center, $i: center);
   }
 
+  &__calendar-and-events {
+    @include flex($d: row,$c: space-between);
+    margin: 3em 0;
+   
+    width: 50%;
+ 
+    &__next-event {
+      @include flex($d: column,$i: center);
+      font-family: $font-sans;
+      max-width: 400px;
+
+    }
+  }
+
   &__filters {
     width: 50%;
   }

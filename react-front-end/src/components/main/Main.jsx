@@ -2,6 +2,8 @@ import React from 'react';
 import './main.scss'
 import Intro from './Intro';
 import Search from './Search';
+import NextEvent from './NextEvent';
+import Calendar from 'components/main_logged/calender';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
@@ -12,7 +14,15 @@ const Main = () => {
         <Intro></Intro>
       </section>
 
-      <section className='page__next-and-calendar'></section>
+      <section className='page__calendar-and-events'>
+        <section className='page__calendar-and-events__calendar'>
+          <Calendar></Calendar>
+          
+        </section>
+        <section className='page__calendar-and-events__next-event'>
+          <NextEvent></NextEvent>
+        </section>
+      </section>
 
       <section className='page__filters'>
         <Search></Search>
