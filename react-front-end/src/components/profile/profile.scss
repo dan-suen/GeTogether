@@ -1,0 +1,36 @@
+@import "/src/styles/variables.scss";
+.event-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.user-info{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  img{
+    width:200px;
+    height: auto;
+    border-radius: 50%;
+    margin-left: 5em;
+  }
+  p{
+    &.description{
+      width: 40%;
+      text-align: center;
+      font-family: $font-bungee;
+    }
+  }
+  div{
+    max-width: 30%;
+    &.stats{
+      font-family: $font-bungee;
+      margin-right: 5em;
+      table{
+        border-collapse: separate;
+        border:1px solid $mellow-purple;
+        border-radius: 10%;
+      }
+    }
+  }
+}
