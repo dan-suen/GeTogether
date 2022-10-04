@@ -9,37 +9,34 @@ require('dotenv').config({ path: require('find-config')('.env') })
 App.use(morgan('dev'));
 // Express Configuration
 App.use(Express.static('public'));
-//App.use(Express.urlencoded({ extended: true }));
 
 
 
-// const userRoutes = require('./routes/user');
-// const messagesRoutes = require('./routes/messages');
-// const loginRoutes = require('./routes/login');
-// const postItemRoutes = require('./routes/post-item');
-// const registerRoutes = require('./routes/register');
-// const inboxRoutes = require('./routes/inbox');
-// const mainRoutes = require('./routes/main_page');
-// const logoutRoutes = require('./routes/logout');
-// const userFavRoutes = require('./routes/user-fav');
+const userRoutes = require('./routes/user');
+const loginRoutes = require('./routes/login');
+const registerRoutes = require('./routes/register');
+const logoutRoutes = require('./routes/logout');
+const eventRoutes = require('./routes/event');
+const createRoutes = require('./routes/create');
+const joinRoutes = require('./routes/join');
 
 
-// app.use('/user', userRoutes);
-// app.use('/favourites',userFavRoutes);
-// app.use('/messages', messagesRoutes);
-// app.use('/login',loginRoutes);
-// app.use('/post-item',postItemRoutes);
-// app.use('/register',registerRoutes);
-// app.use('/inbox',inboxRoutes);
-// app.use('/logout',logoutRoutes);
-const userQueries = require('./db/queries/users');
+App.use('/user', userRoutes);
+App.use('/login',loginRoutes);
+App.use('/register',registerRoutes);
+App.use('/logout',logoutRoutes);
+App.use('/event',eventRoutes);
+App.use('/create',createRoutes);
+App.use('/join',joinRoutes);
 
 // Main
+
+const userQueries = require('./db/queries/users');
+
 App.get('/', (req, res) => {
-  return userQueries.getUsers().then(data =>{
-    return res.json(data)
-  }
-)});
+});
+App.get('/about', (req, res) => {
+});
 
 App.listen(PORT, () => {
   // eslint-disable-next-line no-console
