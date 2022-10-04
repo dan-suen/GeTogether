@@ -2,6 +2,7 @@ import React from 'react';
 import './main.scss'
 import Intro from './Intro';
 import Search from './Search';
+import Next from './Next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
@@ -13,7 +14,9 @@ const Main = () => {
         <Intro></Intro>
       </section>
 
-      <section className='page__next-and-calendar'></section>
+      <section className='page__next-and-calendar'>
+        <Next></Next>
+      </section>
 
       <section className='page__filters'>
         <Search></Search>
