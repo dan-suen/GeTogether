@@ -7,7 +7,7 @@ import {faComment} from '@fortawesome/free-regular-svg-icons'
 
 export default function Event(props) {
   return (
-    <Card key="light" style={{ width: '600px' }}>
+    <Card key="light" >
       <div className="card mb-3">
         <div className="row g-0">
           <div className="col-md-4">
@@ -26,7 +26,7 @@ export default function Event(props) {
                       45  <FontAwesomeIcon icon={faComment}/>
                     </p>
                   </div>
-                  <Button variant="primary">
+                  <Button variant="success">
                     Join <FontAwesomeIcon icon={faEnvelope} />
                   </Button>
                 </div>
