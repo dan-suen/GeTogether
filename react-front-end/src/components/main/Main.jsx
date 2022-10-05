@@ -2,9 +2,14 @@ import React from 'react';
 import './main.scss'
 
 import Intro from './Intro';
+import Event from '../main_logged/event'
 import Search from './Search';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import NextEvent from './NextEvent';
+import EventsList from '../event/EventsList'
+import Calendar from 'components/main_logged/calender';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 const Main = () => {
   return (
@@ -13,23 +18,26 @@ const Main = () => {
         <Intro></Intro>
       </section>
 
-      <section className='page__next-and-calendar'></section>
+      <section className='page__calendar-and-events'>
+        <section className='page__calendar-and-events__calendar'>
+          <Calendar></Calendar>
+          
+        </section>
+        <section className='page__calendar-and-events__next-event'>
+          <NextEvent></NextEvent>
+        </section>
+      </section>
 
       <section className='page__filters'>
         <Search></Search>
       </section>
 
       <section className='page__events-list'>
-        <div className='page__events-list__header'>
-          <h5>Your Events</h5>
-          <button className=''><FontAwesomeIcon icon={faPlus} /></button>
-        </div>
-        
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">An item</li>
-          <li class="list-group-item">A second item</li>
-          <li class="list-group-item">A third item</li>
-        </ul>
+       <EventsList>
+          <li className="list-group-item"><div><Event></Event></div></li>
+          <li className="list-group-item"><div><Event></Event></div></li>
+          <li className="list-group-item"><div><Event></Event></div></li>
+       </EventsList>
       </section>
 
     </section>

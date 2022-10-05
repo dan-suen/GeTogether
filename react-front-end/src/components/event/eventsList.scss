@@ -1,0 +1,24 @@
+@import "/src/styles/variables.scss";
+@import "/src/styles/mixins.scss";
+
+.events-list {
+  &__header {
+    @include flex($d: row,$c: space-between);
+    margin: 1em;
+  
+    h5 {
+      font-weight: bold;
+      font-size: 30px;
+      color: $dark-blue;
+      font-family: $font-sans;
+    }
+  
+   button{
+      border-radius: 50px;
+      border: 1px solid $dark-blue;
+      color: $dark-blue;
+      background-color: $light-teal;
+    }
+  }
+}
+

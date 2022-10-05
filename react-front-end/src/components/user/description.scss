@@ -1,0 +1,26 @@
+@import "/src/styles/mixins.scss";
+@import "/src/styles/variables.scss";
+
+.description {
+  @include flex($c: space-between,$i: center);
+
+  img {
+    border-radius: 50%;
+  }
+
+  &__text {
+    width: 50%;
+
+    .card {
+
+      
+      color: $dark-blue;
+
+      .card-header {
+        background-color: $blue;
+        color: $light-teal;
+      }
+     
+    }
+  }
+}

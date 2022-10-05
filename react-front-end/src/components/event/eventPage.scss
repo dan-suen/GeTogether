@@ -1,0 +1,129 @@
+@import "/src/styles/variables.scss";
+@import "/src/styles/mixins.scss";
+
+.event-page {
+  @include flex($d: column, $c: center, $i: center);
+  background-image: url("../../../public/images/background_image3.png");
+  background-size: contain;
+
+  &__header {
+    @include flex($c:space-between, $i:center );
+    margin: 3em 0;
+    width: 90%;
+    height: 275px;
+    background-color: $mellow-purple;
+    border-radius: 25px;
+
+    .date-time{
+      @include flex($d: column,$c:space-between);
+      height: 50%;
+      color: $dark-blue;
+      font-weight: bold;
+      font-size: medium;
+
+      h5 {
+        font-size: $large;
+      }
+    }
+
+    .hosted-by {
+      width: 15%;
+      margin-left: 2em;
+      background-color:$blue ;
+      color: $light-teal;
+
+      .host-title {
+        background-color: white;
+        color: $dark-blue;
+        border-radius: 5px;
+      }
+    }
+
+  }
+
+  &__info {
+    width: 100%;
+    padding: 1em;
+    @include flex($c: center, $i: center);
+
+    .column {
+      @include flex($d: column,$i: center);
+      width: 50%;
+    }
+
+    &__thumbnail {
+      width: 60%;
+    }
+
+    &__description {
+      margin: 1em 0;
+      text-align: left;
+      width: 60%;
+      color: $dark-blue;
+
+      h5{
+        color: $dark-blue;
+      }
+    }
+
+    &__map {
+      height: 300px;
+      background-color: grey;
+      border-radius: 5px;
+    }
+
+    &__event-info {
+      width: 40%;
+      
+      .event-item {
+        @include flex;
+        margin: 1em;
+        color: $dark-blue;
+
+        &__icon {
+          color: $royal-blue;
+        }
+      }
+    }
+  }
+
+  &__attendees {
+    width: 90%;
+
+    h2 {
+      color: $blue;
+    }
+
+    .attendees {
+      overflow-x: auto;
+      white-space: nowrap;
+    
+      .attendee {
+        @include flex($d: column, $c: space-between);
+        min-height: 250px;
+        min-width: 250px;
+        min-width: 250px;
+        max-width: 250px;
+        margin-right: 5px;
+
+        div {
+          height: 50%;
+          &__name {
+            color: $dark-blue;
+            font-size: medium;
+          }
+  
+          img {
+            border-radius: 50%;
+            width: 100%;
+            height: 100%;
+          }
+        }
+
+
+      }
+    }
+  }
+}
+
+
