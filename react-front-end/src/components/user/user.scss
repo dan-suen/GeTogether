@@ -1,0 +1,20 @@
+@import "/src/styles/variables.scss";
+@import "/src/styles/mixins.scss";
+
+.user {
+  @include flex($d: column,$c: center, $i: center);
+  
+  &__header {
+    width: 90%;
+    margin: 3em 0;
+  }
+
+  &__user-description{
+
+  }
+
+  &__events-list {
+    margin-top: 5em;
+    width: 50%;  
+  }
+}

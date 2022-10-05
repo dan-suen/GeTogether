@@ -1,0 +1,17 @@
+@import "/src/styles/variables.scss";
+@import "/src/styles/mixins.scss";
+
+.header {
+  @include flex($c: space-between,$i: center);
+  height: 100px;
+  background-color: $mellow-purple;
+  font-family: $font-sans;
+  border-radius: 25px;
+
+  h5 {
+    font-size: $medium;
+    font-weight: bold;
+    color: $dark-blue;
+    padding-right: 1em;
+  }
+}
