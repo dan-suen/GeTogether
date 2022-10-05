@@ -1,10 +1,12 @@
 import axios from 'axios';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import {AuthContext} from "../context/AuthProvider";
 
 export default function TopNav() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errMsg, setErrMsg] = useState('');
+  const { login } = useContext(AuthContext);
 
   useEffect(() => {
     setErrMsg('');
@@ -13,18 +15,14 @@ export default function TopNav() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      const response = await axios.post('/login',
-        JSON.stringify({ username, password }),
-        {
-          headers: { 'Content-Type': 'application/json' },
-          withCredentials: true
-        }
+    await axios.post('/login', `username=${username}&password=${password}`).then((res) => {
+      login(
+        res.data.id,
+        res.data.username,
+        res.data.user_photo,
+        res.data.email
       );
-      console.log(JSON.stringify(response?.data));
-    } catch (err) {
-
-    }
+    });
   };
 
   return (

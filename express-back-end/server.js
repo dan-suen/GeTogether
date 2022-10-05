@@ -2,6 +2,7 @@ const Express = require('express');
 const App = Express();
 const PORT = 8080;
 const morgan = require('morgan');
+const cookieSession = require('cookie-session');
 
 require('dotenv').config({ path: require('find-config')('.env') })
 
@@ -9,13 +10,14 @@ require('dotenv').config({ path: require('find-config')('.env') })
 App.use(morgan('dev'));
 // Express Configuration
 App.use(Express.static('public'));
-//App.use(Express.urlencoded({ extended: true }));
+App.use(Express.urlencoded({ extended: true }));
+
 
 
 
 // const userRoutes = require('./routes/user');
 // const messagesRoutes = require('./routes/messages');
-// const loginRoutes = require('./routes/login');
+const loginRoutes = require('./public/routes/login');
 // const postItemRoutes = require('./routes/post-item');
 // const registerRoutes = require('./routes/register');
 // const inboxRoutes = require('./routes/inbox');
@@ -27,7 +29,7 @@ App.use(Express.static('public'));
 // app.use('/user', userRoutes);
 // app.use('/favourites',userFavRoutes);
 // app.use('/messages', messagesRoutes);
-// app.use('/login',loginRoutes);
+App.use('/login', loginRoutes);
 // app.use('/post-item',postItemRoutes);
 // app.use('/register',registerRoutes);
 // app.use('/inbox',inboxRoutes);

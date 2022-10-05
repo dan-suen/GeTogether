@@ -2,10 +2,14 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import Login from './Login'
+import Login from './Login';
+import Info from './Info';
+import { useContext } from 'react';
+import { AuthContext } from '../context/AuthProvider';
 import "./top_nav.scss";
 
 export default function TopNav() {
+  const { auth } = useContext(AuthContext);
   return (
     <Navbar expand="lg" sticky="top">
       <Container>
@@ -17,10 +21,13 @@ export default function TopNav() {
             <Nav.Link href="#link">Link</Nav.Link>
           </Nav>
           <Nav>
-            <NavDropdown title="Login" id="basic-nav-dropdown">
-              <Login />
-            </NavDropdown>
-            <Nav.Link href="#register">Sign up!</Nav.Link>
+            {!auth &&
+              <NavDropdown title="Login" id="basic-nav-dropdown">
+                <Login />
+              </NavDropdown>
+            }
+            {!auth && <Nav.Link href="#register">Sign up!</Nav.Link> }
+            {auth && <Info />}
           </Nav>
         </Navbar.Collapse>
       </Container>

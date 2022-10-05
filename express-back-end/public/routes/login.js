@@ -1,6 +1,6 @@
 const express = require('express');
 const router  = express.Router();
-const userQueries = require('../db/queries/users');
+const userQueries = require('../../db/queries/users');
 //const {displayErr} = require('../public/scripts/error');
 const bcrypt = require('bcryptjs');
 const salt = bcrypt.genSaltSync(10);
@@ -29,39 +29,28 @@ router.get('/', (req, res) => {
  * /LOGIN ROUTE (for logining in)
 *****************************/
 router.post('/', (req,res) => {
-  //console.log('req',req.body);
-  const uName = req.body.uname;
-  const password = req.body.password;
-  // const password = req.body.password;
+  const {username, password} = req.body;
 
-  userQueries.findUserNameExists(uName).then((result) => {
-
-    const dbUser = result[0];
-    //console.log('dbuser', dbUser);
-
-    if(!dbUser) {
-      // use jquery to ourput error
-      //res.status(403).send('not correct');
+  userQueries.findUserByUsername(username).then((result) => {
+    const dbUser = result[0]
+    if (!dbUser) {
       res.status(403).send(' Wrong user name or password');
       return;
-    }else {
+    } else {
       if(bcrypt.compareSync(password, dbUser.password)) {
-        req.session.user_name = dbUser.username;
-        req.session.user_id = dbUser.id;
-        req.session.user_pic = dbUser.user_pic;
-        req.session.admin = dbUser.admin;
-        res.status(201).send('SUCCESS');
+        const data = {
+          username: dbUser.username, 
+          id: dbUser.id,
+          user_photo: dbUser.photo,
+          email: dbUser.email
+        };
+        res.status(201).send(data);
       }else {
         res.status(403).send(' Wrong password');
         return;
       }
     }
   });
-
-  //need function find email
-
-  //need to compare password and email in data base
-  //if it is in database then create the cookie and redirect to home page
 });
 
 module.exports = router;
