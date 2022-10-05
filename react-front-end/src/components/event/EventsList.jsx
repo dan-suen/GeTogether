@@ -6,7 +6,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons'
 const EventsList = (props) => {
   return (
     <>
-       <div className='header'>
+       <div className='events-list__header'>
           <h5>Your Events</h5>
           <button className='btn btn-primary'><FontAwesomeIcon icon={faPlus} /></button>
         </div>
