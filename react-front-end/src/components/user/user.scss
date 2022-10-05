@@ -3,7 +3,9 @@
 
 .user {
   @include flex($d: column,$c: center, $i: center);
-  
+  background-image: url("../../../public/images/background_image3.png");
+  background-size: contain;
+
   &__header {
     width: 90%;
     margin: 3em 0;
