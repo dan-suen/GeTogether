@@ -1,5 +1,6 @@
 import React from 'react';
 import './main.scss'
+
 import Intro from './Intro';
 import Event from '../main_logged/event'
 import Search from './Search';
