@@ -8,7 +8,7 @@ import {faComment} from '@fortawesome/free-regular-svg-icons'
 export default function Event(props) {
   return (
     <Card key="light" >
-      <div className="card mb-3">
+      <div className="card card-class mb-3">
         <div className="row g-0">
           <div className="col-md-4">
             <img src="https://loremflickr.com/cache/resized/65535_52084710409_8f98a986ee_c_640_480_nofilter.jpg" />
@@ -16,7 +16,7 @@ export default function Event(props) {
 
 
           <div className="col-md-8">
-            <div className="main card">
+            <div className="main card card-class">
               
               <Card.Body>
                 <div className="titlecard">
