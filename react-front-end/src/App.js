@@ -8,8 +8,9 @@ import Register from "./components/register";
 // import axios from 'axios';
 import About from './components/about/about';
 import Main from './components/main/Main';
-import Profile from './components/profile/profile';
+import User from './components/user/User';
 import Logged from './components/main_logged/main-logged';
+import Event from './components/event/EventPage';
 import React, { useState } from 'react'; 
 import useApplicationData from "hooks/useApplicationData";
 
@@ -23,16 +24,16 @@ const CREATE = "Create";
 
 
 export default function App() { 
-    const [mode, setmode] = useState(USER); 
+    const [mode, setmode] = useState(MAIN); 
     const { state } = useApplicationData();
     return (
       <div className="App">
-        <NavBar/>
-        {mode === ABOUT && <About state={state}/>}
-        {mode === USER && <Profile/>}
-        {mode === MAIN && <Main/>}
+        {/* <NavBar/> */}
+        {mode === ABOUT && <About/>}
+        {mode === MAIN && <Main state ={state}/>}
         {mode === MAINLOGGED && <Logged/>}
-        {/* {mode === EVENT && <Event/>} */}
+        {mode === EVENT && <Event/>}
+        {mode === USER && <User state={state}/>}
         {mode === REGISTER && <Register/>}
         {/* {mode === CREATE && <Create/>} */}
         <Footer/>

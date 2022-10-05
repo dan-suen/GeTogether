@@ -11,7 +11,10 @@ import Calendar from 'components/main_logged/calender';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 
-const Main = () => {
+const Main = (props) => {
+  let events = props.state.events.map(element => {
+    return <li className="list-group-item"><div><Event event = {element}></Event></div></li>
+  });
   return (
     <section className='page'>
       <section className='page__intro'>
@@ -34,9 +37,7 @@ const Main = () => {
 
       <section className='page__events-list'>
        <EventsList>
-          <li className="list-group-item"><div><Event></Event></div></li>
-          <li className="list-group-item"><div><Event></Event></div></li>
-          <li className="list-group-item"><div><Event></Event></div></li>
+        {events}
        </EventsList>
       </section>
 

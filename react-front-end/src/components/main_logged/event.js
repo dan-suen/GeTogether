@@ -4,14 +4,16 @@ import "./event.scss";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faEnvelope} from '@fortawesome/free-solid-svg-icons'
 import {faComment} from '@fortawesome/free-regular-svg-icons'
+import {format} from 'date-fns';
 
 export default function Event(props) {
+  const event = props.event;
   return (
     <Card key="light" >
       <div className="card card-class mb-3">
         <div className="row g-0">
           <div className="col-md-4">
-            <img src="https://loremflickr.com/cache/resized/65535_52084710409_8f98a986ee_c_640_480_nofilter.jpg" />
+            <img src={event.photo} />
           </div>
 
 
@@ -21,9 +23,9 @@ export default function Event(props) {
               <Card.Body>
                 <div className="titlecard">
                   <div className='title'>
-                    <Card.Title>This is an event nameThis is an event name</Card.Title>
+                    <Card.Title>{event.event_name}</Card.Title>
                     <p className="comment-number">
-                      45  <FontAwesomeIcon icon={faComment}/>
+                      {event.comment_number}  <FontAwesomeIcon icon={faComment}/>
                     </p>
                   </div>
                   <Button variant="success">
@@ -32,16 +34,16 @@ export default function Event(props) {
                 </div>
                 <div className="content">
                   <div className="header">
-                    <Card.Header>Location and time</Card.Header>
-                    <Card.Header>$4000</Card.Header>
+                    <Card.Header>Location: {event.location} Time: {format(new Date(event.event_time), "MMMM d yyyy - h:m a")}</Card.Header>
+                    <Card.Header>${event.price/100}</Card.Header>
                   </div>
                   <Card.Text>
-                  This is an event descriptionThis is an event descriptionThis is an event descriptionThis is an event descriptionThis is an event descriptionThis is an event descriptionThis is an event description
+                  {event.description}
                   </Card.Text>
                 </div>
                 <Card.Footer>
-                  <p className="text-muted">5 spots remaining</p>
-                  <p className="text-muted">Last updated 3 mins ago</p>
+                  <p className="text-muted">{event.remaining_spots} spots remaining</p>
+                  <p className="text-muted">Posted: {format(new Date(event.event_time), "MMMM d yyyy")}</p>
                 </Card.Footer>
               </Card.Body>
             </div>

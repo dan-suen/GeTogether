@@ -37,10 +37,6 @@ module.exports = {
       remaining_spots: {
         type: Sequelize.INTEGER
       },
-      status_active: {
-        type: Sequelize.BOOLEAN,
-        allowNull: false,
-      },
       description: {
         type: Sequelize.STRING(350)
       },
