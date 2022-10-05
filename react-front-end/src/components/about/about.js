@@ -4,7 +4,7 @@ import "./about.scss";
 
 export default function About(props) {
   return (
-    <div class="about">
+    <div className="about">
       <h1>
         Getogether
       </h1>

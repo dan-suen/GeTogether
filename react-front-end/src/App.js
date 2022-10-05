@@ -4,8 +4,8 @@ import './App.scss';
 import NavBar from './components/top_nav/top_nav';
 import Footer from "./components/footer/footer";
 import Register from "./components/register";
-// import  AuthProvider from './components/context/AuthProvider';
-// import axios from 'axios';
+import  AuthProvider from './components/context/AuthProvider';
+import axios from 'axios';
 import About from './components/about/about';
 import Main from './components/main/Main';
 import Profile from './components/profile/profile';
@@ -23,7 +23,7 @@ const CREATE = "Create";
 
 
 export default function App() { 
-    const [mode, setmode] = useState(ABOUT); 
+    const [mode, setmode] = useState(USER); 
     const { state } = useApplicationData();
     return (
       <div className="App">
@@ -32,9 +32,9 @@ export default function App() {
         {mode === USER && <Profile/>}
         {mode === MAIN && <Main/>}
         {mode === MAINLOGGED && <Logged/>}
-        {mode === EVENT && <Event/>}
+        {/* {mode === EVENT && <Event/>} */}
         {mode === REGISTER && <Register/>}
-        {mode === CREATE && <Create/>}
+        {/* {mode === CREATE && <Create/>} */}
         <Footer/>
       </div>
     );
