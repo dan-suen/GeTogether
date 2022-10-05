@@ -34,7 +34,8 @@ export default function Event(props) {
                 </div>
                 <div className="content">
                   <div className="header">
-                    <Card.Header>Location: {event.location} Time: {format(new Date(event.event_time), "MMMM d yyyy - h:m a")}</Card.Header>
+                    <Card.Header>Location: {event.location}</Card.Header>
+                    <Card.Header>Time: {format(new Date(event.event_time), "MMMM d yyyy - h:mm a")}</Card.Header>
                     <Card.Header>${event.price/100}</Card.Header>
                   </div>
                   <Card.Text>

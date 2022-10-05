@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import './main.scss'
 
 import Intro from './Intro';
@@ -12,9 +12,19 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 const Main = (props) => {
-  let events = props.state.events.map(element => {
-    return <li className="list-group-item"><div><Event event = {element}></Event></div></li>
-  });
+  const [searchQuery, setSearchQuery] = useState("");
+  const [events, setEvents] = useState([]);
+  useEffect(() => {
+    let filtered = props.state.events.filter(element => {
+      if (searchQuery === ""){
+        return element;
+      }
+      return element.event_name.toLowerCase().includes(searchQuery.toLowerCase())|| element.location.toLowerCase().includes(searchQuery.toLowerCase())|| element.description.toLowerCase().includes(searchQuery.toLowerCase())
+    })
+    setEvents(filtered.map(element => {
+      return <li className="list-group-item"><div><Event event = {element}></Event></div></li>
+    }))
+  }, [searchQuery]);
   return (
     <section className='page'>
       <section className='page__intro'>
@@ -32,7 +42,7 @@ const Main = (props) => {
       </section>
 
       <section className='page__filters'>
-        <Search></Search>
+        <Search onChange = {setSearchQuery}></Search>
       </section>
 
       <section className='page__events-list'>

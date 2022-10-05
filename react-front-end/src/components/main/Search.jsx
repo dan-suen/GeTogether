@@ -5,7 +5,7 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 
-const Search = () => {
+const Search = (props) => {
   return (
     <div className="input-group search">
     <button className="btn btn-primary dropdown-toggle search__select" type="button" data-bs-toggle="dropdown" aria-expanded="false">See whats Happening</button>
@@ -16,7 +16,7 @@ const Search = () => {
         <li><a className="dropdown-item" href="#">This week</a></li>
       </ul>
 
-      <input type="search" className="form-control search__bar" placeholder='search'/>
+      <input onChange = {(e) => {props.onChange(e.target.value)}} type="search" className="form-control search__bar" placeholder='search'/>
      
       <button type="button" className="btn btn-primary input-group-text search__btn">
         <FontAwesomeIcon icon={faMagnifyingGlass} />
