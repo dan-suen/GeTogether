@@ -5,6 +5,7 @@ import Main from './components/main/Main';
 import Profile from './components/profile/profile';
 import Logged from './components/main_logged/main-logged';
 import React, { useState } from 'react'; 
+import useApplicationData from "hooks/useApplicationData";
 
 const ABOUT = "About";
 const USER = "User";
@@ -17,9 +18,10 @@ const CREATE = "Create";
 
 export default function App() { 
     const [mode, setmode] = useState(ABOUT); 
+    const { state } = useApplicationData();
     return (
       <div className="App">
-        {mode === ABOUT && <About/>}
+        {mode === ABOUT && <About state={state}/>}
         {mode === USER && <Profile/>}
         {mode === MAIN && <Main/>}
         {mode === MAINLOGGED && <Logged/>}

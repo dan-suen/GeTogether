@@ -1,7 +1,7 @@
 const db = require('../connection.js');
 
-const getUsers = () => {
-  return db.query(`SELECT * FROM "Users";`)
+const getEvents = () => {
+  return db.query(`SELECT * FROM "Events";`)
     .then(data => {
       return data.rows;
     });
@@ -9,4 +9,4 @@ const getUsers = () => {
 
 
 
-module.exports = { getUsers };
+module.exports = { getEvents };
