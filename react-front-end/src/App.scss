@@ -1,7 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Spice&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;0,900;1,300;1,400;1,600;1,700;1,900&display=swap');
+@import "/src/styles/variables.scss";
+@import "/src/styles/mixins.scss";
 
 .App {
-  text-align: center;
+  text-align: center; 
+  @include flex($d: column, $c: center, $i: center);
+  background-image: url("../public/images/background_image3.png");
+  background-size: contain;
+
 }
 
 .App-logo {
