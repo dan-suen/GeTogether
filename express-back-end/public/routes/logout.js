@@ -1,6 +1,6 @@
 const express = require('express');
-const db = require('../db/connection');
 const router  = express.Router();
+const logoutQueries = require('../../db/queries/logout');
 
 router.post('/', (req,res) => {
   req.session = null;

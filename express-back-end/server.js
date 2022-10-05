@@ -13,35 +13,23 @@ App.use(Express.static('public'));
 App.use(Express.urlencoded({ extended: true }));
 
 
-
-
-// const userRoutes = require('./routes/user');
-// const messagesRoutes = require('./routes/messages');
+const userRoutes = require('./public/routes/user.js');
 const loginRoutes = require('./public/routes/login');
-// const postItemRoutes = require('./routes/post-item');
-// const registerRoutes = require('./routes/register');
-// const inboxRoutes = require('./routes/inbox');
-// const mainRoutes = require('./routes/main_page');
-// const logoutRoutes = require('./routes/logout');
-// const userFavRoutes = require('./routes/user-fav');
+const registerRoutes = require('./public/routes/register');
+const logoutRoutes = require('./public/routes/logout');
+const eventRoutes = require('./public/routes/event');
+const createRoutes = require('./public/routes/create');
+const joinRoutes = require('./public/routes/join');
 
 
-// app.use('/user', userRoutes);
-// app.use('/favourites',userFavRoutes);
-// app.use('/messages', messagesRoutes);
-App.use('/login', loginRoutes);
-// app.use('/post-item',postItemRoutes);
-// app.use('/register',registerRoutes);
-// app.use('/inbox',inboxRoutes);
-// app.use('/logout',logoutRoutes);
-const userQueries = require('./db/queries/users');
+App.use('/users', userRoutes);
+App.use('/login',loginRoutes);
+App.use('/register',registerRoutes);
+App.use('/logout',logoutRoutes);
+App.use('/events',eventRoutes);
+App.use('/create',createRoutes);
+App.use('/join',joinRoutes);
 
-// Main
-App.get('/', (req, res) => {
-  return userQueries.getUsers().then(data =>{
-    return res.json(data)
-  }
-)});
 
 App.listen(PORT, () => {
   // eslint-disable-next-line no-console

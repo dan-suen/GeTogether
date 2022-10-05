@@ -2,27 +2,10 @@ const express = require('express');
 const router  = express.Router();
 const userQueries = require('../../db/queries/users');
 //const {displayErr} = require('../public/scripts/error');
+
 const bcrypt = require('bcryptjs');
-const salt = bcrypt.genSaltSync(10);
 
-/*****************************
- * ERROR VARIABLES FOR RENDERING THE ERROR ON SCREEN
-*****************************/
-const renderErr = false;
-
-/*****************************
- * FOR RENDERING LOGIN PAGE
-*****************************/
 router.get('/', (req, res) => {
-  const user_name = req.session.user_name;
-
-    const templateVars = {
-      user: user_name,
-    }
-    res.render('login', templateVars);
-
-
-
 });
 
 /*****************************
@@ -50,7 +33,8 @@ router.post('/', (req,res) => {
         return;
       }
     }
-  });
+  })
 });
+
 
 module.exports = router;
