@@ -1,5 +1,12 @@
 @import "/src/styles/variables.scss";
-
+.search-form{
+  width: 100%;
+  display: flex;
+}
+.input-group{
+  display: flex;
+  flex-wrap: nowrap;
+}
 .search {
  
   &__select {

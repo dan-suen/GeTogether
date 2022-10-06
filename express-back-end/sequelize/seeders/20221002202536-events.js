@@ -24,6 +24,7 @@ module.exports = {
     */
      const users = await sequelize.query(`SELECT MAX(id) FROM "Users"`, { type: QueryTypes.SELECT });
      let seeds = [];
+     let images = [faker.image.animals(),faker.image.cats(),faker.image.animals(),  faker.image.nature(), faker.image.abstract() ]
      let locations = [
       "662 King St W #101, Toronto, ON M5V 1M7",
       "250 Av. Clarke #1010, Westmount, QC H3Z 2E5",
@@ -34,20 +35,60 @@ module.exports = {
      ]
      for (let i = 0; i < 10; i ++) {
        const spots = Math.floor(Math.random()*(99))+1;
-       const remain = Math.floor(Math.random()*(spots))+1;
        seeds.push({
          host_id:  Math.floor(Math.random()*(users[0].max-1))+1,
-         event_time: faker.date.future(1) ,
+         event_name: faker.animal.cetacean() + " event",
+         event_time: faker.date.between(new Date(Date.now() - 86400000), new Date(Date.now() + 86400000*10)) ,
          location:locations[i%5],
          price: Math.floor(Math.random()*(1000)),
          spots: spots,
-         remaining_spots: remain,
-         status_active: Math.random() < 0.5,
          description: faker.commerce.productDescription(),
-         photo: faker.image.animals(),
+         photo: images[i%5],
          createdAt: new Date()
         })
       }
+      for (let i = 0; i < 10; i ++) {
+        const spots = Math.floor(Math.random()*(99))+1;
+        seeds.push({
+          host_id:  Math.floor(Math.random()*(users[0].max-1))+1,
+          event_name: faker.animal.cetacean() + " event",
+          event_time: faker.date.between(new Date(Date.now() - 86400000), new Date(Date.now() + 86400000*10)) ,
+          location:locations[i%5],
+          price: Math.floor(Math.random()*(1000)),
+          spots: spots,
+          description: faker.commerce.productDescription(),
+          photo: images[i%5],
+          createdAt: new Date()
+         })
+       }
+      for (let i = 0; i < 10; i ++) {
+        const spots = Math.floor(Math.random()*(99))+1;
+        seeds.push({
+          host_id:  Math.floor(Math.random()*(users[0].max-1))+1,
+          event_name: faker.animal.cetacean() + " event",
+          event_time: faker.date.between(new Date(Date.now() - 86400000*11), new Date(Date.now() + 86400000*20)) ,
+          location:locations[i%5],
+          price: Math.floor(Math.random()*(1000)),
+          spots: spots,
+          description: faker.commerce.productDescription(),
+          photo: images[i%5],
+          createdAt: new Date()
+         })
+       }
+       for (let i = 0; i < 10; i ++) {
+        const spots = Math.floor(Math.random()*(99))+1;
+        seeds.push({
+          host_id:  Math.floor(Math.random()*(users[0].max-1))+1,
+          event_name: faker.animal.cetacean() + " event",
+          event_time: faker.date.between(new Date(Date.now() - 86400000*21), new Date(Date.now() + 86400000*30)) ,
+          location:locations[i%5],
+          price: Math.floor(Math.random()*(1000)),
+          spots: spots,
+          description: faker.commerce.productDescription(),
+          photo: images[i%5],
+          createdAt: new Date()
+         })
+       }
      return queryInterface.bulkInsert('Events', seeds);
   },
 

@@ -16,6 +16,20 @@
     @include flex($c: center, $i: center);
   }
 
+  &__calendar-and-events {
+    @include flex($d: row,$c: space-between);
+    margin: 3em 0;
+   
+    width: 50%;
+ 
+    &__next-event {
+      @include flex($d: column,$i: center);
+      font-family: $font-sans;
+      max-width: 400px;
+
+    }
+  }
+
   &__filters {
     width: 50%;
   }
@@ -23,24 +37,7 @@
   
   &__events-list {
     margin-top: 5em;
-    width: 50%;
-    &__header {
-      @include flex($d: row,$c: space-between);
-
-      h5 {
-        font-weight: bold;
-        font-size: 30px;
-        color: $dark-blue;
-        font-family: $font-sans;
-      }
-  
-     button{
-        border-radius: 50px;
-        color: $dark-blue;
-        background-color: $light-teal;
-      }
-    }
-   
+    width: 50%;  
   }
 
 }

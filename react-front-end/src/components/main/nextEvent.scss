@@ -1,0 +1,30 @@
+@import "/src/styles/variables.scss";
+
+
+.next-event {
+  height: 50%;
+
+  h5 {
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  button {
+    background-color: $blue;
+  }
+
+}
+
+.main-timer{
+  background-position: top;
+  opacity: 0.5;
+  width: 400px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .centered{
+    font-size: 3em;
+    color: white;
+  }
+}

@@ -27,8 +27,8 @@ export default function Register() {
   return (
     <form class="row g-3" onSubmit={handleSubmit}>
       <h1>Register today!</h1>
-      <div class="mb-3 mt-3 row">
-        <label for="registerFirstName" class="col-sm-2 col-form-label">
+      <div className="mb-3 mt-3 row">
+        <label for="registerFirstName" className="col-sm-2 col-form-label">
           Firstname:
         </label>
         <div class="col-sm-4">
@@ -44,8 +44,8 @@ export default function Register() {
         </div>
       </div>
 
-      <div class="mb-3 row">
-        <label for="registerLastName" class="col-sm-2 col-form-label">
+      <div className="mb-3 row">
+        <label for="registerLastName" className="col-sm-2 col-form-label">
           Lastname:
         </label>
         <div class="col-sm-4">
@@ -61,8 +61,8 @@ export default function Register() {
         </div>
       </div>
 
-      <div class="mb-3 row">
-        <label for="registerUsername" class="col-sm-2 col-form-label">
+      <div className="mb-3 row">
+        <label for="registerUsername" className="col-sm-2 col-form-label">
           Username:
         </label>
         <div class="col-sm-4">
@@ -79,8 +79,8 @@ export default function Register() {
         </div>
       </div>
 
-      <div class="mb-3 row">
-        <label for="registerEmail" class="col-sm-2 col-form-label">
+      <div className="mb-3 row">
+        <label for="registerEmail" className="col-sm-2 col-form-label">
           Email:
         </label>
         <div class="col-sm-4">
@@ -121,9 +121,9 @@ export default function Register() {
           />
         </div>
       </div>
-      <div class="mb-3 row">
-        <div class="col-sm-1 offset-sm-5">
-          <button type="submit" class="btn btn-primary mb-3">Register!</button>
+      <div className="mb-3 row">
+        <div className="col-sm-1 offset-sm-5">
+          <button type="submit" className="btn btn-primary mb-3">Register!</button>
         </div>
       </div>
     </form>

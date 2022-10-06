@@ -5,9 +5,6 @@ const bcrypt = require('bcryptjs');
 const salt = bcrypt.genSaltSync(10);
 
 
-/*****************************
- * /REGISTER ROUTE (for rendering register page)
-*****************************/
 router.get('/', (req, res) => {
   const user_name = req.session.user_name;
   const templateVars = {
@@ -17,9 +14,6 @@ router.get('/', (req, res) => {
 });
 
 
-/*****************************
- * /REGISTER ROUTE for registering a new user
-*****************************/
 router.post('/', (req, res) => {
   console.log(req.body);
   const userName = req.body.username;
@@ -54,7 +48,6 @@ router.post('/', (req, res) => {
       });
     }
   });
-
 });
 
 

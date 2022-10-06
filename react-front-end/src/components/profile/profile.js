@@ -2,6 +2,7 @@ import "./profile.scss";
 import Event from '../main_logged/event.js';
 
 export default function Profile(props) {
+  //console.log(JSON.parse(localStorage.getItem('user')));
   return (
     <>
       <div className = "user-profile">
