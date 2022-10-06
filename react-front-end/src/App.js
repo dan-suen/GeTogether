@@ -12,8 +12,10 @@ import User from './components/user/User';
 import Logged from './components/main_logged/main-logged';
 import Event from './components/event/EventPage';
 import Create from 'components/create/Create';
-import React, { useState } from 'react'; 
+import NavBar from './components/top_nav/top_nav';
+import React, { useState } from 'react';
 import useApplicationData from "hooks/useApplicationData";
+import AuthProvider from './components/context/AuthProvider';
 
 const ABOUT = "About";
 const USER = "User";
@@ -24,22 +26,24 @@ const EVENT = "Event";
 const CREATE = "Create";
 
 
-export default function App() { 
-    const [mode, setMode] = useState(MAIN); 
-    const [event, setEvent] = useState({}); 
-    const { state } = useApplicationData();
-    return (
-      <div className="App">
-        {/* <NavBar/> */}
-        {mode === ABOUT && <About/>}
-        {mode === MAIN && <Main state ={state} setMode={setMode} setEvent={setEvent}/>}
-        {mode === MAINLOGGED && <Logged/>}
-        {mode === EVENT && <Event event={event}/>}
-        {mode === USER && <User state={state}/>}
-        {mode === REGISTER && <Register/>}
-        {mode === CREATE && <Create/>}
-        <Footer/>
-      </div>
-    );
+export default function App() {
+  const [mode, setMode] = useState(REGISTER);
+  const [event, setEvent] = useState({});
+  const { state } = useApplicationData();
+  return (
+    <div className="App">
+      <AuthProvider>
+        <NavBar />
+        {mode === ABOUT && <About />}
+        {mode === MAIN && <Main state={state} setMode={setMode} setEvent={setEvent} />}
+        {mode === MAINLOGGED && <Logged />}
+        {mode === EVENT && <Event event={event} />}
+        {mode === USER && <User state={state} />}
+        {mode === REGISTER && <Register />}
+        {mode === CREATE && <Create />}
+        <Footer />
+      </AuthProvider>
+    </div>
+  );
 }
 

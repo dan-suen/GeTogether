@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect, useContext } from 'react';
 import { AuthContext } from "./context/AuthProvider";
+import './register.scss';
 
 export default function Register() {
   const [username, setUsername] = useState('');
@@ -91,7 +92,6 @@ export default function Register() {
             required
             onChange={(e) => setEmail(e.target.value)}
             value={email}
-            placeholder="name@example.com"
           />
         </div>
       </div>
@@ -122,7 +122,7 @@ export default function Register() {
         </div>
       </div>
       <div className="mb-3 row">
-        <div className="col-sm-1 offset-sm-5">
+        <div className="col-sm-1 offset-sm-5 register-submit">
           <button type="submit" className="btn btn-primary mb-3">Register!</button>
         </div>
       </div>

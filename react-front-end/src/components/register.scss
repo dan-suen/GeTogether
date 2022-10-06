@@ -1,0 +1,11 @@
+@import "/src/styles/variables.scss";
+
+form {
+  .row {
+    justify-content: center;
+    .register-submit {
+      display: flex;
+      justify-content: end;
+    }
+  }
+}
