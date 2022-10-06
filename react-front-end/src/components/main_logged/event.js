@@ -44,7 +44,7 @@ export default function Event(props) {
                 </div>
                 <Card.Footer>
                   <p className="text-muted">{event.remaining_spots} spots remaining</p>
-                  <p className="text-muted">Posted: {format(new Date(event.event_time), "MMMM d yyyy")}</p>
+                  <p className="text-muted">Posted: {format(new Date(event.createdAt), "MMMM d yyyy")}</p>
                 </Card.Footer>
               </Card.Body>
             </div>

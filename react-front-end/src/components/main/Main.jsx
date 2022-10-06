@@ -19,6 +19,7 @@ const Main = (props) => {
   const [events, setEvents] = useState([]);
   const [selected, setSelected] = useState();
   const [searchQuery, setSearchQuery] = useState("");
+  const [range, setRange] = useState("");
   useEffect(() => {
     let filtered =  props.state.events.filter(element => {
       return element.event_name.toLowerCase().includes(searchQuery.toLowerCase())|| element.location.toLowerCase().includes(searchQuery.toLowerCase())|| element.description.toLowerCase().includes(searchQuery.toLowerCase())
@@ -30,14 +31,22 @@ const Main = (props) => {
             return (new Date(chose) - new Date(compare)) === 0
       })
     }
+    if (range) {
+      filtered =  filtered.filter(element => {
+        let chose = format(new Date(), "MMMM")
+        let compare = format(new Date(element.event_time), "MMMM")
+            return chose === compare
+      })
+    }
     if (filtered.length === 0){
       setEvents([<p>No Events Here! <FontAwesomeIcon icon={faFaceSadCry}/></p>])
     } else {
+      console.log(filtered)
       setEvents(filtered.map(element => {
         return <li className="list-group-item"><div><Event event = {element}></Event></div></li>
       }))
     }
-  }, [props.state.events, selected, searchQuery]);
+  }, [props.state.events, range, selected, searchQuery]);
   return (
     <section className='page'>
       <section className='page__intro'>
@@ -54,7 +63,9 @@ const Main = (props) => {
       </section>
 
       <section className='page__filters'>
-        <Search onSubmit = {setSearchQuery}></Search>
+      <div className="input-group search">
+        <Search onSubmit = {setSearchQuery} onClick={setRange}></Search>
+        </div>
       </section>
 
       <section className='page__events-list'>
