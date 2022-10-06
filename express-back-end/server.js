@@ -20,14 +20,12 @@ const logoutRoutes = require('./public/routes/logout');
 const eventRoutes = require('./public/routes/event');
 const joinRoutes = require('./public/routes/join');
 
-
 App.use('/users', userRoutes);
 App.use('/login',loginRoutes);
 App.use('/register',registerRoutes);
 App.use('/logout',logoutRoutes);
 App.use('/events',eventRoutes);
 App.use('/join',joinRoutes);
-
 
 App.listen(PORT, () => {
   // eslint-disable-next-line no-console
