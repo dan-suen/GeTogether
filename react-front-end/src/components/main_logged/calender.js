@@ -6,11 +6,10 @@ import "./calender.scss";
 
 
 export default function Calendar(props) {
-  const [selected, setSelected] = useState();
 
   let footer = <p>Please pick a day.</p>;
-  if (selected) {
-    footer = <p>You picked {format(selected, 'PP')}.</p>;
+  if (props.selected) {
+    footer = <p>You picked {format(props.selected, 'PP')}.</p>;
   }
   
   const disabledDays = [
@@ -19,8 +18,8 @@ export default function Calendar(props) {
   return (
     <DayPicker
       mode="single"
-      selected={selected}
-      onSelect={setSelected}
+      selected={props.selected}
+      onSelect={props.onSelect}
       footer={footer}
       showOutsideDays
       disabled={disabledDays}

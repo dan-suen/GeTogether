@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import './main.scss'
 
 import Intro from './Intro';
@@ -7,20 +7,45 @@ import Search from './Search';
 import NextEvent from './NextEvent';
 import EventsList from '../event/EventsList'
 import Calendar from 'components/main_logged/calender';
+import { format } from 'date-fns';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFaceSadCry } from '@fortawesome/free-regular-svg-icons'
+
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 
-const Main = () => {
+const Main = (props) => {
+  const [events, setEvents] = useState([]);
+  const [selected, setSelected] = useState();
+  const [searchQuery, setSearchQuery] = useState("");
+  useEffect(() => {
+    let filtered =  props.state.events.filter(element => {
+      return element.event_name.toLowerCase().includes(searchQuery.toLowerCase())|| element.location.toLowerCase().includes(searchQuery.toLowerCase())|| element.description.toLowerCase().includes(searchQuery.toLowerCase())
+    })
+    if (selected){
+      filtered =  filtered.filter(element => {
+        let chose = format(new Date(selected), "MMMM d yyyy")
+        let compare = format(new Date(element.event_time), "MMMM d yyyy")
+            return (new Date(chose) - new Date(compare)) === 0
+      })
+    }
+    if (filtered.length === 0){
+      setEvents([<p>No Events Here! <FontAwesomeIcon icon={faFaceSadCry}/></p>])
+    } else {
+      setEvents(filtered.map(element => {
+        return <li className="list-group-item"><div><Event event = {element}></Event></div></li>
+      }))
+    }
+  }, [props.state.events, selected, searchQuery]);
   return (
     <section className='page'>
       <section className='page__intro'>
         <Intro></Intro>
       </section>
-
       <section className='page__calendar-and-events'>
         <section className='page__calendar-and-events__calendar'>
-          <Calendar></Calendar>
+          <Calendar onSelect={setSelected} selected={selected}></Calendar>
           
         </section>
         <section className='page__calendar-and-events__next-event'>
@@ -29,14 +54,12 @@ const Main = () => {
       </section>
 
       <section className='page__filters'>
-        <Search></Search>
+        <Search onSubmit = {setSearchQuery}></Search>
       </section>
 
       <section className='page__events-list'>
        <EventsList>
-          <li className="list-group-item"><div><Event></Event></div></li>
-          <li className="list-group-item"><div><Event></Event></div></li>
-          <li className="list-group-item"><div><Event></Event></div></li>
+        {events}
        </EventsList>
       </section>
 

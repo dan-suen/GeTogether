@@ -8,8 +8,9 @@ import Register from "./components/register";
 // import axios from 'axios';
 import About from './components/about/about';
 import Main from './components/main/Main';
-import Profile from './components/profile/profile';
+import User from './components/user/User';
 import Logged from './components/main_logged/main-logged';
+import Event from './components/event/EventPage';
 import Create from 'components/create/Create';
 import React, { useState } from 'react'; 
 import useApplicationData from "hooks/useApplicationData";
@@ -29,11 +30,11 @@ export default function App() {
     return (
       <div className="App">
         {/* <NavBar/> */}
-        {mode === ABOUT && <About state={state}/>}
-        {mode === USER && <Profile/>}
-        {mode === MAIN && <Main/>}
+        {mode === ABOUT && <About/>}
+        {mode === MAIN && <Main state ={state}/>}
         {mode === MAINLOGGED && <Logged/>}
-        {/* {mode === EVENT && <Event/>} */}
+        {mode === EVENT && <Event/>}
+        {mode === USER && <User state={state}/>}
         {mode === REGISTER && <Register/>}
         {mode === CREATE && <Create/>}
         <Footer/>
