@@ -12,7 +12,7 @@ const NextEvent = (props) => {
         <h5>NEXT EVENT : </h5>,
         <div className="main-timer" style={{backgroundImage: `url(${event.photo})`}}>
           <div className="centered">
-          {event.time_until.hours}h:{event.time_until.minutes}m:{event.time_until.seconds}s:{event.time_until.milliseconds}ms
+          {event.time_until.hours?event.time_until.hours:0}h:{event.time_until.minutes?event.time_until.minutes:0}m:{event.time_until.seconds?event.time_until.seconds:0}s:{event.time_until.milliseconds?event.time_until.milliseconds:0}ms
           </div>
           {/* <img src={event.photo} className="img-fluid rounded-start" alt="..."/> */}
         </div>,
