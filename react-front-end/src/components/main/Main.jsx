@@ -7,6 +7,9 @@ import Search from './Search';
 import NextEvent from './NextEvent';
 import EventsList from '../event/EventsList'
 import Calendar from 'components/main_logged/calender';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFaceSadCry } from '@fortawesome/free-regular-svg-icons'
+
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
@@ -15,15 +18,19 @@ const Main = (props) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [events, setEvents] = useState([]);
   useEffect(() => {
-    let filtered = props.state.events.filter(element => {
-      if (searchQuery === ""){
-        return element;
-      }
-      return element.event_name.toLowerCase().includes(searchQuery.toLowerCase())|| element.location.toLowerCase().includes(searchQuery.toLowerCase())|| element.description.toLowerCase().includes(searchQuery.toLowerCase())
-    })
-    setEvents(filtered.map(element => {
-      return <li className="list-group-item"><div><Event event = {element}></Event></div></li>
-    }))
+    let filtered = props.state.events
+    if (searchQuery !== ""){
+      filtered = props.state.events.filter(element => {
+        return element.event_name.toLowerCase().includes(searchQuery.toLowerCase())|| element.location.toLowerCase().includes(searchQuery.toLowerCase())|| element.description.toLowerCase().includes(searchQuery.toLowerCase())
+      })
+    }
+    if (filtered.length === 0){
+      setEvents([<p>No Events Here! <FontAwesomeIcon icon={faFaceSadCry}/></p>])
+    } else {
+      setEvents(filtered.map(element => {
+        return <li className="list-group-item"><div><Event event = {element}></Event></div></li>
+      }))
+    }
   }, [searchQuery]);
   return (
     <section className='page'>
@@ -42,7 +49,7 @@ const Main = (props) => {
       </section>
 
       <section className='page__filters'>
-        <Search onChange = {setSearchQuery}></Search>
+        <Search onSubmit = {setSearchQuery}></Search>
       </section>
 
       <section className='page__events-list'>
