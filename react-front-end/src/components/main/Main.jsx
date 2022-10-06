@@ -15,15 +15,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 const Main = (props) => {
-  const [searchQuery, setSearchQuery] = useState("");
   const [events, setEvents] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
   useEffect(() => {
-    let filtered = props.state.events
-    if (searchQuery !== ""){
-      filtered = props.state.events.filter(element => {
+    let filtered =  props.state.events.filter(element => {
         return element.event_name.toLowerCase().includes(searchQuery.toLowerCase())|| element.location.toLowerCase().includes(searchQuery.toLowerCase())|| element.description.toLowerCase().includes(searchQuery.toLowerCase())
       })
-    }
     if (filtered.length === 0){
       setEvents([<p>No Events Here! <FontAwesomeIcon icon={faFaceSadCry}/></p>])
     } else {
@@ -31,7 +28,7 @@ const Main = (props) => {
         return <li className="list-group-item"><div><Event event = {element}></Event></div></li>
       }))
     }
-  }, [searchQuery]);
+  }, [props.state.events, searchQuery]);
   return (
     <section className='page'>
       <section className='page__intro'>
