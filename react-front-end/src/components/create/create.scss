@@ -1,0 +1,63 @@
+@import "/src/styles/variables.scss";
+@import "/src/styles/mixins.scss";
+
+.create {
+  color: $dark-blue;
+  width: 50%;
+  margin: 3em 0;
+  
+  .input-group-text {
+    background-color: $light-blue;
+    
+  }
+
+  &__date-time-title , &__description-title, &__event-logistics-title{
+    margin-top: 3em;
+    margin-bottom: 2em;
+    font-size: $medium;
+    background-color: $mellow-purple;
+    color: $dark-blue;
+    border-radius: 25px;
+  }
+
+  &__date-time {
+    @include flex($i: center);
+
+    .calendar-title{
+      background-color: $mellow-purple;
+
+      color: $dark-blue;
+      border-radius: 25px;
+    }
+
+    .date-time-hr, .date-time-min{
+      color: $dark-blue;
+      font-weight: bold;
+    }
+
+    .date-time-sub {
+      @include flex($d: column);
+      h5{
+        background-color: $mellow-purple;
+        margin-bottom: 2em;
+        color: $dark-blue;
+        border-radius: 25px;
+      }
+    }
+  }
+
+  &__event-logistics {
+    .sub-group2 {
+      @include flex;
+
+      .cost{
+        margin-right:1em;
+      }
+    }
+  }
+
+  .submit-btn {
+    width:40%;
+    background-color: $blue;
+  }
+}

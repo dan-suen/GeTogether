@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
 //import Button from 'react-bootstrap/Button';
-import NavBar from './components/top_nav/top_nav';
+//import NavBar from './components/top_nav/top_nav';
 import Footer from "./components/footer/footer";
 import Register from "./components/register";
 // import  AuthProvider from './components/context/AuthProvider';
@@ -11,6 +11,7 @@ import Main from './components/main/Main';
 import User from './components/user/User';
 import Logged from './components/main_logged/main-logged';
 import Event from './components/event/EventPage';
+import Create from 'components/create/Create';
 import React, { useState } from 'react'; 
 import useApplicationData from "hooks/useApplicationData";
 
@@ -24,7 +25,7 @@ const CREATE = "Create";
 
 
 export default function App() { 
-    const [mode, setmode] = useState(MAIN); 
+    const [mode, setmode] = useState(CREATE); 
     const { state } = useApplicationData();
     return (
       <div className="App">
@@ -35,7 +36,7 @@ export default function App() {
         {mode === EVENT && <Event/>}
         {mode === USER && <User state={state}/>}
         {mode === REGISTER && <Register/>}
-        {/* {mode === CREATE && <Create/>} */}
+        {mode === CREATE && <Create/>}
         <Footer/>
       </div>
     );

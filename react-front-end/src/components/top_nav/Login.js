@@ -15,7 +15,7 @@ export default function TopNav() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await axios.post('/login', `username=${username}&password=${password}`).then((res) => {
+    axios.post('/login', `username=${username}&password=${password}`).then((res) => {
       login(
         res.data.id,
         res.data.username,
