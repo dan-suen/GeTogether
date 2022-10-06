@@ -33,7 +33,7 @@ export default function TopNav() {
             type="text"
             id="floatingInput"
             placeholder="Username"
-            autoComplete='off'
+            autoComplete="off"
             onChange={(e) => setUsername(e.target.value)}
             value={username}
             required

@@ -1,13 +1,46 @@
+import axios from "axios";
+import { useState, useEffect, useContext } from 'react';
+import { AuthContext } from "./context/AuthProvider";
+
 export default function Register() {
+  const [username, setUsername] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [passwordConfirm, setPasswordConfirm] = useState('');
+  const { login } = useContext(AuthContext);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (password === passwordConfirm) {
+      axios.post('/register', `username=${username}&password=${password}&firstname=${firstName}&lastname=${lastName}&email=${email}`).then((res) => {
+        login(
+          res.data.id,
+          res.data.username,
+          res.data.user_photo,
+          res.data.email
+        );
+      });
+    }
+  };
   return (
-    <form class="row g-3">
+    <form class="row g-3" onSubmit={handleSubmit}>
       <h1>Register today!</h1>
       <div class="mb-3 mt-3 row">
         <label for="registerFirstName" class="col-sm-2 col-form-label">
           Firstname:
         </label>
         <div class="col-sm-4">
-          <input type="first_name" class="form-control" id="registerFirstName" />
+          <input
+            type="text"
+            autoComplete="off"
+            required
+            onChange={(e) => setFirstName(e.target.value)}
+            value={firstName}
+            class="form-control"
+            id="registerFirstName"
+          />
         </div>
       </div>
 
@@ -16,7 +49,15 @@ export default function Register() {
           Lastname:
         </label>
         <div class="col-sm-4">
-          <input type="last_name" class="form-control" id="registerLastName" />
+          <input
+            type="text"
+            class="form-control"
+            id="registerLastName"
+            autoComplete="off"
+            required
+            onChange={(e) => setLastName(e.target.value)}
+            value={lastName}
+          />
         </div>
       </div>
 
@@ -25,7 +66,16 @@ export default function Register() {
           Username:
         </label>
         <div class="col-sm-4">
-          <input type="username" class="form-control" id="registerUsername" />
+          <input
+            type="type"
+            class="form-control"
+            autoComplete="off"
+            required
+            onChange={(e) => setUsername(e.target.value)}
+            value={username}
+            id="registerUsername"
+
+          />
         </div>
       </div>
 
@@ -34,13 +84,41 @@ export default function Register() {
           Email:
         </label>
         <div class="col-sm-4">
-          <input type="email" class="form-control" id="registerEmail" placeholder="name@example.com" />
+          <input
+            type="email"
+            class="form-control"
+            id="registerEmail"
+            required
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+            placeholder="name@example.com"
+          />
         </div>
       </div>
       <div class="mb-3 row">
-        <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+        <label for="inputPassword" class="col-sm-2 col-form-label">Password:</label>
         <div class="col-sm-4">
-          <input type="password" class="form-control" id="inputPassword" />
+          <input
+            type="password"
+            class="form-control"
+            id="inputPassword"
+            required
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
+          />
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="inputPasswordConfirm" class="col-sm-2 col-form-label">Confirm Password: </label>
+        <div class="col-sm-4">
+          <input
+            type="password"
+            class="form-control"
+            id="inputPasswordConfirm"
+            required
+            onChange={(e) => setPasswordConfirm(e.target.value)}
+            value={passwordConfirm}
+          />
         </div>
       </div>
       <div class="mb-3 row">

@@ -18,4 +18,22 @@ const findUserByUsername = (userName) => {
   });
 };
 
-module.exports = { getUsers, findUserByUsername };
+const insertNewUser = (userName, password, firstName, lastName, email) => {
+  const query = `
+  INSERT INTO "Users" (
+    username,
+    password,
+    "firstName",
+    "lastName",
+    email,
+    "createdAt"
+    )
+  VALUES ($1, $2, $3, $4, $5, $6)
+  RETURNING *`;
+
+  const queryParams = [userName, password, firstName, lastName, email, new Date()];
+
+  return db.query(query,queryParams).then(data => {return data.rows});
+};
+
+module.exports = { getUsers, findUserByUsername, insertNewUser };
