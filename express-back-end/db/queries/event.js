@@ -20,7 +20,27 @@ const getEvents = () => {
       return data.rows;
     });
 };
+const getEventHost = (eventId) => {
+  return db.query(`SELECT
+  * FROM "Users" WHERE id = (SELECT host_id FROM "Events" WHERE id = $1)`, [eventId])
+    .then(data => {
+      return data.rows;
+    });
+};
+const getEventAttendees = (eventId) => {
+  return db.query(`SELECT
+  user_id FROM "Event_attendees" WHERE event_id = $1`, [eventId])
+    .then(data => {
+      let attendees = data.rows.map(element => {
+        return element.user_id;
+      })
+      attendees = attendees.join(", ")
+      return db.query(`SELECT * FROM "Users" WHERE id in (${attendees})`)
+    .then(data => {
+      return data.rows;
+    });
+    });
+};
 
 
-
-module.exports = { getEvents };
+module.exports = { getEvents, getEventHost, getEventAttendees };

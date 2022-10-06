@@ -18,7 +18,6 @@ const loginRoutes = require('./public/routes/login');
 const registerRoutes = require('./public/routes/register');
 const logoutRoutes = require('./public/routes/logout');
 const eventRoutes = require('./public/routes/event');
-const createRoutes = require('./public/routes/create');
 const joinRoutes = require('./public/routes/join');
 
 
@@ -27,7 +26,6 @@ App.use('/login',loginRoutes);
 App.use('/register',registerRoutes);
 App.use('/logout',logoutRoutes);
 App.use('/events',eventRoutes);
-App.use('/create',createRoutes);
 App.use('/join',joinRoutes);
 
 

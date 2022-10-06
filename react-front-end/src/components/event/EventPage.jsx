@@ -1,30 +1,47 @@
 import React from 'react';
 import './eventPage.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLocationDot, faCalendar, faStar } from '@fortawesome/free-solid-svg-icons'
+import { faLocationDot, faCalendar, faStar, faHospitalSymbol } from '@fortawesome/free-solid-svg-icons'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
+import {format} from 'date-fns';
+import useEventInfo from "hooks/useEventInfo";
 
-const EventPage = () => {
+const EventPage = (props) => {
+  const { bigData } = useEventInfo(props.event.id);
+  const { host, attendees } = bigData;
+  let goers = attendees.map(element => {
+    return (
+      <div className="card card-body attendee">
+        <div>
+          <h5 className='card-title attendee__name'>{element.username}</h5>
+          <img src={element.photo} alt="" />
+        </div>
+        <p className="attendee-title">
+          Attendee
+        </p>
+      </div>
+    )
+  })
   return (
     <section className='event-page'>
       <section className='event-page__header'>
         
         <div className='hosted-by card' >
           <div className="card-body">
-            <h5 className="card-title">Hosted by: Username</h5>
+            <h5 className="card-title">Hosted by:</h5>
           </div>
           <a href='to user profile'>
-            <img className="card-img-top wallace" src='/images/wallace.png' alt="Scotish Event"/ >
+            <img className="card-img-top wallace" src={host.photo} alt="Scotish Event"/ >
           </a>
           <div className="host-title">
-            Host Title
+          {host.username}
           </div>
           
         </div>
         <div className='date-time'>
-          <h5>Scottish Event</h5>
-          <p>October 14 2022 - November 14 2022</p>
+          <h5>{props.event.event_name}</h5>
+          <p>{format(new Date(props.event.event_time), "MMMM d yyyy - h:mm a")}</p>
         </div>
         <div></div>
       </section>
@@ -33,17 +50,12 @@ const EventPage = () => {
       
           <div className="column">
             <div className="event-page__info__thumbnail">
-              <img src="/images/braveheart_battle.jpg" alt="Event thumb nail" />
+              <img src={props.event.photo} alt="Event thumb nail" />
             </div>
             <div className="event-page__info__description">
               <div className='details'>
                 <h5>Details</h5>
-                <p>`They fought like warrior poets, they fought like Scottsman` <br/>
-                  Every dreamed of Scottish independance? 
-                <br/> 
-                  If so heres your chance to free Scotland from English rule once and for all. Come join the thousands from Scotland who want the same as you, a dream of a Scotland free from tyranny.
-                <br/>
-                  Dress involves woad(blue) paint and traditional Scottish clothing (kilt).
+                <p>{props.event.description}
                 </p>
               </div>
             </div>
@@ -60,11 +72,11 @@ const EventPage = () => {
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item event-item">
                     <FontAwesomeIcon className='event-item__icon' icon={faLocationDot}/>
-                    <p>Glasgow Road, Whins Of Milton, Stirling FK7 0LJ, United Kingdom</p>
+                    <p>{props.event.location}</p>
                   </li>
                   <li class="list-group-item event-item">
                     <FontAwesomeIcon className='event-item__icon' icon={faCalendar}/>
-                    <p>October 14 2022 - November 14 2022</p>
+                    <p>{format(new Date(props.event.event_time), "MMMM d yyyy - h:mm a")}</p>
                   </li>
                 </ul>
                 </div>
@@ -81,77 +93,15 @@ const EventPage = () => {
           <div className="d-flex flex-row flex-nowrap attendees">
               <div className="card card-body attendee">
                   <div>
-                   <h5 className='card-title attendee__name'>Willaim Wallace</h5>
-                    <img src="/images/wallace.png" alt="" />
+                   <h5 className='card-title attendee__name'>{host.username}</h5>
+                    <img src={host.photo} alt="" />
                   </div>
                   <p className="attendee-title">
                     Host
                     <FontAwesomeIcon icon={faStar}/>
                   </p>
               </div>
-              <div className="card card-body attendee">
-                  <div>
-                   <h5 className='card-title attendee__name'>Yourtuber</h5>
-                    <img src="/images/apple.png" alt="" />
-                  </div>
-                  <p className="attendee-title">
-                    Happy
-                  </p>
-              </div>
-              <div className="card card-body attendee">
-                  <div>
-                   <h5 className='card-title attendee__name'>Greg Howitzer</h5>
-                    <img src="/images/default.png" alt="" />
-                  </div>
-                  <p className="attendee-title">
-                    Cook
-                  </p>
-              </div>
-              <div className="card card-body attendee">
-                  <div>
-                   <h5 className='card-title attendee__name'>George Kat</h5>
-                    <img src="/images/default.png" alt="" />
-                  </div>
-                  <p className="attendee-title">
-                    Programmer
-                  </p>
-              </div>
-              <div className="card card-body attendee">
-                  <div>
-                   <h5 className='card-title attendee__name'>Cat Man</h5>
-                    <img src="/images/default.png" alt="" />
-                  </div>
-                  <p className="attendee-title">
-                    Doger
-                  </p>
-              </div>
-              <div className="card card-body attendee">
-                  <div>
-                   <h5 className='card-title attendee__name'>Jorge Masvidal</h5>
-                    <img src="/images/default.png" alt="" />
-                  </div>
-                  <p className="attendee-title">
-                    Serial Killer
-                  </p>
-              </div>
-              <div className="card card-body attendee">
-                  <div>
-                   <h5 className='card-title attendee__name'>Conor Magnet</h5>
-                    <img src="/images/default.png" alt="" />
-                  </div>
-                  <p className="attendee-title">
-                    Gamer
-                  </p>
-              </div>
-              <div className="card card-body attendee">
-                  <div>
-                   <h5 className='card-title attendee__name'>Jimmy Blog</h5>
-                    <img src="/images/default.png" alt="" />
-                  </div>
-                  <p className="attendee-title">
-                    Madman
-                  </p>
-              </div>
+              {goers}
           </div>
         </div>
       </section>
