@@ -5,7 +5,6 @@ import './create.scss';
 const Create = () => {
   return (
     <form className='create'>
-
       <h5 className='create__description-title'>Describe the Event</h5>
       <section className='create__description'>
         <h5>Event Title</h5>
