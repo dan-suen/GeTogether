@@ -12,7 +12,7 @@ import User from './components/user/User';
 import Logged from './components/main_logged/main-logged';
 import Event from './components/event/EventPage';
 import Create from 'components/create/Create';
-import NavBar from './components/top_nav/top_nav';
+import TopNav from './components/top_nav/top_nav';
 import React, { useState } from 'react';
 import useApplicationData from "hooks/useApplicationData";
 import AuthProvider from './components/context/AuthProvider';
@@ -33,7 +33,7 @@ export default function App() {
   return (
     <div className="App">
       <AuthProvider>
-        <NavBar />
+        <TopNav setMode={setMode} />
         {mode === ABOUT && <About />}
         {mode === MAIN && <Main state={state} setMode={setMode} setEvent={setEvent} />}
         {mode === MAINLOGGED && <Logged />}
@@ -41,7 +41,7 @@ export default function App() {
         {mode === USER && <User state={state} />}
         {mode === REGISTER && <Register />}
         {mode === CREATE && <Create />}
-        <Footer />
+        <Footer setMode={setMode} />
       </AuthProvider>
     </div>
   );
