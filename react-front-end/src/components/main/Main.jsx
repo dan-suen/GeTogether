@@ -7,6 +7,7 @@ import Search from './Search';
 import NextEvent from './NextEvent';
 import EventsList from '../event/EventsList'
 import Calendar from 'components/main_logged/calender';
+import { format } from 'date-fns';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFaceSadCry } from '@fortawesome/free-regular-svg-icons'
 
@@ -16,11 +17,19 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 const Main = (props) => {
   const [events, setEvents] = useState([]);
+  const [selected, setSelected] = useState();
   const [searchQuery, setSearchQuery] = useState("");
   useEffect(() => {
     let filtered =  props.state.events.filter(element => {
-        return element.event_name.toLowerCase().includes(searchQuery.toLowerCase())|| element.location.toLowerCase().includes(searchQuery.toLowerCase())|| element.description.toLowerCase().includes(searchQuery.toLowerCase())
+      return element.event_name.toLowerCase().includes(searchQuery.toLowerCase())|| element.location.toLowerCase().includes(searchQuery.toLowerCase())|| element.description.toLowerCase().includes(searchQuery.toLowerCase())
+    })
+    if (selected){
+      filtered =  filtered.filter(element => {
+        let chose = format(new Date(selected), "MMMM d yyyy")
+        let compare = format(new Date(element.event_time), "MMMM d yyyy")
+            return (new Date(chose) - new Date(compare)) === 0
       })
+    }
     if (filtered.length === 0){
       setEvents([<p>No Events Here! <FontAwesomeIcon icon={faFaceSadCry}/></p>])
     } else {
@@ -28,16 +37,15 @@ const Main = (props) => {
         return <li className="list-group-item"><div><Event event = {element}></Event></div></li>
       }))
     }
-  }, [props.state.events, searchQuery]);
+  }, [props.state.events, selected, searchQuery]);
   return (
     <section className='page'>
       <section className='page__intro'>
         <Intro></Intro>
       </section>
-
       <section className='page__calendar-and-events'>
         <section className='page__calendar-and-events__calendar'>
-          <Calendar></Calendar>
+          <Calendar onSelect={setSelected} selected={selected}></Calendar>
           
         </section>
         <section className='page__calendar-and-events__next-event'>
