@@ -10,7 +10,11 @@ export default function Event(props) {
   const event = props.event;
   return (
     <Card key="light" >
-      <div className="card card-class mb-3">
+      <div onClick={()=>{
+        props.setMode("Event")
+        props.setEvent(event)
+        }} 
+        className="card card-class mb-3">
         <div className="row g-0">
           <div className="col-md-4">
             <img src={event.photo} />

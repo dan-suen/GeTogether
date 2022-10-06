@@ -25,15 +25,16 @@ const CREATE = "Create";
 
 
 export default function App() { 
-    const [mode, setmode] = useState(MAIN); 
+    const [mode, setMode] = useState(MAIN); 
+    const [event, setEvent] = useState({}); 
     const { state } = useApplicationData();
     return (
       <div className="App">
         {/* <NavBar/> */}
         {mode === ABOUT && <About/>}
-        {mode === MAIN && <Main state ={state}/>}
+        {mode === MAIN && <Main state ={state} setMode={setMode} setEvent={setEvent}/>}
         {mode === MAINLOGGED && <Logged/>}
-        {mode === EVENT && <Event/>}
+        {mode === EVENT && <Event event={event}/>}
         {mode === USER && <User state={state}/>}
         {mode === REGISTER && <Register/>}
         {mode === CREATE && <Create/>}
