@@ -14,13 +14,14 @@ const Search = (props) => {
     }
   return (
     <div className="input-group search">
-      <form className="search-form" onSubmit = {handleSubmit}>
       <button className="btn btn-primary dropdown-toggle search__select" type="button" data-bs-toggle="dropdown" aria-expanded="false">See whats Happening</button>
         <ul className="dropdown-menu">
-          <li><a className="dropdown-item" href="#">Today</a></li>
-          <li><a className="dropdown-item" href="#">Tommorow</a></li>
-          <li><a className="dropdown-item" href="#">This week</a></li>
+          <li><button type ="button" className="dropdown-item" onClick={()=>{props.onClick("")}}>All</button></li>
+          <li><button type ="button" className="dropdown-item" onClick={()=>{props.onClick("Week")}}>This Week</button></li>
+          <li><button type ="button" className="dropdown-item" onClick={()=>{props.onClick("TMonth")}}>This Month</button></li>
+          <li><button type ="button" className="dropdown-item" onClick={()=>{props.onClick("NMonth")}}>Next Month</button></li>
         </ul>
+      <form className="search-form" onSubmit = {handleSubmit}>
         <input onChange = {(e) => setName(e.target.value)} value = {name} className="form-control search__bar" placeholder='Search'/>
         <button type="submit" className="btn btn-primary input-group-text search__btn"><FontAwesomeIcon icon={faMagnifyingGlass} /></button>
       </form>

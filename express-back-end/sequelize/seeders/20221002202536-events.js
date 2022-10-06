@@ -24,7 +24,7 @@ module.exports = {
     */
      const users = await sequelize.query(`SELECT MAX(id) FROM "Users"`, { type: QueryTypes.SELECT });
      let seeds = [];
-     let images = [faker.image.animals(),faker.image.cats(),faker.image.animals(),  faker.image.nature(), faker.image.nightlife() ]
+     let images = [faker.image.animals(),faker.image.cats(),faker.image.animals(),  faker.image.nature(), faker.image.abstract() ]
      let locations = [
       "662 King St W #101, Toronto, ON M5V 1M7",
       "250 Av. Clarke #1010, Westmount, QC H3Z 2E5",

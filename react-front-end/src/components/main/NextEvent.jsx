@@ -1,15 +1,29 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import './nextEvent.scss'
+import {format} from 'date-fns';
+import { set } from 'date-fns/esm';
 
-const NextEvent = () => {
+const NextEvent = (props) => {
+  let event = props.event
+  const [div, setDiv] = useState([]);
+  useEffect(() => {
+    if(event){
+      setDiv([
+        <h5>NEXT EVENT : </h5>,
+        <div className="main-timer" style={{backgroundImage: `url(${event.photo})`}}>
+          <div className="centered">
+          {event.time_until.hours?event.time_until.hours:0}h:{event.time_until.minutes?event.time_until.minutes:0}m:{event.time_until.seconds?event.time_until.seconds:0}s:{event.time_until.milliseconds?event.time_until.milliseconds:0}ms
+          </div>
+          {/* <img src={event.photo} className="img-fluid rounded-start" alt="..."/> */}
+        </div>,
+        <h5 className="">{event.event_name}</h5>,
+        <p className="">Time: {format(new Date(event.event_time), "MMMM d yyyy - h:mm a")}</p>
+        ])
+    }
+    }, [event])
   return (
     <div className=" mb-3 next-event" >
-      <h5>YOUR NEXT EVENT</h5>
-
-      <img src="https://loremflickr.com/cache/resized/65535_52084710409_8f98a986ee_c_640_480_nofilter.jpg" className="img-fluid rounded-start" alt="..."/>
-  
-      <h5 className="">Event Title</h5>
-      <p className="">October 3 2023 - October 4 2023</p>
+      {div}
       <button className="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
         Button with data-bs-target
       </button>
