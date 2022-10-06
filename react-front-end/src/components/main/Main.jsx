@@ -31,17 +31,30 @@ const Main = (props) => {
             return (new Date(chose) - new Date(compare)) === 0
       })
     }
-    if (range) {
+    if (range === "TMonth") {
       filtered =  filtered.filter(element => {
         let chose = format(new Date(), "MMMM")
         let compare = format(new Date(element.event_time), "MMMM")
             return chose === compare
       })
     }
+    if (range === "Week") {
+      filtered =  filtered.filter(element => {
+        let chose = format(new Date(), "w")
+        let compare = format(new Date(element.event_time), "w")
+            return chose === compare
+      })
+    }
+    if (range === "NMonth") {
+      filtered =  filtered.filter(element => {
+        let chose = Number(format(new Date(), "M")) + 1
+        let compare = Number(format(new Date(element.event_time), "M"))
+            return chose === compare
+      })
+    }
     if (filtered.length === 0){
       setEvents([<p>No Events Here! <FontAwesomeIcon icon={faFaceSadCry}/></p>])
     } else {
-      console.log(filtered)
       setEvents(filtered.map(element => {
         return <li className="list-group-item"><div><Event event = {element}></Event></div></li>
       }))
