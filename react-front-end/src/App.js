@@ -25,7 +25,7 @@ const CREATE = "Create";
 
 
 export default function App() { 
-    const [mode, setmode] = useState(CREATE); 
+    const [mode, setmode] = useState(MAIN); 
     const { state } = useApplicationData();
     return (
       <div className="App">

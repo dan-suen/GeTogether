@@ -47,6 +47,34 @@ module.exports = {
          createdAt: new Date()
         })
       }
+      for (let i = 0; i < 10; i ++) {
+        const spots = Math.floor(Math.random()*(99))+1;
+        seeds.push({
+          host_id:  Math.floor(Math.random()*(users[0].max-1))+1,
+          event_name: faker.animal.cetacean() + " event",
+          event_time: faker.date.between(new Date(Date.now() - 86400000*11), new Date(Date.now() + 86400000*20)) ,
+          location:locations[i%5],
+          price: Math.floor(Math.random()*(1000)),
+          spots: spots,
+          description: faker.commerce.productDescription(),
+          photo: images[i%5],
+          createdAt: new Date()
+         })
+       }
+       for (let i = 0; i < 10; i ++) {
+        const spots = Math.floor(Math.random()*(99))+1;
+        seeds.push({
+          host_id:  Math.floor(Math.random()*(users[0].max-1))+1,
+          event_name: faker.animal.cetacean() + " event",
+          event_time: faker.date.between(new Date(Date.now() - 86400000*21), new Date(Date.now() + 86400000*30)) ,
+          location:locations[i%5],
+          price: Math.floor(Math.random()*(1000)),
+          spots: spots,
+          description: faker.commerce.productDescription(),
+          photo: images[i%5],
+          createdAt: new Date()
+         })
+       }
      return queryInterface.bulkInsert('Events', seeds);
   },
 
