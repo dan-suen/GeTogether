@@ -9,24 +9,13 @@ const getEvents = () => {
   "Events".location,
   "Events".price,
   (SELECT Count(id) FROM "Comments" WHERE "Comments".event_id = "Events".id) as comment_number,
-  ("Events".spots - COUNT("Event_attendees".event_id)) as remaining_spots,
+  ("Events".spots - (SELECT Count(id) FROM "Event_attendees" WHERE "Event_attendees".event_id = "Events".id)) as remaining_spots,
   ("Events".event_time - $1) as time_until,
-  ("Events".event_time - $1) > interval '0 seconds' as mewo,
+  ("Events".event_time - $1) > interval '0 seconds' as active,
   "Events".description,
   "Events".photo,
   "Events"."createdAt"
-  FROM "Events" JOIN "Event_attendees" ON "Events".id = "Event_attendees".event_id 
-  GROUP BY 
-  "Events".id,
-  "Events".host_id,
-  "Events".event_time,
-  "Events".location,
-  "Events".price,
-  "Events".event_name,
-  "Events".description,
-  "Events".spots,
-  "Events".photo,
-  "Events"."createdAt" ;`, [new Date()])
+  FROM "Events";`, [new Date()])
     .then(data => {
       return data.rows;
     });

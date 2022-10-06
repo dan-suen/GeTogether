@@ -14,7 +14,7 @@ const Search = (props) => {
     }
   return (
     <div className="input-group search">
-      <form class="search-form" onSubmit = {handleSubmit}>
+      <form className="search-form" onSubmit = {handleSubmit}>
       <button className="btn btn-primary dropdown-toggle search__select" type="button" data-bs-toggle="dropdown" aria-expanded="false">See whats Happening</button>
         <ul className="dropdown-menu">
           <li><a className="dropdown-item" href="#">Today</a></li>

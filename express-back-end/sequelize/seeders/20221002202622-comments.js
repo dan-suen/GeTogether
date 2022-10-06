@@ -25,15 +25,26 @@ module.exports = {
    const users = await sequelize.query(`SELECT MAX(id) FROM "Users"`, { type: QueryTypes.SELECT });
    const events = await sequelize.query(`SELECT MAX(id) FROM "Events"`, { type: QueryTypes.SELECT }); 
    let seeds = [];
-   for (let i = 0; i < 200; i ++) {
-     seeds.push( {
-      user_id:  Math.floor(Math.random()*(users[0].max-1))+1,
-      event_id:  Math.floor(Math.random()*(events[0].max-1))+1,
-      parent_comment_id: seeds.length > 10 ? Math.floor(Math.random()*(seeds.length-1))+1 :null,
-      text: faker.lorem.sentences(1),
-      createdAt: new Date()
-     })
-    }  
+   for (let j = 1; j <= events[0].max; j++){
+     for (let i = 0; i < 10; i ++) {
+       seeds.push( {
+        user_id:  Math.floor(Math.random()*(users[0].max-1))+1,
+        event_id:  j,
+        parent_comment_id: seeds.length > 10 ? Math.floor(Math.random()*(seeds.length-1))+1 :null,
+        text: faker.lorem.sentences(1),
+        createdAt: new Date()
+       })
+      }  
+   }
+   for (let i = 0; i < 10; i ++) {
+    seeds.push( {
+     user_id:  Math.floor(Math.random()*(users[0].max-1))+1,
+     event_id:  Math.floor(Math.random()*(events[0].max-1))+1,
+     parent_comment_id: seeds.length > 10 ? Math.floor(Math.random()*(seeds.length-1))+1 :null,
+     text: faker.lorem.sentences(1),
+     createdAt: new Date()
+    })
+   }  
    return queryInterface.bulkInsert('Comments', seeds);
   },
 
