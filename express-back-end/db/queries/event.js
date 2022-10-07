@@ -7,6 +7,8 @@ const getEvents = () => {
   "Events".event_name,
   "Events".event_time,
   "Events".location,
+  "Events".lat,
+  "Events".lng
   "Events".price,
   (SELECT Count(id) FROM "Comments" WHERE "Comments".event_id = "Events".id) as comment_number,
   ("Events".spots - (SELECT Count(id) FROM "Event_attendees" WHERE "Event_attendees".event_id = "Events".id)) as remaining_spots,

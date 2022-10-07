@@ -26,6 +26,12 @@ module.exports = {
         type: Sequelize.STRING(60),
         allowNull: false
       },
+      lat: {
+        type: Sequelize.FLOAT
+      },
+      lng: {
+        type: Sequelize.FLOAT
+      },
       price: {
         type: Sequelize.INTEGER,
         allowNull: false
