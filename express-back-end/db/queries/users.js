@@ -47,7 +47,7 @@ const findUserJoinEvents = (id) => {
       return element.event_id;
     })
     results = results.join(", ")
-    return db.query(`SELECT * FROM "Events" WHERE id in (${results})`)
+    return db.query(`SELECT *, (event_time - $1) > interval '0 seconds' as active FROM "Events" WHERE id in (${results})`, [new Date()])
       .then(data => {
       return data.rows;
     });

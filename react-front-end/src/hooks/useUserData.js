@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Event from '../components/main/event'
+import Past from '../components/past/event'
 import Header from '../components/user/Header';
 import Description from '../components/user/Description';
 import EventsList from '../components/event/EventsList';
@@ -41,8 +42,20 @@ export default function useUserData() {
               <br/>
               <h1>Attending :</h1>
               {userEvents.joining.map((element) => {
-                return <li className="list-group-item"><div><Event event={element}></Event></div></li>
-                })}
+                if(element.active){
+                  return <li className="list-group-item"><div><Event event={element}></Event></div></li>
+                }
+                return
+                })
+              }
+              <h1>Attended in the Past :</h1>
+              {userEvents.joining.map((element) => {
+                if(!element.active){
+                  return <li className="list-group-item"><div><Past event={element}></Past></div></li>
+                }
+                return
+                })
+              }
             </EventsList>
           </section> 
           ]);
