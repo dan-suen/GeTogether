@@ -16,9 +16,9 @@ export default function Event(props) {
   };
   return (
     <Card key="light">
-      <div onClick={navigateToEvent} className="card card-class mb-3">
+      <div className="card card-class mb-3">
         <div className="row g-0">
-          <div className="col-md-4">
+          <div onClick={navigateToEvent} className="col-md-4">
             <img src={event.photo} />
           </div>
 
@@ -28,17 +28,17 @@ export default function Event(props) {
               
               <Card.Body>
                 <div className="titlecard">
-                  <div className='title'>
+                  <div onClick={navigateToEvent} className='title'>
                     <Card.Title>{event.event_name}</Card.Title>
                     <p className="comment-number">
                       {event.comment_number}  <FontAwesomeIcon icon={faComment}/>
                     </p>
                   </div>
-                  <Button variant="success">
+                  <Button href="/about" variant="success">
                     Join <FontAwesomeIcon icon={faEnvelope} />
                   </Button>
                 </div>
-                <div className="content">
+                <div onClick={navigateToEvent}className="content">
                   <div className="header">
                     <Card.Header>Location: {event.location}</Card.Header>
                     <Card.Header>Time: {format(new Date(event.event_time), "MMMM d yyyy - h:mm a")}</Card.Header>
@@ -48,7 +48,7 @@ export default function Event(props) {
                   {event.description}
                   </Card.Text>
                 </div>
-                <Card.Footer>
+                <Card.Footer onClick={navigateToEvent}>
                   <p className="text-muted">{event.remaining_spots} spots remaining</p>
                   <p className="text-muted">Posted: {format(new Date(event.createdAt), "MMMM d yyyy")}</p>
                 </Card.Footer>
