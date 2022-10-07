@@ -1,12 +1,17 @@
 import axios from 'axios';
 import { useState, useEffect, useContext } from 'react';
 import {AuthContext} from "../context/AuthProvider";
+import { useNavigate } from 'react-router-dom';
 
 export default function TopNav() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errMsg, setErrMsg] = useState('');
   const { login } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const navigateToUser = () => {
+    navigate(`/user`);
+  };
 
   useEffect(() => {
     setErrMsg('');
@@ -22,6 +27,7 @@ export default function TopNav() {
         res.data.user_photo,
         res.data.email
       );
+      navigateToUser()
     });
   };
 
