@@ -7,15 +7,20 @@ import Info from './Info';
 import { useContext } from 'react';
 import { AuthContext } from '../context/AuthProvider';
 import "./top_nav.scss";
-import { useNavigate, Route } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function TopNav(props) {
   const { auth } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const navigateHome = () => {
+    navigate(`/`);
+  };
 
   return (
     <Navbar expand="lg" sticky="top">
       <Container>
-        <a href="/" class="navbar-brand">Getogether</a>
+        <button onClick ={navigateHome} className="navbar-brand">Getogether</button>
+
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav>
             <Nav.Link href="/about">About</Nav.Link>
