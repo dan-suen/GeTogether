@@ -24,7 +24,7 @@ export default function App() {
     return (
       <div className="App">
         <AuthProvider>
-        <TopNav setMode={setMode} />
+        <TopNav/>
         <Routes>
           <Route path="/about" element={<About/>} />
           <Route path="/" element={<Main state ={state}/>} />

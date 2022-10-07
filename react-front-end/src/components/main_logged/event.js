@@ -5,12 +5,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faEnvelope} from '@fortawesome/free-solid-svg-icons'
 import {faComment} from '@fortawesome/free-regular-svg-icons'
 import {format} from 'date-fns';
+import { useNavigate } from 'react-router-dom';
 
 export default function Event(props) {
   const event = props.event;
+  const navigate = useNavigate();
+  const navigateToEvent = () => {
+    // 👇️ navigate to /contacts
+    navigate(`/event/${event.id}`);
+  };
   return (
-    <Card key="light" >
-      <div className="card card-class mb-3">
+    <Card key="light">
+      <div onClick={navigateToEvent} className="card card-class mb-3">
         <div className="row g-0">
           <div className="col-md-4">
             <img src={event.photo} />

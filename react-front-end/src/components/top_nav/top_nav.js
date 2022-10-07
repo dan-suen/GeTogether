@@ -6,21 +6,27 @@ import Login from './Login';
 import Info from './Info';
 import { useContext } from 'react';
 import { AuthContext } from '../context/AuthProvider';
+import {useNavigate} from 'react-router-dom';
 import "./top_nav.scss";
 
 export default function TopNav(props) {
   const { auth } = useContext(AuthContext);
 
-  const handleClick = (e) => {
-    e.preventDefault();
-    console.log("clicked");
-    props.setMode('Main');
+  const navigate = useNavigate();
+
+  const navigateToAbout = () => {
+    // 👇️ navigate to /contacts
+    navigate('/about');
   };
 
+  const navigateHome = () => {
+    // 👇️ navigate to /
+    navigate('/');
+  };
   return (
     <Navbar expand="lg" sticky="top">
       <Container>
-        <button onClick={handleClick} class="navbar-brand">Getogether</button>
+        <button onClick={navigateHome} class="navbar-brand">Getogether</button>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav>
             <Nav.Link>Home</Nav.Link>
