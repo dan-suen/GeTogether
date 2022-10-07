@@ -2,10 +2,11 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import './eventPage.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLocationDot, faCalendar, faStar} from '@fortawesome/free-solid-svg-icons'
+import { faLocationDot, faCalendar, faStar} from '@fortawesome/free-solid-svg-icons';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import useEventInfo from "hooks/useEventInfo";
+import Map from "../map/Map"
 
 
 const EventPage = () => {
@@ -55,7 +56,8 @@ const EventPage = () => {
              <div className="event-page__info__event-info">
                <div className='card'>
                  <div className="event-page__info__map">
-                     map
+                    {console.log('lat and lng',typeof event.lat,event.lng)}
+                     <Map lat={event.lat} lng={event.lng}/>
                   </div>
                  <div className="card-body">
                  <ul className="list-group list-group-flush">
