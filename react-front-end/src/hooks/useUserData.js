@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Event from '../components/main_logged/event'
+import Event from '../components/main/event'
 import Header from '../components/user/Header';
 import Description from '../components/user/Description';
 import EventsList from '../components/event/EventsList';
 
 
 export default function useUserData() {
-  const [rendered, setRendered] = useState([<h1>PLEASE LOGIN!!</h1>])
+  const [rendered, setRendered] = useState([])
   const user = JSON.parse(localStorage.getItem('user'));
   useEffect(() => {
+    if (user === null) {
+      setRendered([<h1>PLEASE LOGIN!!</h1>])
+    }
     if(user !== null){
       Promise.all([
         axios.get(`/users/${user.id}`),
