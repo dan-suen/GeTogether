@@ -2,11 +2,11 @@ import React, {useState, useEffect} from 'react';
 import './main.scss'
 
 import Intro from './Intro';
-import Event from '../main_logged/event'
+import Event from './event'
 import Search from './Search';
 import NextEvent from './NextEvent';
 import EventsList from '../event/EventsList'
-import Calendar from 'components/main_logged/calender';
+import Calendar from 'components/main/calender';
 import { format } from 'date-fns';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFaceSadCry } from '@fortawesome/free-regular-svg-icons'
@@ -59,9 +59,7 @@ const Main = (props) => {
     }
     //filters out past events
     filtered =  filtered.filter(element => {
-      let chose = new Date()
-      let compare = new Date(element.event_time)
-        return compare > chose
+      return element.active
     })
     //sorts results by date
     filtered = filtered.sort(function(a, b){
@@ -78,15 +76,15 @@ const Main = (props) => {
   //sets next event
   useEffect(() => {
     let a = props.state.events
-      .filter(element => {
+    .filter(element => {
       let chose = new Date()
       let compare = new Date(element.event_time)
-        return compare > chose
-      })
-      .sort(function(a, b){
-        return (a.event_time > b.event_time ? 1 : -1)
-      })[0]
-      setNext(a);
+      return compare > chose
+    })
+    .sort(function(a, b){
+      return (a.event_time > b.event_time ? 1 : -1)
+    })[0]
+    setNext(a);
   }, [props.state.events]);
   return (
     <section className='page'>

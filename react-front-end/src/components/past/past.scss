@@ -1,0 +1,49 @@
+@import "/src/styles/variables.scss";
+@import "/src/styles/mixins.scss";
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Spice&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;0,900;1,300;1,400;1,600;1,700;1,900&display=swap');
+
+
+
+.page {
+ 
+  @include flex($d: column, $c: center, $i: center);
+  background-image: url("../../../public/images/background_image3.png");
+  background-size: contain;
+
+  
+  &__intro {
+    font-family: $font-sans;
+    @include flex($c: center, $i: center);
+  }
+
+  &__calendar-and-events {
+    @include flex($d: row,$c: space-between);
+    margin: 3em 0;
+   
+    width: 50%;
+ 
+    &__next-event {
+      @include flex($d: column,$i: center);
+      font-family: $font-sans;
+      max-width: 400px;
+
+    }
+  }
+
+  &__filters {
+    width: 50%;
+  }
+
+  
+  &__events-list {
+    margin-top: 5em;
+    width: 50%;  
+  }
+
+}
+
+.backdrop {
+  height: 100%;
+  width: 100%;
+  
+}

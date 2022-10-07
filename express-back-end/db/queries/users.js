@@ -18,6 +18,42 @@ const findUserByUsername = (userName) => {
   });
 };
 
+const findUserData = (id) => {
+  const query = `SELECT *
+  FROM "Users"
+  WHERE id = $1;
+  `;
+  return db.query(query,[id]).then(data => {
+    return data.rows;
+  });
+};
+
+const findUserHostEvents = (id) => {
+  const query = `SELECT *
+  FROM "Events"
+  WHERE host_id = $1;
+  `;
+  return db.query(query,[id]).then(data => {
+    return data.rows;
+  });
+};
+
+const findUserJoinEvents = (id) => {
+  const query = `SELECT DISTINCT event_id
+  FROM "Event_attendees"
+  WHERE user_id = $1;`;
+  return db.query(query,[id]).then(data => {
+    let results = data.rows.map(element => {
+      return element.event_id;
+    })
+    results = results.join(", ")
+    return db.query(`SELECT *, (event_time - $1) > interval '0 seconds' as active FROM "Events" WHERE id in (${results})`, [new Date()])
+      .then(data => {
+      return data.rows;
+    });
+  });
+};
+
 const insertNewUser = (userName, password, firstName, lastName, email) => {
   const query = `
   INSERT INTO "Users" (
@@ -36,4 +72,4 @@ const insertNewUser = (userName, password, firstName, lastName, email) => {
   return db.query(query,queryParams).then(data => {return data.rows});
 };
 
-module.exports = { getUsers, findUserByUsername, insertNewUser };
+module.exports = { getUsers, findUserData, findUserByUsername, insertNewUser, findUserHostEvents, findUserJoinEvents};

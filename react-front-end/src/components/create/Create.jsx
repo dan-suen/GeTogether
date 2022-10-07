@@ -1,5 +1,7 @@
+
 import React, { useEffect, useState } from 'react';
-import Calendar from 'components/main_logged/calender';
+import React from 'react';
+import Calendar from 'components/main/calender';
 import './create.scss';
 import Places from 'components/map/Places';
 import axios from 'axios';

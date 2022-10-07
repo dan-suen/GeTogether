@@ -1,12 +1,13 @@
 import React from 'react';
 import './header.scss'
+import {format} from 'date-fns';
 
-const Header = () => {
+const Header = (props) => {
   return (
     <div className='header'>
       <div></div>
-      <h5>UserName</h5>
-      <h5>Joined on: October 13 2014</h5>
+      <h5>{props.user.username}</h5>
+      <h5>Joined {format(new Date(`${props.user.createdAt}`), "MMMM d yyyy - h:mm a")}</h5>
     </div>
   );
 };

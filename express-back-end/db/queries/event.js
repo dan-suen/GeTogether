@@ -31,21 +31,24 @@ const getEvent = (eventId) => {
 };
 
 const getEventHost = (eventId) => {
-  return db.query(`SELECT
-  * FROM "Users" WHERE id = (SELECT host_id FROM "Events" WHERE id = $1)`, [eventId])
+  return db.query(`SELECT * FROM "Users" WHERE id = (SELECT host_id FROM "Events" WHERE id = $1)`, [eventId])
     .then(data => {
       return data.rows;
     });
 };
 const getEventAttendees = (eventId) => {
-  return db.query(`SELECT
-  user_id FROM "Event_attendees" WHERE event_id = $1`, [eventId])
+  return db.query(`SELECT user_id FROM "Event_attendees" WHERE event_id = ${eventId}`)
     .then(data => {
       let attendees = data.rows.map(element => {
         return element.user_id;
       })
-      attendees = attendees.join(", ")
-      return db.query(`SELECT * FROM "Users" WHERE id in (${attendees})`)
+      if (attendees.length > 0){
+        attendees = "WHERE id in (" + attendees.join(", ") + ")"
+      } else {
+        attendees = "WHERE id = null";
+      }
+      console.log("adadfadfadf", attendees)
+      return db.query(`SELECT * FROM "Users" ${attendees}`)
     .then(data => {
       return data.rows;
     });
