@@ -3,7 +3,6 @@ import './header.scss'
 import {format} from 'date-fns';
 
 const Header = (props) => {
-  console.log(typeof props.user.createdAt);
   return (
     <div className='header'>
       <div></div>
