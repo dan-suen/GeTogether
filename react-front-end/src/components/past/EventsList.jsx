@@ -8,7 +8,6 @@ const EventsList = (props) => {
     <>
        <div className='events-list__header'>
           <h5>Event Listing</h5>
-          <button className='btn btn-primary'><FontAwesomeIcon icon={faPlus} /></button>
         </div>
         
         <ul className="list-group list-group-flush">

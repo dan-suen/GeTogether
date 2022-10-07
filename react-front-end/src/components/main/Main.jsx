@@ -27,7 +27,6 @@ const Main = (props) => {
       //filters using search bar text
       return element.event_name.toLowerCase().includes(searchQuery.toLowerCase())|| element.location.toLowerCase().includes(searchQuery.toLowerCase())|| element.description.toLowerCase().includes(searchQuery.toLowerCase())
     })
-    console.log(filtered)
     //filter using calendar
     if (selected){
       filtered =  filtered.filter(element => {
@@ -60,9 +59,7 @@ const Main = (props) => {
     }
     //filters out past events
     filtered =  filtered.filter(element => {
-      let chose = new Date()
-      let compare = new Date(`${element.event_time}`)
-        return compare > chose
+      return element.active
     })
     //sorts results by date
     filtered = filtered.sort(function(a, b){
