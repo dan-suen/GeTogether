@@ -2,11 +2,11 @@ import React, {useState, useEffect} from 'react';
 import './main.scss'
 
 import Intro from './Intro';
-import Event from '../main_logged/event'
+import Event from './event'
 import Search from './Search';
 import NextEvent from './NextEvent';
 import EventsList from '../event/EventsList'
-import Calendar from 'components/main_logged/calender';
+import Calendar from 'components/main/calender';
 import { format } from 'date-fns';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFaceSadCry } from '@fortawesome/free-regular-svg-icons'

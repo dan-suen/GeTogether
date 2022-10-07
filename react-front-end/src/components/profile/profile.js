@@ -1,5 +1,5 @@
 import "./profile.scss";
-import Event from '../main_logged/event.js';
+import Event from '../main/event.js';
 
 export default function Profile(props) {
   //console.log(JSON.parse(localStorage.getItem('user')));

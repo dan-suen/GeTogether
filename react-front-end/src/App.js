@@ -10,7 +10,6 @@ import Register from "./components/register";
 import About from './components/about/about';
 import Main from './components/main/Main';
 import User from './components/user/User';
-import Logged from './components/main_logged/main-logged';
 import Event from './components/event/EventPage';
 import Create from 'components/create/Create';
 import TopNav from './components/top_nav/top_nav';

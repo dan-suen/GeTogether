@@ -1,5 +1,5 @@
 import React from 'react';
-import Calendar from 'components/main_logged/calender';
+import Calendar from 'components/main/calender';
 import './create.scss';
 
 const Create = () => {
