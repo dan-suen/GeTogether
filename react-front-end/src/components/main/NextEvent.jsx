@@ -1,11 +1,16 @@
 import React, {useState, useEffect} from 'react';
 import './nextEvent.scss'
 import {format} from 'date-fns';
-import { set } from 'date-fns/esm';
+import { useNavigate } from 'react-router-dom';
 
 const NextEvent = (props) => {
   let event = props.event
   const [div, setDiv] = useState([]);
+  const navigate = useNavigate();
+  const navigateToEvent = () => {
+    // 👇️ navigate to /contacts
+    navigate(`/event/${event.id}`);
+  };
   useEffect(() => {
     if(event){
       setDiv([
@@ -22,7 +27,7 @@ const NextEvent = (props) => {
     }
     }, [event])
   return (
-    <div className=" mb-3 next-event" >
+    <div onClick={navigateToEvent} className=" mb-3 next-event" >
       {div}
       <button className="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
         Button with data-bs-target

@@ -6,21 +6,14 @@ import Login from './Login';
 import Info from './Info';
 import { useContext } from 'react';
 import { AuthContext } from '../context/AuthProvider';
-import {useNavigate} from 'react-router-dom';
 import "./top_nav.scss";
+import { useNavigate } from 'react-router-dom';
 
 export default function TopNav(props) {
   const { auth } = useContext(AuthContext);
-
   const navigate = useNavigate();
-
-  const navigateToAbout = () => {
-    // 👇️ navigate to /contacts
-    navigate('/about');
-  };
-
   const navigateHome = () => {
-    // 👇️ navigate to /
+    // 👇️ navigate to /contacts
     navigate('/');
   };
   return (
