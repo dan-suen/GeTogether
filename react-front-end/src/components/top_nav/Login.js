@@ -28,7 +28,7 @@ export default function TopNav() {
   return (
     <section>
       <form onSubmit={handleSubmit}>
-        <div class="form-floating mb-3">
+        <div className="form-floating mb-3">
           <input
             type="text"
             id="floatingInput"
@@ -37,12 +37,12 @@ export default function TopNav() {
             onChange={(e) => setUsername(e.target.value)}
             value={username}
             required
-            class="form-control"
+            className="form-control"
           />
           <label for='floatingInput'>Username:</label>
         </div>
 
-        <div class="form-floating mb-3">
+        <div className="form-floating mb-3">
           <input
             type="password"
             id="floatingPassword"
@@ -50,11 +50,11 @@ export default function TopNav() {
             onChange={(e) => setPassword(e.target.value)}
             value={password}
             required
-            class="form-control"
+            className="form-control"
           />
           <label htmlFor='floatingPassword'>Password:</label>
         </div>
-        <button class="btn btn-primary" type="submit">
+        <button className="btn btn-primary" type="submit">
           Login
         </button>
       </form>

@@ -9,6 +9,25 @@ router.get('/', (req, res) => {
   })
 });
 
+router.get('/:id', (req, res) => {
+  userQueries.findUserData(req.params.id).then(data => {
+    res.send(data);
+  })
+});
+
+router.get('/:id/host', (req, res) => {
+  userQueries.findUserHostEvents(req.params.id).then(data => {
+    res.send(data);
+  })
+});
+
+router.get('/:id/join', (req, res) => {
+  userQueries.findUserJoinEvents(req.params.id).then(data => {
+    res.send(data);
+  })
+});
+
+
 router.post('/update', (req,res) => {
 });
 

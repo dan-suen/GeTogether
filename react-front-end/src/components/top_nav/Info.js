@@ -8,7 +8,7 @@ export default function Info() {
       <span>
         You are logged in as: {user.username} |  
       </span>
-      <button type="button" onClick={logout} class="btn btn-primary">Logout</button>
+      <button type="button" onClick={logout} className="btn btn-primary">Logout</button>
     </section>
   );
 };
