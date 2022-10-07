@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Route, Routes } from "react-router-dom"
 import './App.scss';
 //import Button from 'react-bootstrap/Button';
 //import NavBar from './components/top_nav/top_nav';
@@ -17,33 +18,24 @@ import React, { useState } from 'react';
 import useApplicationData from "hooks/useApplicationData";
 import AuthProvider from './components/context/AuthProvider';
 
-const ABOUT = "About";
-const USER = "User";
-const MAIN = "Main";
-const MAINLOGGED = "Mainlogged";
-const REGISTER = "Register";
-const EVENT = "Event";
-const CREATE = "Create";
 
-
-export default function App() {
-  const [mode, setMode] = useState(REGISTER);
-  const [event, setEvent] = useState({});
-  const { state } = useApplicationData();
-  return (
-    <div className="App">
-      <AuthProvider>
+export default function App() {  
+    const { state } = useApplicationData();
+    return (
+      <div className="App">
+        <AuthProvider>
         <TopNav setMode={setMode} />
-        {mode === ABOUT && <About />}
-        {mode === MAIN && <Main state={state} setMode={setMode} setEvent={setEvent} />}
-        {mode === MAINLOGGED && <Logged />}
-        {mode === EVENT && <Event event={event} />}
-        {mode === USER && <User state={state} />}
-        {mode === REGISTER && <Register />}
-        {mode === CREATE && <Create />}
-        <Footer setMode={setMode} />
-      </AuthProvider>
-    </div>
-  );
+        <Routes>
+          <Route path="/about" element={<About/>} />
+          <Route path="/" element={<Main state ={state}/>} />
+          {/* <Route path="/" element={<Logged/>} /> */}
+          <Route path="/event/:id" element={<Event/>} />
+          <Route path="/user" element={<User state={state}/>} />
+          <Route path="/register" element={<Register/>} />
+          <Route path="/create" element={<Create/>} />
+        </Routes>
+        </AuthProvider>
+        <Footer/>
+      </div>
+    );
 }
-

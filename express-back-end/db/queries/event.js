@@ -20,6 +20,14 @@ const getEvents = () => {
       return data.rows;
     });
 };
+
+const getEvent = (eventId) => {
+  return db.query(`SELECT * FROM "Events" WHERE id = $1`, [eventId])
+    .then(data => {
+      return data.rows;
+    });
+};
+
 const getEventHost = (eventId) => {
   return db.query(`SELECT
   * FROM "Users" WHERE id = (SELECT host_id FROM "Events" WHERE id = $1)`, [eventId])
@@ -43,4 +51,4 @@ const getEventAttendees = (eventId) => {
 };
 
 
-module.exports = { getEvents, getEventHost, getEventAttendees };
+module.exports = { getEvents, getEvent, getEventHost, getEventAttendees };
