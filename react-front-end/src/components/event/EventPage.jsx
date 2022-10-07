@@ -56,7 +56,7 @@ const EventPage = () => {
              <div className="event-page__info__event-info">
                <div className='card'>
                  <div className="event-page__info__map">
-                    {console.log('lat and lng',typeof event.lat,event.lng)}
+                    {}
                      <Map lat={event.lat} lng={event.lng}/>
                   </div>
                  <div className="card-body">

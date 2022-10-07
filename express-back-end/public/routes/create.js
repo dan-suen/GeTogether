@@ -1,0 +1,14 @@
+
+const express = require('express');
+const router  = express.Router();
+const {createEvent} = require('../../db/queries/create');
+
+router.post('/', (req, res) => {
+  const newEvent = JSON.parse(Object.keys(req.body)[0]);
+  createEvent(newEvent).then((data) => {
+    res.send("CREATED EVENT")
+  })
+});
+
+
+module.exports = router;

@@ -19,7 +19,6 @@ import useApplicationData from "hooks/useApplicationData";
 import AuthProvider from './components/context/AuthProvider';
 import Places from './components/map/Places'
 
-
 export default function App() {
   const { state } = useApplicationData();
   return (

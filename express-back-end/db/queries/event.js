@@ -53,4 +53,5 @@ const getEventAttendees = (eventId) => {
 };
 
 
+
 module.exports = { getEvents, getEvent, getEventHost, getEventAttendees };

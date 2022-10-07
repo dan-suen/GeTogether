@@ -1,5 +1,5 @@
-import { useState, useMemo } from "react";
-import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
+import { useState } from "react";
+import { useLoadScript } from "@react-google-maps/api";
 import usePlacesAutocomplete, {
   getGeocode,
   getLatLng,
@@ -14,30 +14,21 @@ import {
 import "@reach/combobox/styles.css";
 import './places.scss'
 
-export default function Places() {
+export default function Places(props) {
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: "AIzaSyDQ119x3IFhG3LCLvV16QaZWzIY1RpDtgA",
     libraries: ["places"],
   });
+  const {setCoords} = props;
 
   if (!isLoaded) return <div>Loading...</div>;
-  return <Auto />;
+  return (<div className="places-container">
+  <PlacesAutocomplete  setCoords={setCoords} />
+</div>);
 }
 
-function Auto() {
-  
-  const [selected, setSelected] = useState(null);
 
-  return (
-    <>
-      <div className="places-container">
-        <PlacesAutocomplete setSelected={setSelected} />
-      </div>
-    </>
-  );
-}
-
-const PlacesAutocomplete = ({ setSelected }) => {
+const PlacesAutocomplete = ({ setCoords }) => {
   const {
     ready,
     value,
@@ -53,7 +44,8 @@ const PlacesAutocomplete = ({ setSelected }) => {
     const results = await getGeocode({ address });
     const { lat, lng } = await getLatLng(results[0]);
     console.log('lat and lng:',lat,lng);
-    setSelected({ lat, lng });
+    //setSelected({ lat, lng });
+    setCoords({ lat, lng });
     // console.log('lat and lng:',lat,lng);
   };
 
