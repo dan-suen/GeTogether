@@ -8,17 +8,23 @@ import { useContext } from 'react';
 import { AuthContext } from '../context/AuthProvider';
 import "./top_nav.scss";
 
-export default function TopNav() {
+export default function TopNav(props) {
   const { auth } = useContext(AuthContext);
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    console.log("clicked");
+    props.setMode('Main');
+  };
+
   return (
     <Navbar expand="lg" sticky="top">
       <Container>
-        <Navbar.Brand href="#home">Getogether</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <button onClick={handleClick} class="navbar-brand">Getogether</button>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav>
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Link</Nav.Link>
+            <Nav.Link>Home</Nav.Link>
+            <Nav.Link>About</Nav.Link>
           </Nav>
           <Nav>
             {!auth &&
@@ -26,7 +32,7 @@ export default function TopNav() {
                 <Login />
               </NavDropdown>
             }
-            {!auth && <Nav.Link href="#register">Sign up!</Nav.Link> }
+            {!auth && <Nav.Link >Sign up!</Nav.Link>}
             {auth && <Info />}
           </Nav>
         </Navbar.Collapse>

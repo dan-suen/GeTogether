@@ -7,13 +7,16 @@ export default function AuthProvider(props) {
     const [user, setUser] = useState({});
 
     const login = function(id, username, photo, email) {
-      setUser({...user, email:email, id:id, username:username, photo:photo });
+      const userData = {email:email, id:id, username:username, photo:photo}
+      setUser({...user, ...userData });
       setAuth(true);
+      localStorage.setItem('user', JSON.stringify(userData));
     };
 
     const logout = function() {
       setAuth(false);
       setUser({});
+      localStorage.removeItem('user');
     };
     
     const userData = {auth, user, login, logout};
@@ -25,10 +28,6 @@ export default function AuthProvider(props) {
         setAuth(true);
       }
     }, []);
-
-    useEffect(() => {
-      localStorage.setItem('user', JSON.stringify(user));
-    }, [user]);
 
     return (
         <AuthContext.Provider value={userData}>

@@ -13,15 +13,18 @@ import User from './components/user/User';
 import Logged from './components/main_logged/main-logged';
 import Event from './components/event/EventPage';
 import Create from 'components/create/Create';
-import React, { useState } from 'react'; 
+import TopNav from './components/top_nav/top_nav';
+import React, { useState } from 'react';
 import useApplicationData from "hooks/useApplicationData";
+import AuthProvider from './components/context/AuthProvider';
 
 
 export default function App() {  
     const { state } = useApplicationData();
     return (
       <div className="App">
-        {/* <NavBar/> */}
+        <AuthProvider>
+        <TopNav setMode={setMode} />
         <Routes>
           <Route path="/about" element={<About/>} />
           <Route path="/" element={<Main state ={state}/>} />
@@ -31,8 +34,8 @@ export default function App() {
           <Route path="/register" element={<Register/>} />
           <Route path="/create" element={<Create/>} />
         </Routes>
+        </AuthProvider>
         <Footer/>
       </div>
     );
 }
-
