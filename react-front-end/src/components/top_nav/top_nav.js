@@ -29,8 +29,8 @@ export default function TopNav(props) {
         <button onClick={navigateHome} class="navbar-brand">Getogether</button>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav>
-            <Nav.Link>Home</Nav.Link>
-            <Nav.Link>About</Nav.Link>
+            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/about">About</Nav.Link>
           </Nav>
           <Nav>
             {!auth &&
