@@ -1,13 +1,18 @@
 const express = require('express');
 const router  = express.Router();
-const {getEvents, getEventHost, getEventAttendees } = require('../../db/queries/event');
+const {getEvents, getEvent, getEventHost, getEventAttendees } = require('../../db/queries/event');
 
 router.get('/', (req, res) => {
   getEvents().then(data => {
     res.send(data);
   })
 });
-router.get('/:id', (req, res) => {
+router.get('/:id/', (req, res) => {
+  getEvent(req.params.id).then(data => {
+    res.send(data);
+  })
+});
+router.get('/:id/host', (req, res) => {
   getEventHost(req.params.id).then(data => {
     res.send(data);
   })

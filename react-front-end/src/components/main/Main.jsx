@@ -70,7 +70,7 @@ const Main = (props) => {
       setEvents([<p>No Events Here! <FontAwesomeIcon icon={faFaceSadCry}/></p>])
     } else {
       setEvents(filtered.map(element => {
-        return <li className="list-group-item"><div><Event setMode={props.setMode} setEvent={props.setEvent} event={element}></Event></div></li>
+        return <li className="list-group-item"><div><Event event={element}></Event></div></li>
       }))
     }
   }, [props.state.events, range, selected, searchQuery]);
