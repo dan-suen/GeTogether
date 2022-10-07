@@ -19,23 +19,23 @@ import useApplicationData from "hooks/useApplicationData";
 import AuthProvider from './components/context/AuthProvider';
 
 
-export default function App() {  
-    const { state } = useApplicationData();
-    return (
-      <div className="App">
-        <AuthProvider>
-        <TopNav/>
+export default function App() {
+  const { state } = useApplicationData();
+  return (
+    <div className="App">
+      <AuthProvider>
+        <TopNav />
         <Routes>
-          <Route path="/about" element={<About/>} />
-          <Route path="/" element={<Main state ={state}/>} />
+          <Route path="/about" element={<About />} />
+          <Route path="/" element={<Main state={state} />} />
           {/* <Route path="/" element={<Logged/>} /> */}
-          <Route path="/event/:id" element={<Event/>} />
-          <Route path="/user" element={<User state={state}/>} />
-          <Route path="/register" element={<Register/>} />
-          <Route path="/create" element={<Create/>} />
+          <Route path="/event/:id" element={<Event />} />
+          <Route path="/user" element={<User state={state} />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/create" element={<Create />} />
         </Routes>
-        </AuthProvider>
-        <Footer/>
-      </div>
-    );
+      </AuthProvider>
+      <Footer />
+    </div>
+  );
 }

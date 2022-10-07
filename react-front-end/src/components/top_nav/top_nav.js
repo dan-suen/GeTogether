@@ -13,16 +13,16 @@ export default function TopNav(props) {
   const { auth } = useContext(AuthContext);
   const navigate = useNavigate();
   const navigateHome = () => {
-    // 👇️ navigate to /contacts
-    navigate('/');
+    navigate(`/`);
   };
+
   return (
     <Navbar expand="lg" sticky="top">
       <Container>
         <button onClick ={navigateHome} className="navbar-brand">Getogether</button>
+
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav>
-            <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/about">About</Nav.Link>
           </Nav>
           <Nav>
@@ -31,7 +31,7 @@ export default function TopNav(props) {
                 <Login />
               </NavDropdown>
             }
-            {!auth && <Nav.Link >Sign up!</Nav.Link>}
+            {!auth && <Nav.Link href="/register">Sign up!</Nav.Link>}
             {auth && <Info />}
           </Nav>
         </Navbar.Collapse>
