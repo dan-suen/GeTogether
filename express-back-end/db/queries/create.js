@@ -2,6 +2,7 @@ const db = require('../connection.js');
 
 const createEvent = (obj) => {
   const {basicUrl,
+  address,
   description,
   fee,
   hour,
@@ -14,9 +15,9 @@ const createEvent = (obj) => {
   user} = obj
 
   const eventTime = new Date(new Date(selectDay) + (60000 * Number(min)) + (3600000 * Number(hour)));
-
+  
   const query = `
-  INSERT INTO items (
+  INSERT INTO "Events" (
     host_id,
     event_time,
     location,
@@ -27,11 +28,12 @@ const createEvent = (obj) => {
     remaining_spots,
     description,
     photo,
-    createdAt,
-    event_name) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING *
+    "createdAt",
+    event_name) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING *
   `;
 
-  const queryParams = [user, eventTime, imageUrl, price, type, description, date, sold];
+  // REMEMBER TO FIX QUERY ON MERGE REMAINING SPTS COLUMN DOESNT EXISTS
+  const queryParams = [user, eventTime, address, lat, lng, fee, spots, spots, description, basicUrl, new Date(), title];
 
   return db.query(query, queryParams)
     .then(data => {

@@ -43,9 +43,10 @@ const PlacesAutocomplete = ({ setCoords }) => {
 
     const results = await getGeocode({ address });
     const { lat, lng } = await getLatLng(results[0]);
-    console.log('lat and lng:',lat,lng);
+    //console.log('lat and lng:',lat,lng);
     //setSelected({ lat, lng });
-    setCoords({ lat, lng });
+   // console.log(address);
+    setCoords({ lat, lng, address });
     // console.log('lat and lng:',lat,lng);
   };
 

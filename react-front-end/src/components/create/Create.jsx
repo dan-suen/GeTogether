@@ -3,6 +3,7 @@ import Calendar from 'components/main_logged/calender';
 import './create.scss';
 import Places from 'components/map/Places';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Create = () => {
   const [formData, setFormData] = useState({
@@ -22,8 +23,12 @@ const Create = () => {
 
   const [coords, setCoords] = useState({});
   const [selectDay, setSelectDay] = useState("");
-  const [time, setTime] = useState("");
   const user = JSON.parse(localStorage.getItem('user'));
+
+  const navigate = useNavigate();
+  const navigateHome = () => {
+    navigate(`/`);
+  };
 
   useEffect(()=> {
     setFormData(prev => {
@@ -32,8 +37,9 @@ const Create = () => {
   },[])
 
   useEffect(()=> {
+    //console.log(coords);
      setFormData(prev => {
-      return {...prev, lat: coords.lat, lng: coords.lng, selectDay: String(selectDay) }
+      return {...prev, address: coords.address, lat: coords.lat, lng: coords.lng, selectDay: String(selectDay) }
     })
   },[coords,selectDay]);
 
@@ -46,7 +52,9 @@ const Create = () => {
     }
      console.log(formData);
      //console.log(user.id);
-     axios.post('/create', JSON.stringify(formData))
+     axios.post('/create', JSON.stringify(formData)).then(() => {
+      navigateHome();
+     })
   }
 
   const handleChange = (e) => {
@@ -115,7 +123,7 @@ const Create = () => {
               type="text"
               className="form-control"
               aria-label="the hour"
-              id="hour"
+              id="hour"Coords
               onChange={handleChange}
               value={formData.hour}
             />
