@@ -24,7 +24,7 @@ export default function useUserData() {
           }
         setRendered([
           <section className='user__header'>
-            {/* <Header user={userEvents.user}></Header> */}
+            <Header user={userEvents.user}></Header>
           </section>,
           <section className='user__user-description'>
             <Description user={userEvents.user}></Description>
