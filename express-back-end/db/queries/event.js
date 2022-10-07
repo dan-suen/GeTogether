@@ -41,7 +41,7 @@ const getEventAttendees = (eventId) => {
         return element.user_id;
       })
       if (attendees.length > 0){
-        attendees = "WHERE id in " + attendees.join(", ")
+        attendees = "WHERE id in (" + attendees.join(", ") + ")"
       } else {
         attendees = "WHERE id = null";
       }
