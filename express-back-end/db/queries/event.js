@@ -53,5 +53,17 @@ const getEventAttendees = (eventId) => {
     });
 };
 
+const joinEvent = (eventId, user_id) => {
+  const query = `
+  INSERT INTO "Event_attendees" (
+    event_id,
+    user_id
+    )
+  VALUES ($1, $2)
+  RETURNING *`;
+  const queryParams = [eventId, user_id];
+  return db.query(query,queryParams).then(data => {return data.rows});
+};
 
-module.exports = { getEvents, getEvent, getEventHost, getEventAttendees };
+
+module.exports = { getEvents, getEvent, getEventHost, getEventAttendees, joinEvent };
