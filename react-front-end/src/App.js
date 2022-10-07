@@ -14,6 +14,8 @@ import Event from './components/event/EventPage';
 import Create from 'components/create/Create';
 import React, { useState } from 'react'; 
 import useApplicationData from "hooks/useApplicationData";
+import Map from 'components/map/Map';
+import Places from 'components/map/Places';
 
 const ABOUT = "About";
 const USER = "User";
@@ -22,10 +24,11 @@ const MAINLOGGED = "Mainlogged";
 const REGISTER = "Register";
 const EVENT = "Event";
 const CREATE = "Create";
-
+const MAP = "Map";
+const PLACES = "Places";
 
 export default function App() { 
-    const [mode, setMode] = useState(MAIN); 
+    const [mode, setMode] = useState(PLACES); 
     const [event, setEvent] = useState({}); 
     const { state } = useApplicationData();
     return (
@@ -37,7 +40,9 @@ export default function App() {
         {mode === EVENT && <Event event={event}/>}
         {mode === USER && <User state={state}/>}
         {mode === REGISTER && <Register/>}
-        {mode === CREATE && <Create/>}
+        {mode === CREATE && <Create />}
+        {mode === MAP && <Map />}
+        {mode === PLACES && <Places/>}
         <Footer/>
       </div>
     );
