@@ -36,7 +36,7 @@ export default function useApplicationData(id) {
                   </div>
                 )
               }),
-              time: [<p>{format(new Date(data[0].data[0].event_time), "MMMM d yyyy - h:mm a")}</p>]
+              time: [<p>{format(new Date(`${data[0].data[0].event_time}`), "MMMM d yyyy - h:mm a")}</p>]
             };
           })
         })
