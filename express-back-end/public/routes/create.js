@@ -7,7 +7,7 @@ router.post('/', (req, res) => {
   const newEvent = JSON.parse(Object.keys(req.body)[0]);
   //console.log(newEvent);
   createEvent(newEvent).then((data) => {
-    res.send("CREATED EVENT")
+    res.send("CREATED EVENT");
   })
 });
 

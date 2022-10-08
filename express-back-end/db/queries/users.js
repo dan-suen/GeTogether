@@ -29,7 +29,8 @@ const findUserData = (id) => {
 };
 
 const findUserHostEvents = (id) => {
-  const query = `SELECT *
+  const query = `SELECT *,
+  ("Events".spots - (SELECT Count(id) FROM "Event_attendees" WHERE "Event_attendees".event_id = "Events".id)) as remaining_spots
   FROM "Events"
   WHERE host_id = $1;
   `;
@@ -47,7 +48,7 @@ const findUserJoinEvents = (id) => {
       return element.event_id;
     })
     results = results.join(", ")
-    return db.query(`SELECT *, (event_time - $1) > interval '0 seconds' as active FROM "Events" WHERE id in (${results})`, [new Date()])
+    return db.query(`SELECT *,  ("Events".spots - (SELECT Count(id) FROM "Event_attendees" WHERE "Event_attendees".event_id = "Events".id)) as remaining_spots, (event_time - $1) > interval '0 seconds' as active FROM "Events" WHERE id in (${results})`, [new Date()])
       .then(data => {
       return data.rows;
     });

@@ -25,15 +25,14 @@ const createEvent = (obj) => {
     lng,
     price,
     spots,
-    remaining_spots,
     description,
     photo,
     "createdAt",
-    event_name) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING *
+    event_name) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING *
   `;
 
   // REMEMBER TO FIX QUERY ON MERGE REMAINING SPTS COLUMN DOESNT EXISTS
-  const queryParams = [user, eventTime, address, lat, lng, fee, spots, spots, description, basicUrl, new Date(), title];
+  const queryParams = [user, eventTime, address, lat, lng, fee, spots, description, basicUrl, new Date(), title];
 
   return db.query(query, queryParams)
     .then(data => {

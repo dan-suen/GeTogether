@@ -1,11 +1,10 @@
 
 import React, { useEffect, useState } from 'react';
-import React from 'react';
 import Calendar from 'components/main/calender';
 import './create.scss';
 import Places from 'components/map/Places';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 
 const Create = () => {
   const [formData, setFormData] = useState({
@@ -52,10 +51,12 @@ const Create = () => {
       alert('You must have a valid address');
       return;
     }
-     console.log(formData);
-     //console.log(user.id);
-     axios.post('/create', JSON.stringify(formData)).then(() => {
-      navigateHome();
+     
+     axios.post('/create', JSON.stringify(formData)).then((data) => {
+      // setTimeout(()=> {
+        navigateHome();
+      // },3000);
+      
      })
   }
 
@@ -177,7 +178,7 @@ const Create = () => {
           </div>
         </div>
       </section>
-      <button type="submit" class="btn btn-primary submit-btn">Submit</button>
+      <button onclick="location.href='/'" type="submit" className="btn btn-primary submit-btn">Submit</button>
     </form>
   );
 };
