@@ -42,7 +42,7 @@ const getEventAttendees = (eventId) => {
       })
       if (attendees.length > 0){
         attendees = "WHERE id in (" + attendees.join(", ") + ")"
-      } else {
+      } else { 
         attendees = "WHERE id = null";
       }
       console.log("adadfadfadf", attendees)
