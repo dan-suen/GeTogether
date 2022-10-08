@@ -20,8 +20,6 @@ const Main = (props) => {
   const [range, setRange] = useState("");
   const [next, setNext] = useState();
 
- 
-
   useEffect(() => {
     let filtered =  props.state.events.filter(element => {
       //filters using search bar text

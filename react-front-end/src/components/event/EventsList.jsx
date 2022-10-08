@@ -5,7 +5,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router-dom';
 
 const EventsList = (props) => {
-
+  const user = JSON.parse(localStorage.getItem('user'));
   const navigate = useNavigate();
   const navigateCreate = () => {
     navigate(`/create`);

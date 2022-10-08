@@ -23,7 +23,7 @@ module.exports = {
         allowNull: false
       },
       location: {
-        type: Sequelize.STRING(60),
+        type: Sequelize.STRING(600),
         allowNull: false
       },
       lat: {

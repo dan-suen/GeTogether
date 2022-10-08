@@ -27,7 +27,6 @@ export default function Places(props) {
 </div>);
 }
 
-
 const PlacesAutocomplete = ({ setCoords }) => {
   const {
     ready,
