@@ -5,6 +5,8 @@ import './create.scss';
 import Places from 'components/map/Places';
 import axios from 'axios';
 import {  useNavigate } from 'react-router-dom';
+import useApplicationData from 'hooks/useEventInfo';
+
 
 const Create = () => {
   const [formData, setFormData] = useState({
@@ -52,9 +54,12 @@ const Create = () => {
       return;
     }
      
-     axios.post('/create', JSON.stringify(formData)).then((data) => {
-      // setTimeout(()=> {
-        navigateHome();
+     axios.post('/create', JSON.stringify(formData)).then( (data) => {
+        console.log(data.data);
+        axios.get('/events').then(() => {
+          data && navigateHome();
+        })
+
       // },3000);
       
      })

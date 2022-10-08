@@ -23,5 +23,5 @@ export default function useApplicationData() {
       });
     });
   }, []);
-  return { state };
+  return { state,setState };
 }
