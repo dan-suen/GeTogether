@@ -29,14 +29,6 @@ const NextEvent = (props) => {
   return (
     <div onClick={navigateToEvent} className=" mb-3 next-event" >
       {div}
-      <button className="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-        Button with data-bs-target
-      </button>
-      <div className="collapse" id="collapseExample">
-        <div>
-          Some placeholder content for the collapsable maps
-        </div>
-      </div>
     </div>
   );
 };

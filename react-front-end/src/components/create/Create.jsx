@@ -5,10 +5,7 @@ import './create.scss';
 import Places from 'components/map/Places';
 import axios from 'axios';
 import {  useNavigate } from 'react-router-dom';
-import useApplicationData from 'hooks/useEventInfo';
-import ButtonGroup from 'react-bootstrap/ButtonGroup';
-import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
+
 
 const Create = () => {
   const hrs = [...Array(26).keys()];
