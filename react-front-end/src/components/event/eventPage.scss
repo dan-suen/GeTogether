@@ -42,17 +42,29 @@
   }
 
   &__info {
-    width: 100%;
-    padding: 1em;
-    @include flex($c: center, $i: center);
+   
+    
+    @include flex($c: space-between, $i: center);
 
-    .column {
+    .column-picture-details {
+      @include flex($d: column,$c: center);
+      width: 600px; 
+      height: 500px;
+      margin-right: 8em;
+    }
+
+    .column-map-card {
       @include flex($d: column,$i: center);
-      width: 50%;
+      height: 100%;
     }
 
     &__thumbnail {
-      width: 60%;
+      @include flex($d: column, $c: end);
+      
+      img{
+        width:100%;
+        height: 350px;
+      }
     }
 
     &__description {
@@ -68,13 +80,13 @@
 
     &__map {
      
-      height: 300px;
+      height: 100%;
       background-color: grey;
       border-radius: 5px;
     }
 
     &__event-info {
-      width: 40%;
+      width: 300px;
       
       .event-item {
         @include flex;
@@ -90,6 +102,7 @@
   }
 
   &__attendees {
+    margin-top: 10em;
     width: 90%;
     max-width: 2000px;
 

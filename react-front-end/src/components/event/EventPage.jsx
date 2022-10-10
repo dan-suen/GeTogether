@@ -38,7 +38,7 @@ const EventPage = () => {
 
        <section className='event-page__info'>
       
-           <div className="column">
+           <div className="column-picture-details">
              <div className="event-page__info__thumbnail">
                <img src={event.photo} alt="Event thumb nail" />
              </div>
@@ -52,7 +52,7 @@ const EventPage = () => {
 
            </div>
 
-           <div className="column">
+           <div className="column-map-card">
              <div className="event-page__info__event-info">
                <div className='card'>
                  <div className="event-page__info__map">
