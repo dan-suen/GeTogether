@@ -35,12 +35,12 @@ export default function useUserData() {
           </section>,
           <section className='user__events-list'>
             <EventsList>
-              <h1 style={{color:"#001d3d"}}>Hosting :</h1>
+              <h1 style={{color:"red"}}>Hosting :</h1>
                 {userEvents.hosting.map((element) => {
                 return <li className="list-group-item"><div><Event event={element}></Event></div></li>
                 })}
               <br/>
-              <h1>Attending :</h1>
+              <h1 style={{color:"red"}}>Attending :</h1>
               {userEvents.joining.map((element) => {
                 if(element.active){
                   return <li className="list-group-item"><div><Event event={element}></Event></div></li>
@@ -48,6 +48,7 @@ export default function useUserData() {
                 return
                 })
               }
+              <br/>
               <h1 style={{color: "red"}}>Attended in the Past :</h1>
               {userEvents.joining.map((element) => {
                 if(!element.active){
