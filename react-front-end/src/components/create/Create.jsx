@@ -223,14 +223,15 @@ const Create = () => {
       </section>
 
       <h5 className='create__date-time-title'>Date and time</h5>
-      
+     
       <section className='create__date-time'>
+   
         <div>
-        <div className={`alert alert-warning ${validate.validDate}`} ref={DateInput} role="alert">
-          Please select a valid date 
-        </div>
-          <h5 className='calendar-title'>Choose a Date</h5>
-          <Calendar onSelect={setSelectDay} selected={selectDay} />
+          <div className={`alert alert-warning ${validate.validDate}`} ref={DateInput} role="alert">
+            Please select a valid date 
+          </div>
+            <h5 className='calendar-title'>Choose a Date</h5>
+            <Calendar onSelect={setSelectDay} selected={selectDay} />
         </div>
 
         <div className='date-time-sub'>
@@ -256,7 +257,7 @@ const Create = () => {
             >
               {minList}
             </select>
-            <h5>{formData.hour}+++++++++++++++ {formData.min}</h5>
+            {/* <h5>{formData.hour}+++++++++++++++ {formData.min}</h5> */}
            
           </div>
           <div></div>
@@ -270,10 +271,10 @@ const Create = () => {
         </div>
         <h5>Address</h5>
         <div class="input-group mb-3">
-          <span class="input-group-text">Address</span>
+          
           <Places setCoords={setCoords} setValidAddress={setValidAddress} />
         </div>
-        <h5>Entry fee & # of spots for the event</h5>
+        <h5 className='entry-fee-title'>Entry fee and number of spots for the event</h5>
         <div className='sub-group2'>
           <div className="input-group mb-3">
             <span className="input-group-text">Entry fee</span>

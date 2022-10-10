@@ -48,7 +48,7 @@ export default function useUserData() {
                 return
                 })
               }
-              <h1>Attended in the Past :</h1>
+              <h1 style={{color: "red"}}>Attended in the Past :</h1>
               {userEvents.joining.map((element) => {
                 if(!element.active){
                   return <li className="list-group-item"><div><Past event={element}></Past></div></li>

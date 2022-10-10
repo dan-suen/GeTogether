@@ -21,7 +21,7 @@
   }
 
   &__date-time {
-    @include flex($i: center);
+    @include flex($c: center,$i: center);
 
     .calendar-title{
       background-color: $mellow-purple;
@@ -31,6 +31,7 @@
     }
 
     .date-time-hr, .date-time-min{
+      margin-left: 2em;
       color: $dark-blue;
       font-weight: bold;
     }
@@ -47,8 +48,13 @@
   }
 
   &__event-logistics {
+    .entry-fee-title {
+      margin-top: 4em;
+    }
+
     .sub-group2 {
       @include flex;
+      margin: 2em 0;
 
       .cost{
         margin-right:1em;
@@ -57,7 +63,8 @@
   }
 
   .submit-btn {
-    width:40%;
+    margin-top: 3em;
+    width:60%;
     background-color: $blue;
   }
 }
