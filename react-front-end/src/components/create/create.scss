@@ -1,7 +1,12 @@
 @import "/src/styles/variables.scss";
 @import "/src/styles/mixins.scss";
 
+.create-wrap {
+  @include flex($d: column, $c: center, $i: center);
+}
+
 .create {
+  
   color: $dark-blue;
   width: 50%;
   margin: 3em 0;

@@ -161,6 +161,7 @@ const Create = () => {
   
 
   return (
+    <section className='create-wrap'>
     <form className='create' onSubmit={handleSubmit}>
       <h5 className='create__description-title'>Describe the Event</h5>
       <section className='create__description'>
@@ -306,6 +307,7 @@ const Create = () => {
       </section>
       <button onClick={"location.href='/'"} type="submit" className="btn btn-primary submit-btn">Submit</button>
     </form>
+    </section>
   );
 };
 

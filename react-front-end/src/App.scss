@@ -4,7 +4,7 @@
 
 .App {
   text-align: center; 
-  @include flex($d: column, $c: center, $i: center);
+  //@include flex($d: column, $c: center, $i: center);
   background-image: url("../public/images/background_image3.png");
   background-size: contain;
 
