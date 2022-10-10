@@ -35,7 +35,10 @@ const Past = (props) => {
   return (
     <section className='page'>
       <section className='page__intro'>
-        <h1>Events Past</h1>
+        <div>
+          <h1>Past Events</h1>
+        </div>
+        
       </section>
 
       <section className='page__events-list'>

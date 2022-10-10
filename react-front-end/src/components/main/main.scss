@@ -19,7 +19,6 @@
   &__calendar-and-events {
     @include flex($d: row,$c: space-between);
     margin: 3em 0;
-   
     width: 50%;
  
     &__next-event {
