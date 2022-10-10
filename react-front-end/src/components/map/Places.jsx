@@ -19,15 +19,15 @@ export default function Places(props) {
     googleMapsApiKey: "AIzaSyDQ119x3IFhG3LCLvV16QaZWzIY1RpDtgA",
     libraries: ["places"],
   });
-  const {setCoords} = props;
+  const {setCoords,setValidAddress} = props;
 
   if (!isLoaded) return <div>Loading...</div>;
   return (<div className="places-container">
-  <PlacesAutocomplete  setCoords={setCoords} />
+  <PlacesAutocomplete  setCoords={setCoords} setValidAddress={setValidAddress}/>
 </div>);
 }
 
-const PlacesAutocomplete = ({ setCoords }) => {
+const PlacesAutocomplete = ({ setCoords, setValidAddress }) => {
   const {
     ready,
     value,
@@ -42,18 +42,20 @@ const PlacesAutocomplete = ({ setCoords }) => {
 
     const results = await getGeocode({ address });
     const { lat, lng } = await getLatLng(results[0]);
-    //console.log('lat and lng:',lat,lng);
-    //setSelected({ lat, lng });
-   // console.log(address);
+ 
     setCoords({ lat, lng, address });
-    // console.log('lat and lng:',lat,lng);
   };
+
+  const handleChange = (e) => {
+    setValue(e.target.value);
+    setValidAddress("d-none");
+  }
 
   return (
     <Combobox onSelect={handleSelect}>
       <ComboboxInput
         value={value}
-        onChange={(e) => setValue(e.target.value)}
+        onChange={handleChange}
         disabled={!ready}
         className="combobox-input"
         placeholder="Search an address"
