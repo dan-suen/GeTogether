@@ -4,6 +4,7 @@ div.card{
 }
 .card{
   height: 300px;
+  font-size: large;
   &:hover{
    background-color: $light-blue;
   }
@@ -16,6 +17,7 @@ div.card{
   margin-bottom: 1em;
 }
 .content{
+  font-size: large;
  div{
   display: flex;
   background-color: $light-blue;
@@ -30,6 +32,7 @@ div.card{
  }
 }
 .card-body{
+  
   padding:0px;
   display:flex;
   flex-direction: column;
@@ -53,6 +56,8 @@ div.card{
 }
 .titlecard{
   display: flex;
+  color: $dark-blue;
+  font-size: $medium;
   justify-content: space-between;
   padding:1em 1em 0em 1em;
   .title{

@@ -217,7 +217,6 @@ const Create = () => {
             maxlength="255"
             onChange={handleChange}
             value={formData.basicUrl}
-            
           />
         </div>
       </section>
@@ -242,7 +241,6 @@ const Create = () => {
               id="hour" 
               onChange={handleChange}
               value={formData.hour}
-              
             >
               {hrsList}
             </select>
@@ -253,7 +251,6 @@ const Create = () => {
               id="min" 
               onChange={handleChange}
               value={formData.min}
-              
             >
               {minList}
             </select>
@@ -286,8 +283,7 @@ const Create = () => {
             id="fee"
             min="0"
             onChange={handleChange}
-            value={formData.fee}
-            
+            value={formData.fee} 
             />
           </div>
           <div className="input-group mb-3">
@@ -304,7 +300,6 @@ const Create = () => {
               min="1"
               onChange={handleChange}
               value={formData.spots}
-              
             />
           </div>
         </div>

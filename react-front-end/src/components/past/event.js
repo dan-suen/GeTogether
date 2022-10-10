@@ -28,8 +28,8 @@ export default function Event(props) {
               
               <Card.Body>
                 <div className="titlecard">
-                  <div onClick={navigateToEvent} className='title'>
-                    <Card.Title>{event.event_name}</Card.Title>
+                  <div onClick={navigateToEvent} className='title' >
+                    <Card.Title style={{color: "red"}}>{event.event_name}</Card.Title>
                     <p className="comment-number">
                       {event.comment_number}  <FontAwesomeIcon icon={faComment}/>
                     </p>
