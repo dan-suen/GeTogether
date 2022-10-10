@@ -1,13 +1,17 @@
 @import "/src/styles/variables.scss";
-div.card{
+@import "/src/styles/mixins.scss";
+
+.card-class{
+  @include flex;
   font-size: 16px;
-}
-.card{
-  height: 300px;
+  height: 400px;
+  border-color: $mellow-purple;
   &:hover{
    background-color: $light-blue;
   }
 }
+
+
 .btn-success{
   background-color: greenyellow;
   color: black;
@@ -15,7 +19,9 @@ div.card{
   height: 40px;
   margin-bottom: 1em;
 }
+
 .content{
+  font-size: large;
  div{
   display: flex;
   background-color: $light-blue;
@@ -39,20 +45,26 @@ div.card{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 400px;
+ 
   .col-md-4{
     max-width: 15em;
-    max-height: 300px;
+    height: 350px;
     overflow: hidden;
+    border: 1px solid;
     border-radius: 5%;
+    margin:auto;
     img{
       border-radius: 10%;
-      max-height: 300px;
+      
       margin-left: -75px
     }
   }
 }
 .titlecard{
   display: flex;
+  color: $dark-blue;
+  font-size: $medium;
   justify-content: space-between;
   padding:1em 1em 0em 1em;
   .title{

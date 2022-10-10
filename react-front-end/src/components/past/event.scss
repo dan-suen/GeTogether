@@ -1,14 +1,20 @@
 @import "/src/styles/variables.scss";
+@import "/src/styles/mixins.scss";
+
 div.card{
-  font-size: 16px;
+  border-color:$mellow-purple;
 }
-.card{
-  height: 300px;
-  font-size: large;
+
+.card-class{
+  @include flex;
+  font-size: 16px;
+  height: 400px;
   &:hover{
    background-color: $light-blue;
   }
 }
+
+
 .btn-success{
   background-color: greenyellow;
   color: black;
@@ -16,6 +22,7 @@ div.card{
   height: 40px;
   margin-bottom: 1em;
 }
+
 .content{
   font-size: large;
  div{
@@ -32,7 +39,6 @@ div.card{
  }
 }
 .card-body{
-  
   padding:0px;
   display:flex;
   flex-direction: column;
@@ -42,14 +48,18 @@ div.card{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 400px;
+ 
   .col-md-4{
     max-width: 15em;
-    max-height: 300px;
+    height: 350px;
     overflow: hidden;
+    border: 1px solid;
     border-radius: 5%;
+    margin:auto;
     img{
       border-radius: 10%;
-      max-height: 300px;
+      
       margin-left: -75px
     }
   }

@@ -158,8 +158,6 @@ const Create = () => {
     });
   }
 
-  
-
   return (
     <section className='create-wrap'>
     <form className='create' onSubmit={handleSubmit}>

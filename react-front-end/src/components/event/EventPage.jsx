@@ -21,9 +21,9 @@ const EventPage = () => {
            <div className="card-body">
              <h5 className="card-title">Hosted by:</h5>
           </div>
-          <a href='to user profile'>
+          
           <img className="card-img-top wallace" src={host.photo} alt="Scotish Event"/ >
-         </a>
+         
           <div className="host-title">
            {host.username}
           </div>
