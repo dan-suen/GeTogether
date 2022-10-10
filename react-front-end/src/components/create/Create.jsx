@@ -12,7 +12,7 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 
 const Create = () => {
   const hrs = [...Array(26).keys()];
-  const mins = [...Array(61).keys()]; 
+  const mins = [...Array(60).keys()]; 
 
   const hrsList = hrs.map((hr) => {
     if(hr === 0) {
@@ -42,6 +42,7 @@ const Create = () => {
   const descriptionInput = useRef(null);
   const photoInput = useRef(null);
   const DateInput = useRef(null);
+  const spotsInput = useRef(null);
 
   const [formData, setFormData] = useState({
     title:"",
@@ -62,6 +63,7 @@ const Create = () => {
     validDrescription: "d-none",
     validPhoto: "d-none",
     validDate: "d-none",
+    validSpots: "d-none"
   });
   const [validAddress, setValidAddress] = useState("d-none");
   const [coords, setCoords] = useState({});
@@ -128,6 +130,13 @@ const Create = () => {
 
     if(!formData.selectDay){
       setValidate(prev => { return {...prev, validDate: ""}});
+      DateInput.current.focus();
+      return;
+    }
+
+
+    if(!formData.spots){
+      setValidate(prev => { return {...prev, validSpots: ""}});
       DateInput.current.focus();
       return;
     }
@@ -285,12 +294,16 @@ const Create = () => {
           </div>
           <div className="input-group mb-3">
             <span className="input-group-text">Spots</span>
+            <div className={`alert alert-warning ${validate.validSpots}`}  role="alert">
+            Please select a valid date 
+          </div>
             <input
               type="number" 
               className="form-control" 
               aria-label="Spots for event"
               id="spots"
-              min="0"
+              ref={spotsInput}
+              min="1"
               onChange={handleChange}
               value={formData.spots}
               
