@@ -67,7 +67,7 @@ const EventPage = () => {
                    </li>
                    <li className="list-group-item event-item">
                      <FontAwesomeIcon className='event-item__icon' icon={faCalendar}/>
-                     {time}
+                     <p>{time}</p>
                    </li>
                  </ul>
                  </div>

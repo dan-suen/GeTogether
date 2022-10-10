@@ -2,8 +2,6 @@ import { useMemo,useState,useEffect } from "react";
 import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
 
 export default function Map(props) {
-
-
   const { isLoaded } = useLoadScript({
     googleMapsApiKey:  "AIzaSyDQ119x3IFhG3LCLvV16QaZWzIY1RpDtgA",
   });
@@ -13,7 +11,7 @@ export default function Map(props) {
   if (!isLoaded || !props) return <div>Loading...</div>;
   return  (
   <GoogleMap zoom={10} center={center} mapContainerClassName="map-container">
-  <Marker position={center} />
+    <Marker position={center} />
 </GoogleMap>);
 }
 

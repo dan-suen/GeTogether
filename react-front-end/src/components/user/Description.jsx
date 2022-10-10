@@ -16,7 +16,8 @@ const Description = (props) => {
         </div>
           <div className="card-body">
             
-            <p className="card-text">{props.user.description}</p>
+            {/* <p className="card-text">{props.user.description}</p> */}
+            <p className="card-text"><textarea></textarea></p>
           </div>
         </div>
       </div>
