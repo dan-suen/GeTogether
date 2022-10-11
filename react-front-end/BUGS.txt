@@ -7,3 +7,7 @@ Create Component {
   - submit form even with incorrect address 
   - disable
 }
+
+
+Sign up page CSS not rendered properly
+Event cards does not fill div container 
