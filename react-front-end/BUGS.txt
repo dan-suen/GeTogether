@@ -13,3 +13,5 @@ Sign up page CSS not rendered properly
 Event cards does not fill div container 
 event calendar kills backend when unselected date
 join button should not exist when not logged in
+
+if hostid = userid disable join button
