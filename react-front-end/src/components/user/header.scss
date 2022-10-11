@@ -2,7 +2,7 @@
 @import "/src/styles/mixins.scss";
 
 .header {
-  @include flex($c: space-between,$i: center);
+  @include flex($c: center,$i: center);
   height: 100px;
   background-color: $mellow-purple;
   font-family: $font-sans;

@@ -10,9 +10,6 @@ import Calendar from 'components/main/calender';
 import { format } from 'date-fns';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFaceSadCry } from '@fortawesome/free-regular-svg-icons'
-
-
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 
@@ -22,12 +19,12 @@ const Main = (props) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [range, setRange] = useState("");
   const [next, setNext] = useState();
+
   useEffect(() => {
     let filtered =  props.state.events.filter(element => {
       //filters using search bar text
       return element.event_name.toLowerCase().includes(searchQuery.toLowerCase())|| element.location.toLowerCase().includes(searchQuery.toLowerCase())|| element.description.toLowerCase().includes(searchQuery.toLowerCase())
     })
-    console.log(filtered)
     //filter using calendar
     if (selected){
       filtered =  filtered.filter(element => {
@@ -60,9 +57,7 @@ const Main = (props) => {
     }
     //filters out past events
     filtered =  filtered.filter(element => {
-      let chose = new Date()
-      let compare = new Date(`${element.event_time}`)
-        return compare > chose
+      return element.active
     })
     //sorts results by date
     filtered = filtered.sort(function(a, b){

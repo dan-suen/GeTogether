@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Event from '../components/main/event'
+import Past from '../components/past/event'
 import Header from '../components/user/Header';
 import Description from '../components/user/Description';
 import EventsList from '../components/event/EventsList';
-
+import "../styles/variables.scss";
 
 export default function useUserData() {
   const [rendered, setRendered] = useState([])
@@ -34,15 +35,28 @@ export default function useUserData() {
           </section>,
           <section className='user__events-list'>
             <EventsList>
-              <h1>Hosting :</h1>
+              <h1 style={{color:"red"}}>Hosting :</h1>
                 {userEvents.hosting.map((element) => {
                 return <li className="list-group-item"><div><Event event={element}></Event></div></li>
                 })}
               <br/>
-              <h1>Attending :</h1>
+              <h1 style={{color:"red"}}>Attending :</h1>
               {userEvents.joining.map((element) => {
-                return <li className="list-group-item"><div><Event event={element}></Event></div></li>
-                })}
+                if(element.active){
+                  return <li className="list-group-item"><div><Event event={element}></Event></div></li>
+                }
+                return
+                })
+              }
+              <br/>
+              <h1 style={{color: "red"}}>Attended in the Past :</h1>
+              {userEvents.joining.map((element) => {
+                if(!element.active){
+                  return <li className="list-group-item"><div><Past event={element}></Past></div></li>
+                }
+                return
+                })
+              }
             </EventsList>
           </section> 
           ]);

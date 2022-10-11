@@ -1,11 +1,14 @@
 @import "/src/styles/variables.scss";
 @import "/src/styles/mixins.scss";
 
+div.card{
+  border-color:$mellow-purple;
+}
+
 .card-class{
   @include flex;
   font-size: 16px;
   height: 400px;
-  border-color: $mellow-purple;
   &:hover{
    background-color: $light-blue;
   }

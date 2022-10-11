@@ -1,10 +1,20 @@
 @import "/src/styles/variables.scss";
 .about{
+  margin: 3em 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: $font-sans;
+
+  h1{
+    margin: 1em 0;
+    font-family: $font-bungee;
+    font-weight: bolder;
+    font-size: $large;
+    color: $blue;
+  }
   p{
     max-width: 80%;
-    font-family: $font-bungee;
+    font-size: larger;
   }
 }

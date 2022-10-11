@@ -23,8 +23,14 @@ module.exports = {
         allowNull: false
       },
       location: {
-        type: Sequelize.STRING(60),
+        type: Sequelize.STRING(600),
         allowNull: false
+      },
+      lat: {
+        type: Sequelize.FLOAT,
+      },
+      lng: {
+        type: Sequelize.FLOAT,
       },
       price: {
         type: Sequelize.INTEGER,
@@ -33,9 +39,6 @@ module.exports = {
       spots: {
         type: Sequelize.INTEGER,
         allowNull: false
-      },
-      remaining_spots: {
-        type: Sequelize.INTEGER
       },
       description: {
         type: Sequelize.STRING(350)

@@ -20,7 +20,7 @@ export default function Info() {
       <button type="button" onClick={()=>{
         logout()
         navigateHome()
-      }} className="btn btn-primary">Logout</button>
+      }} className="btn btn-primary" >Logout</button>
     </section>
   );
 };

@@ -4,7 +4,11 @@ import './description.scss';
 const Description = (props) => {
   return (
     <div className='description'>
-      <img src={props.user.photo} alt="users avatar" />
+      <div className='description__img-user'>
+        <img src={props.user.photo} alt="users avatar" />
+        <h5>User: {props.user.username}</h5> 
+      </div>
+      
       <div className='description__text'>
         <div className="card" >
         <div className="card-header">
@@ -12,7 +16,8 @@ const Description = (props) => {
         </div>
           <div className="card-body">
             
-            <p className="card-text">{props.user.description}</p>
+             <p className="card-text">{props.user.description}</p> 
+            {/* <p className="card-text"><textarea></textarea></p> */}
           </div>
         </div>
       </div>
