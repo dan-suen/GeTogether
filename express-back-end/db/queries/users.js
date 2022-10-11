@@ -47,8 +47,17 @@ const findUserJoinEvents = (id) => {
     let results = data.rows.map(element => {
       return element.event_id;
     })
-    results = results.join(", ")
-    return db.query(`SELECT *,  ("Events".spots - (SELECT Count(id) FROM "Event_attendees" WHERE "Event_attendees".event_id = "Events".id)) as remaining_spots, (event_time - $1) > interval '0 seconds' as active FROM "Events" WHERE id in (${results})`, [new Date()])
+    let query = `SELECT *,  
+    ("Events".spots - (SELECT Count(id) FROM "Event_attendees" WHERE "Event_attendees".event_id = "Events".id)) as remaining_spots, 
+    (event_time - $1) > interval '0 seconds' as active
+    FROM "Events"`
+    if (results.length > 0){
+      results = results.join(", ")
+      query = query + ` WHERE id in (${results})`
+    } else {
+      query = query + ` WHERE id is null`
+    }
+    return db.query(query, [new Date()])
       .then(data => {
       return data.rows;
     });
