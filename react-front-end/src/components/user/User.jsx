@@ -5,7 +5,7 @@ import useUserData from  "hooks/useUserData";
 
 
 const User = () => {
-  const {rendered} = useUserData()
+  const {rendered} = useUserData();
   return (
    <section className='user'>
     {rendered}

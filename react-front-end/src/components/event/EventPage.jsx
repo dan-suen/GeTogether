@@ -2,10 +2,11 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import './eventPage.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLocationDot, faCalendar, faStar} from '@fortawesome/free-solid-svg-icons'
+import { faLocationDot, faCalendar, faStar} from '@fortawesome/free-solid-svg-icons';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import useEventInfo from "hooks/useEventInfo";
+import Map from "../map/Map"
 
 
 const EventPage = () => {
@@ -20,9 +21,9 @@ const EventPage = () => {
            <div className="card-body">
              <h5 className="card-title">Hosted by:</h5>
           </div>
-          <a href='to user profile'>
+          
           <img className="card-img-top wallace" src={host.photo} alt="Scotish Event"/ >
-         </a>
+         
           <div className="host-title">
            {host.username}
           </div>
@@ -37,7 +38,7 @@ const EventPage = () => {
 
        <section className='event-page__info'>
       
-           <div className="column">
+           <div className="column-picture-details">
              <div className="event-page__info__thumbnail">
                <img src={event.photo} alt="Event thumb nail" />
              </div>
@@ -51,11 +52,12 @@ const EventPage = () => {
 
            </div>
 
-           <div className="column">
+           <div className="column-map-card">
              <div className="event-page__info__event-info">
                <div className='card'>
                  <div className="event-page__info__map">
-                     map
+                    {}
+                     <Map lat={event.lat} lng={event.lng}/>
                   </div>
                  <div className="card-body">
                  <ul className="list-group list-group-flush">
@@ -65,7 +67,7 @@ const EventPage = () => {
                    </li>
                    <li className="list-group-item event-item">
                      <FontAwesomeIcon className='event-item__icon' icon={faCalendar}/>
-                     {time}
+                     <p>{time}</p>
                    </li>
                  </ul>
                  </div>

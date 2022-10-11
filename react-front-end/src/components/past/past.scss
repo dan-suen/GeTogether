@@ -4,7 +4,7 @@
 
 
 
-.page {
+.past-events {
  
   @include flex($d: column, $c: center, $i: center);
   background-image: url("../../../public/images/background_image3.png");
@@ -12,8 +12,19 @@
 
   
   &__intro {
-    font-family: $font-sans;
+    
+    width: 80%;
+    margin: 3em 0;
+    background-color: $mellow-purple;
+    border-radius: 25px;
     @include flex($c: center, $i: center);
+
+    h1{
+      font-family: $font-sans;
+      color: $dark-blue;
+      font-weight: bold;
+      font-size: $large;
+    }
   }
 
   &__calendar-and-events {

@@ -10,9 +10,6 @@ import Calendar from 'components/main/calender';
 import { format } from 'date-fns';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFaceSadCry } from '@fortawesome/free-regular-svg-icons'
-
-
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 
@@ -22,6 +19,7 @@ const Main = (props) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [range, setRange] = useState("");
   const [next, setNext] = useState();
+
   useEffect(() => {
     let filtered =  props.state.events.filter(element => {
       //filters using search bar text

@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect, useContext } from 'react';
 import { AuthContext } from "./context/AuthProvider";
 import './register.scss';
+import { useNavigate } from 'react-router-dom';
 
 export default function Register() {
   const [username, setUsername] = useState('');
@@ -11,6 +12,10 @@ export default function Register() {
   const [password, setPassword] = useState('');
   const [passwordConfirm, setPasswordConfirm] = useState('');
   const { login } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const navigateUser = () => {
+    navigate(`/user`);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,6 +27,7 @@ export default function Register() {
           res.data.user_photo,
           res.data.email
         );
+        navigateUser();
       });
     }
   };

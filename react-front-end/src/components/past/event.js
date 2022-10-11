@@ -16,20 +16,19 @@ export default function Event(props) {
   };
   return (
     <Card key="light">
-      <div className="card card-class mb-3">
+      <div className="card card-class">
         <div className="row g-0">
           <div onClick={navigateToEvent} className="col-md-4">
             <img src={event.photo} />
           </div>
-
 
           <div className="col-md-8">
             <div className="main card card-class">
               
               <Card.Body>
                 <div className="titlecard">
-                  <div onClick={navigateToEvent} className='title'>
-                    <Card.Title>{event.event_name}</Card.Title>
+                  <div onClick={navigateToEvent} className='title' >
+                    <Card.Title >{event.event_name}</Card.Title>
                     <p className="comment-number">
                       {event.comment_number}  <FontAwesomeIcon icon={faComment}/>
                     </p>

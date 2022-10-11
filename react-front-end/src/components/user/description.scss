@@ -4,16 +4,22 @@
 .description {
   @include flex($c: space-between,$i: center);
 
-  img {
-    border-radius: 50%;
+  &__img-user {
+    @include flex($d: column, $c: space-between);
+    height: 150px;
+    color: $dark-blue;
+
+    img {
+      border-radius: 50%;
+      margin: 2em 0;
+    }
   }
+ 
 
   &__text {
     width: 50%;
 
     .card {
-
-      
       color: $dark-blue;
 
       .card-header {

@@ -33,12 +33,15 @@ const Past = (props) => {
     }
   }, [props.state.events, range, selected, searchQuery]);
   return (
-    <section className='page'>
-      <section className='page__intro'>
-        <h1>Events Past</h1>
+    <section className='past-events'>
+      <section className='past-events__intro'>
+        <div>
+          <h1>Past Events</h1>
+        </div>
+        
       </section>
 
-      <section className='page__events-list'>
+      <section className='past-events__events-list'>
        <EventsList>
         {events}
        </EventsList>
