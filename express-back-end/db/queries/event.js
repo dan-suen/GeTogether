@@ -55,6 +55,32 @@ const getEventAttendees = (eventId) => {
     });
 };
 
+const joinEvent = (eventId, user_id) => {
+  const query = `
+  INSERT INTO "Event_attendees" (
+    event_id,
+    user_id
+    )
+  VALUES ($1, $2)
+  RETURNING *`;
+  const queryParams = [eventId, user_id];
+  return db.query(query,queryParams).then(data => {return data.rows});
+};
 
+const alreadyJoined = (eventId, user_id) => {
+  const query = `SELECT * FROM "Event_attendees" WHERE event_id = ${eventId} AND user_id = ${user_id}`;
 
-module.exports = { getEvents, getEvent, getEventHost, getEventAttendees };
+  return db.query(query).then(data => {return data.rows.length > 0});
+};
+
+const unregisterEvent = (eventId, user_id) => {
+  const query = `
+  DELETE FROM "Event_attendees" 
+  WHERE event_id = $1 AND user_id = $2
+  RETURNING *`
+  const queryParams = [eventId, user_id];
+
+  return db.query(query,queryParams).then(data => {return data.rows});
+};
+
+module.exports = { getEvents, getEvent, getEventHost, getEventAttendees, joinEvent, alreadyJoined, unregisterEvent };
