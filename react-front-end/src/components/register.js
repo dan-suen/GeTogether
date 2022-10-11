@@ -3,7 +3,6 @@ import { useState, useEffect, useContext } from 'react';
 import { AuthContext } from "./context/AuthProvider";
 import { useNavigate } from 'react-router-dom';
 import './register.scss';
-import { useNavigate } from 'react-router-dom';
 
 export default function Register() {
   const [username, setUsername] = useState('');
