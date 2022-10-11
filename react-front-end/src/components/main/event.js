@@ -2,36 +2,18 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import "./event.scss";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { faComment } from '@fortawesome/free-regular-svg-icons'
 import { format } from 'date-fns';
 import { useNavigate } from 'react-router-dom';
-import { useContext } from 'react';
-import { AuthContext } from '../context/AuthProvider';
-import axios from 'axios';
+import JoinButton from './join';
 
 export default function Event(props) {
   const event = props.event;
   const navigate = useNavigate();
-  const { user, auth } = useContext(AuthContext);
 
   const navigateToEvent = () => {
     // 👇️ navigate to /contacts
     navigate(`/event/${event.id}`);
-  };
-
-  const joinEvent = (e) => {
-    e.preventDefault();
-
-    axios.post(`/${event.id}/join`, `username=${user.id}`).then((res) => {
-      navigateToEvent();
-    });
-  };
-
-  const needAuth = (e) => {
-    e.preventDefault();
-    console.log("click");
-    document.getElementById('basic-nav-dropdown').click();
   };
 
   return (
@@ -54,18 +36,7 @@ export default function Event(props) {
                       {event.comment_number}  <FontAwesomeIcon icon={faComment} />
                     </p>
                   </div>
-                  {!auth && <button
-                    onClick={needAuth}
-                    class="btn btn-primary"
-                    >
-                    Join <FontAwesomeIcon icon={faEnvelope} />
-                  </button>}
-                  {auth && <button
-                    onClick={joinEvent}
-                    class="btn btn-primary">
-                    Join <FontAwesomeIcon icon={faEnvelope} />
-                  </button>}
-
+                  <JoinButton eventId={event.id} navigateToEvent={navigateToEvent}></JoinButton>
                 </div>
                 <div onClick={navigateToEvent} className="content">
                   <div className="header">

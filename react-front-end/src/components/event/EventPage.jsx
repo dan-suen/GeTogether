@@ -6,6 +6,7 @@ import { faLocationDot, faCalendar, faStar} from '@fortawesome/free-solid-svg-ic
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import useEventInfo from "hooks/useEventInfo";
+import JoinButton from '../main/join';
 
 
 const EventPage = () => {
@@ -32,7 +33,7 @@ const EventPage = () => {
            <h5>{event.event_name}</h5>
            {time}
          </div>
-         <div></div>
+         <div><JoinButton eventId={id} /></div>
        </section>
 
        <section className='event-page__info'>
