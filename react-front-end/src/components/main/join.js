@@ -10,10 +10,16 @@ export default function JoinButton(props) {
   const [result, setResult] = useState([]);
 
   useEffect(() => {
-    axios.post('/events/joined', `userId=${user.id}&eventId=${props.eventId}`).then((res) => {
-      setJoined(res.data);
-      setResult(whatButton());
-    });
+    setResult(whatButton());
+  }, []);
+
+  useEffect(() => {
+    if (auth) {
+      axios.post('/events/joined', `userId=${user.id}&eventId=${props.eventId}`).then((res) => {
+        setJoined(res.data);
+        setResult(whatButton());
+      });
+    }
   }, [joined]);
 
   const needAuth = (e) => {
