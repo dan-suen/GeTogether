@@ -12,6 +12,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFaceSadCry } from '@fortawesome/free-regular-svg-icons'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
+import ScrollToTop from '../scrollTop/ScrollToTop'
 
 const Main = (props) => {
   const [events, setEvents] = useState([]);
@@ -19,6 +20,25 @@ const Main = (props) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [range, setRange] = useState("");
   const [next, setNext] = useState();
+  const [showButton, setShowButton] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.pageYOffset > 600) {
+        setShowButton(true);
+      } else {
+        setShowButton(false);
+      }
+    });
+  }, []);
+
+  // This function will scroll the window to the top 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth' // for smoothly scrolling
+    });
+  };
 
   useEffect(() => {
     let filtered =  props.state.events.filter(element => {
@@ -110,8 +130,13 @@ const Main = (props) => {
         {events}
        </EventsList>
       </section>
-
+      <div className="scroll-btn">
+      {showButton && (
+        <ScrollToTop scrollToTop={scrollToTop}/>
+      )}
+      </div>
     </section>
+    
   );
 };
 

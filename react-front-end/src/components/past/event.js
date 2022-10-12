@@ -14,6 +14,8 @@ export default function Event(props) {
     // 👇️ navigate to /contacts
     navigate(`/event/${event.id}`);
   };
+
+
   return (
     // <Card key="light">
     //   <div className="card card-class">
