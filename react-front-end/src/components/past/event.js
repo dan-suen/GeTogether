@@ -1,6 +1,6 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import "./event.scss";
+import "./event2.scss";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faEnvelope} from '@fortawesome/free-solid-svg-icons'
 import {faComment} from '@fortawesome/free-regular-svg-icons'
@@ -17,14 +17,13 @@ export default function Event(props) {
   return (
     <Card key="light">
       <div className="card card-class">
-        <div className="row g-0">
-          <div onClick={navigateToEvent} className="col-md-4">
+        <div className="row g-0 card-class__row">
+          <div onClick={navigateToEvent} className="col-md-4 ">
             <img src={event.photo} />
           </div>
 
           <div className="col-md-8">
             <div className="main card card-class">
-              
               <Card.Body>
                 <div className="titlecard">
                   <div onClick={navigateToEvent} className='title' >
@@ -34,7 +33,7 @@ export default function Event(props) {
                     </p>
                   </div>
                 </div>
-                <div onClick={navigateToEvent}className="content">
+                <div onClick={navigateToEvent} className="content">
                   <div className="header">
                     <Card.Header>Location: {event.location}</Card.Header>
                     <Card.Header>Time: {format(new Date(event.event_time), "MMMM d yyyy - h:mm a")}</Card.Header>
