@@ -5,7 +5,7 @@ import Event from './event'
 import EventsList from './EventsList'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFaceSadCry } from '@fortawesome/free-regular-svg-icons'
-
+import ScrollToTop from '../scrollTop/ScrollToTop'
 
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -16,6 +16,27 @@ const Past = (props) => {
   const [selected, setSelected] = useState();
   const [searchQuery, setSearchQuery] = useState("");
   const [range, setRange] = useState("");
+  const [showButton, setShowButton] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.pageYOffset > 600) {
+        setShowButton(true);
+      } else {
+        setShowButton(false);
+      }
+    });
+  }, []);
+
+    // This function will scroll the window to the top 
+    const scrollToTop = () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // for smoothly scrolling
+      });
+    };
+
+
   useEffect(() => {
     let filtered =  props.state.events
     //filter using calendar
@@ -46,7 +67,11 @@ const Past = (props) => {
         {events}
        </EventsList>
       </section>
-
+      <div className="scroll-btn">
+        {showButton && (
+          <ScrollToTop scrollToTop={scrollToTop}/>
+        )}
+      </div>
     </section>
   );
 };

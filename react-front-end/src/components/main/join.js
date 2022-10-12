@@ -8,7 +8,7 @@ export default function JoinButton(props) {
   const { user, auth } = useContext(AuthContext);
   const [joined, setJoined] = useState(false);
   const [result, setResult] = useState([]);
-
+  console.log(props);
   useEffect(() => {
     setResult(whatButton());
   }, []);
