@@ -34,7 +34,7 @@ const EventPage = () => {
            <h5>{event.event_name}</h5>
            {time}
          </div>
-         <div><JoinButton eventId={id} /></div>
+         <div><JoinButton eventId={id} hostId={host.id} /></div>
        </section>
 
        <section className='event-page__info'>
