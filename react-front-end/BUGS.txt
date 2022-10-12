@@ -1,8 +1,7 @@
 
 -Fix the Card Jank in users page -- Doing RN Edgar
 
--Fix css the jank in registration page 
 -Sign up page CSS not rendered properly
--event calendar kills backend when unselected date
--join button should not exist when not logged in
--if hostid = userid disable join button
+-event calendar kills backend when unselected date -- will be doing Edgar
+-join button should not exist when not logged in -- Donny should do this
+  => if hostid = userid disable join button 
