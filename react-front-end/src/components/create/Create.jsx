@@ -11,29 +11,27 @@ const Create = () => {
   const hrs = [...Array(26).keys()];
   const mins = [...Array(60).keys()]; 
 
-  const hrsList = hrs.map((hr) => {
+  const hrsList = hrs.map((hr,i) => {
     if(hr === 0) {
-      return <option className="dropdown-item" selected>{'0' + hr}</option>
+      return <option key={i} className="dropdown-item" >{'0' + hr}</option>
     }
     if(hr < 10 && hr > 0) {
-      return <option className="dropdown-item">{'0' + hr}</option>
+      return <option key={i} className="dropdown-item">{'0' + hr}</option>
     }else {
-      return <option className="dropdown-item">{''+ hr} </option>
+      return <option key={i} className="dropdown-item">{''+ hr} </option>
     }
   });
 
-  const minList = mins.map((min) => {
+  const minList = mins.map((min,i) => {
     if(min === 0) {
-      return <option className="dropdown-item" selected>{'0' + min}</option>
+      return <option key={i} className="dropdown-item" >{'0' + min}</option>
     }
     if(min < 10 && min > 0) {
-      return <option className="dropdown-item">{'0' + min}</option>
+      return <option key={i} className="dropdown-item">{'0' + min}</option>
     }else {
-      return <option className="dropdown-item">{''+ min} </option>
+      return <option key={i} className="dropdown-item">{''+ min} </option>
     }
   });
-
-  
 
   const titleInput = useRef(null);
   const descriptionInput = useRef(null);
@@ -86,6 +84,7 @@ const Create = () => {
      setFormData(prev => {
       return {...prev, address: coords.address, lat: coords.lat, lng: coords.lng, selectDay: String(selectDay) }
     });
+    console.log('selectDay:',selectDay)
   },[coords,selectDay]);
 
   useEffect(()=> {
@@ -125,12 +124,12 @@ const Create = () => {
       return;
     }
 
-    if(!formData.selectDay){
+    if(!selectDay){
       setValidate(prev => { return {...prev, validDate: ""}});
-      DateInput.current.focus();
+        DateInput.current.focus();
+      
       return;
     }
-
 
     if(!formData.spots){
       setValidate(prev => { return {...prev, validSpots: ""}});
@@ -143,9 +142,11 @@ const Create = () => {
       return;
     }
 
+    
      axios.post('/create', JSON.stringify(formData)).then( (data) => {
-        console.log(data.data);
+        //console.log(data.data);
         axios.get('/events').then(() => {
+          
           data && navigateHome();
         })
      })
@@ -213,7 +214,7 @@ const Create = () => {
             id="basicUrl"
             ref={photoInput}
             aria-describedby="eventPhotoControlInput"
-            maxlength="255"
+            maxLength="255"
             onChange={handleChange}
             value={formData.basicUrl}
           />
@@ -234,7 +235,7 @@ const Create = () => {
 
         <div className='date-time-sub'>
           <div className="input-group mb-3"> 
-            <label class="input-group-text date-time-hr" for="hour">hr</label>
+            <label className="input-group-text date-time-hr" htmlFor="hour">hr</label>
             <select
               className="form-select"
               id="hour" 
@@ -244,7 +245,7 @@ const Create = () => {
               {hrsList}
             </select>
 
-            <label className="input-group-text date-time-min" for="min">min</label>
+            <label className="input-group-text date-time-min" htmlFor="min">min</label>
             <select
               className="form-select"
               id="min" 
@@ -266,11 +267,14 @@ const Create = () => {
           Please enter a valid address 
         </div>
         <h5>Address</h5>
-        <div class="input-group mb-3">
+        <div className="input-group mb-3">
           
           <Places setCoords={setCoords} setValidAddress={setValidAddress} />
         </div>
         <h5 className='entry-fee-title'>Entry fee and number of spots for the event</h5>
+        <div className={`alert alert-warning ${validate.validSpots}`}  role="alert">
+              Please select a minimum of 1 spots
+        </div>
         <div className='sub-group2'>
           <div className="input-group mb-3">
             <span className="input-group-text">Entry fee</span>
@@ -285,11 +289,11 @@ const Create = () => {
             value={formData.fee} 
             />
           </div>
+      
           <div className="input-group mb-3">
+          
             <span className="input-group-text">Spots</span>
-            <div className={`alert alert-warning ${validate.validSpots}`}  role="alert">
-            Please select a valid date 
-          </div>
+            
             <input
               type="number" 
               className="form-control" 
@@ -303,7 +307,7 @@ const Create = () => {
           </div>
         </div>
       </section>
-      <button onClick={"location.href='/'"} type="submit" className="btn btn-primary submit-btn">Submit</button>
+      <button onClick={handleSubmit} type="submit" className="btn btn-primary submit-btn">Submit</button>
     </form>
     </section>
   );

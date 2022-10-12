@@ -33,7 +33,7 @@ module.exports = {
         type: Sequelize.FLOAT,
       },
       price: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.FLOAT,
         allowNull: false
       },
       spots: {
