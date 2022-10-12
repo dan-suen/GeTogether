@@ -124,6 +124,7 @@ const Create = () => {
     setValidate(prev => { return {...prev, validDate: "d-none"}});
   },[formData.selectDay]);
 
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -163,8 +164,10 @@ const Create = () => {
       return;
     }
 
-    
-     axios.post('/create', JSON.stringify(formData)).then( (data) => {
+     const newformData = {...formData, title: encodeURIComponent(formData.title), basicUrl: encodeURIComponent(formData.basicUrl), description: encodeURIComponent(formData.description)}
+
+
+     axios.post('/create', JSON.stringify(newformData)).then( (data) => {
         //console.log(data.data);
         axios.get('/events').then(() => {
           
@@ -179,6 +182,7 @@ const Create = () => {
       }
     });
   }
+
 
   return (
     <section className='create-wrap'>
@@ -232,10 +236,10 @@ const Create = () => {
           <input
             type="text"
             className="form-control"
-            id="basicUrl"
             ref={photoInput}
             aria-describedby="eventPhotoControlInput"
             maxLength="255"
+            id="basicUrl"
             onChange={handleChange}
             value={formData.basicUrl}
           />

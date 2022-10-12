@@ -8,7 +8,7 @@ export default function JoinButton(props) {
   const { user, auth } = useContext(AuthContext);
   const [joined, setJoined] = useState(false);
   const [result, setResult] = useState([]);
-  console.log(props);
+  //console.log(props);
   useEffect(() => {
     setResult(whatButton());
   }, []);
@@ -22,7 +22,7 @@ export default function JoinButton(props) {
     }
   }, [joined]);
 
-  console.log("HOST ID:", )
+  //console.log("HOST ID:", )
 
   const needAuth = (e) => {
     e.preventDefault();
