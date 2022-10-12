@@ -8,10 +8,18 @@ export default function JoinButton(props) {
   const { user, auth } = useContext(AuthContext);
   const [joined, setJoined] = useState(false);
   const [result, setResult] = useState([]);
+<<<<<<< HEAD
   //console.log(props);
+=======
+
+  console.log(props);
+>>>>>>> fe492a8c83aedf99d3771607e53d123357a0d3e6
   useEffect(() => {
     setResult(whatButton());
   }, []);
+
+  const [hostId, setHostId] = useState(null);
+
 
   useEffect(() => {
     if (auth) {
@@ -19,6 +27,8 @@ export default function JoinButton(props) {
         setJoined(res.data);
         setResult(whatButton());
       });
+    } else {
+      setResult([<button onClick={needAuth} class="btn btn-primary">Join <FontAwesomeIcon icon={faEnvelope} /></button>]);
     }
   }, [joined]);
 
@@ -47,10 +57,7 @@ export default function JoinButton(props) {
 
   const whatButton = () => {
     const result = [];
-    console.log("Joined state: ", joined);
-    if (!auth) {
-      result.push(<button onClick={needAuth} class="btn btn-primary">Join <FontAwesomeIcon icon={faEnvelope} /></button>)
-    } else {
+    if (!(props.hostId === user.id)) {
       if (!joined) {
         result.push(<button onClick={joinEvent} class="btn btn-primary">Join <FontAwesomeIcon icon={faEnvelope} /></button>)
       } else {
