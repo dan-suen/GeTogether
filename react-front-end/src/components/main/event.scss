@@ -50,5 +50,13 @@
       }
 
     }
+
+    &__content:hover {
+      background-color: $light-blue;
+    }
   }
+}
+
+.card-main:hover {
+  background-color: $light-blue;
 }
