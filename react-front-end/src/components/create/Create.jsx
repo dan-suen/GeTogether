@@ -9,7 +9,7 @@ import {  useNavigate } from 'react-router-dom';
 
 
 const Create = () => {
-  const hrs = [...Array(26).keys()];
+  const hrs = [...Array(24).keys()];
   const mins = [...Array(60).keys()]; 
 
   const hrsList = hrs.map((hr,i) => {
