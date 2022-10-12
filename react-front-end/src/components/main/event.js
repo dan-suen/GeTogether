@@ -17,7 +17,7 @@ export default function Event(props) {
   return (
     <Card key="light">
       <div className="card card-main">
-        <div className=" card-main__body">
+        <div className="card-main__body">
           <div onClick={navigateToEvent} className="card-main__body__image-div">
             <img alt='event_pic' src={event.photo} />
           </div>
