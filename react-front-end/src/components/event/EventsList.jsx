@@ -10,7 +10,7 @@ const EventsList = (props) => {
   const navigateCreate = () => {
     navigate(`/create`);
   };
-
+  console.log(props)
 
   return (
     <>

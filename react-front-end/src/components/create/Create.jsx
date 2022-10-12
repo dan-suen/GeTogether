@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState,useRef } from 'react';
 import Calendar from 'components/main/calender';
+import ScrollToTop from '../scrollTop/ScrollToTop'
 import './create.scss';
 import Places from 'components/map/Places';
 import axios from 'axios';
@@ -8,7 +9,7 @@ import {  useNavigate } from 'react-router-dom';
 
 
 const Create = () => {
-  const hrs = [...Array(26).keys()];
+  const hrs = [...Array(24).keys()];
   const mins = [...Array(60).keys()]; 
 
   const hrsList = hrs.map((hr,i) => {
@@ -71,6 +72,26 @@ const Create = () => {
     navigate(`/`);
     window.location.reload();
   };
+  const [showButton, setShowButton] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.pageYOffset > 600) {
+        setShowButton(true);
+      } else {
+        setShowButton(false);
+      }
+    });
+  }, []);
+
+  // This function will scroll the window to the top 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth' // for smoothly scrolling
+    });
+  };
+
 
   useEffect(()=> {
     setFormData(prev => {
@@ -308,6 +329,11 @@ const Create = () => {
       </section>
       <button onClick={handleSubmit} type="submit" className="btn btn-primary submit-btn">Submit</button>
     </form>
+    <div className="scroll-btn">
+      {showButton && (
+        <ScrollToTop scrollToTop={scrollToTop}/>
+      )}
+      </div>
     </section>
   );
 };
