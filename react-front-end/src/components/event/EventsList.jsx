@@ -11,11 +11,12 @@ const EventsList = (props) => {
     navigate(`/create`);
   };
 
+
   return (
     <>
        <div className='events-list__header'>
           <h5>Your Events</h5>
-          <button className='btn btn-primary' onClick={navigateCreate}><FontAwesomeIcon icon={faPlus} /></button>
+          {user && <button className='btn btn-primary' onClick={navigateCreate}><FontAwesomeIcon icon={faPlus} /></button>}
         </div>
         
         <ul className="list-group list-group-flush">

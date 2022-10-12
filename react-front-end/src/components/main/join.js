@@ -15,7 +15,7 @@ export default function JoinButton(props) {
 
   useEffect(() => {
     if (auth) {
-      axios.post('/events/joined', `userId=${user.id}&eventId=${props.eventId}`).then((res) => {
+       axios.post('/events/joined', `userId=${user.id}&eventId=${props.eventId}`).then((res) => {
         setJoined(res.data);
         setResult(whatButton());
       });
