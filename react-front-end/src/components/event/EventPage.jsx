@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import './eventPage.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLocationDot, faCalendar, faStar} from '@fortawesome/free-solid-svg-icons';
+import { faLocationDot, faCalendar, faStar, faDollarSign,faPerson} from '@fortawesome/free-solid-svg-icons';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import useEventInfo from "hooks/useEventInfo";
@@ -62,13 +62,22 @@ const EventPage = () => {
                   </div>
                  <div className="card-body">
                  <ul className="list-group list-group-flush">
-                   <li className="list-group-item event-item">
+                   <li className="list-group-item event-item d-flex justify-content-center">
                      <FontAwesomeIcon className='event-item__icon' icon={faLocationDot}/>
                      <p>{event.location}</p>
                    </li>
-                   <li className="list-group-item event-item">
+                   <li className="list-group-item event-item d-flex justify-content-center">
                      <FontAwesomeIcon className='event-item__icon' icon={faCalendar}/>
                      <p>{time}</p>
+                   </li>
+                   <li className="list-group-item event-item d-flex justify-content-center">
+                      
+                     <FontAwesomeIcon className='event-item__icon' icon={faDollarSign}/>
+                     <p>{(event.price/100).toFixed(2)}</p>
+                   </li>
+                   <li className="list-group-item event-item d-flex justify-content-center">
+                     <FontAwesomeIcon className='event-item__icon' icon={faPerson}/>
+                     <p >{event.spots}</p>
                    </li>
                  </ul>
                  </div>
