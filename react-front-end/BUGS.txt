@@ -5,4 +5,4 @@
 -event calendar kills backend when unselected date -- will be doing Edgar
 -join button should not exist when not logged in -- Donny should do this
   => if hostid = userid disable join button 
-events that have past are still showing up in attending section.
+events footer showing wrong event date in users
