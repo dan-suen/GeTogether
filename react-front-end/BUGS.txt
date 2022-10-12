@@ -1,16 +1,6 @@
-Create Component {
-  - forceRefresh={true}> in event title
-  - putting string in integer will crash 
-  - if no date selected crashes
-  - general text box issues
-  - in general putting incorrects args will crash
-  - submit form even with incorrect address 
-  - disable
-}
 
-
+Fix the Card Jank in users page -- Doing RN Edgar
 Sign up page CSS not rendered properly
-Event cards does not fill div container 
 event calendar kills backend when unselected date
 join button should not exist when not logged in
 
