@@ -31,7 +31,7 @@ export default function Event(props) {
                       {event.comment_number}  <FontAwesomeIcon icon={faComment} />
                     </p>
                   </div>
-                  <JoinButton eventId={event.id} navigateToEvent={navigateToEvent}></JoinButton>
+                  <JoinButton eventId={event.id} hostId={event.host_id} navigateToEvent={navigateToEvent}></JoinButton>
                 </div>
                 <div onClick={navigateToEvent} className="card-content">
                   <div className="header">
