@@ -1,6 +1,6 @@
 
--Sign up page CSS not rendered properly
+-Sign up page CSS not rendered properly -- Donny should do this
 -event calendar kills backend when unselected date --  doing rn Edgar
 -join button should not exist when not logged in -- Donny should do this
   => if hostid = userid disable join button 
-events footer showing wrong event date in users
+events footer showing wrong event date in users -- will be doing Edgar
