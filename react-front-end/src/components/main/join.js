@@ -22,6 +22,8 @@ export default function JoinButton(props) {
     }
   }, [joined]);
 
+  console.log("HOST ID:", )
+
   const needAuth = (e) => {
     e.preventDefault();
     document.getElementById('basic-nav-dropdown').click();
