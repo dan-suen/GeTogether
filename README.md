@@ -1,49 +1,57 @@
-# React + Express No-Fluff Boilerplate
+# GeTogether
+- GeTogether is a project that is loosely inspired by the Meetups platform and is built using the PERN stack. This is supplemented by a plethora of additional libararies including react-router, react day-picker and even Google maps!
 
-A boilerplate project for anyone interested in making a project that uses React and Express.
+## Final Product
+ !["Main Page"](https://github.com/dan-suen/marketplace/blob/master/public/screens/1.png?raw=true)
+ - The main page features a randomized loadout of the first 10 item listings with the ability to filter by price or username and the results can be filtered in a descending order using the checkbox. Users can also choose preset filter options via yellow buttons.
 
-This repository is a bootleg of @NimaBoscarino's [React Rails Boilerplate](https://github.com/NimaBoscarino/react-rails-boilerplate). It uses the same React app, but replaces the Rails server with an Express server.
+ - Each item listing has a variety of information shown, such as a picture, seller, description, sold-out status, etc.
 
-Note! This boilerplate has _no fluff_! That means that there's nothing set up for you to do authentication stuff, there's no Redux stuff, and there's no React Router stuff. On the Express end, there is no session storage or database connection.
+ !["Login"](https://github.com/dan-suen/marketplace/blob/master/public/screens/2.png?raw=true)
+ - Users can login via a login page to access user specific featuers on the site
 
-The main important bit is that the React project has `proxy` set to `localhost:8080` in the `package.json` file, and that the Express app listens to port 8080 in `server.js`. Take a look!
+ !["Logged in Main Page"](https://github.com/dan-suen/marketplace/blob/master/public/screens/3.png?raw=true)
+ !["Favourites"](https://github.com/dan-suen/marketplace/blob/master/public/screens/4.png?raw=true)
 
-You can (and perhaps should) rename the directories `express-back-end` and `react-front-end` if you want-- The name doesn't matter.
+ -These features include access to the favourites system shown in the upper right of each item, which allows users to add the item to their favourites, and the ability to message sellers about an item in the lower right(provided the item is NOT sold out already)
 
-## Running the projects
+  !["Profile"](https://github.com/dan-suen/marketplace/blob/master/public/screens/6.png?raw=true)
+  !["Item Creation"](https://github.com/dan-suen/marketplace/blob/master/public/screens/7.png?raw=true)
+ - Users also have access to their personal page where they can edit their own profile and see a listing of the items they are selling
+ - Items being sold by the user can be deleted, marked as sold and related messages can be viewed.
+ !["Inbox"](https://github.com/dan-suen/marketplace/blob/master/public/screens/8.png?raw=true)
 
-You need **TWO** terminal windows/tabs for this (or some other plan for running two Node processes).
+ - The robust messaging systems allows for real-time messaging via web-sockets
+ !["Messages"](https://github.com/dan-suen/marketplace/blob/master/public/screens/9.png?raw=true)
 
-In one terminal, `cd` into `react-front-end`. Run `npm install` or `yarn` to install the dependencies. Then run `npm start` or `yarn start`, and go to `localhost:3000` in your browser.
 
-In the other terminal, `cd` into `express-back-end`. Run `npm install` or `yarn` to install the dependencies, then `npm start` or `yarn start` to launch the server.
 
-In the browser, you can click on the button and see the data get loaded.
+## Running the project
 
-If this doesn't work, please message me!
+- **TWO** terminal windows are need to run this project in its entirety. 
 
-## Next steps
+In one terminal, `cd` into `react-front-end`. Run `npm install` to install the dependencies. Then run `npm start`, and go to `localhost:3000` in your browser.
 
-From here, you can start working on your project!
+In the other terminal, `cd` into `express-back-end`. Run `npm install` to install the dependencies, then `npm start` to launch the server.
 
-As soon as the dependencies are installed, your Express server can serve JSON and static assets (like images) in response to API calls from the React app. You can get started on developing your React app, routing plan, etc. right away! Any request that isn't handled by React is passed on to the Express server. That means that you can call a route like `/api/users` from React using `fetch`, `axios`, or something else, and Express will receive it as though they originated from the same app. For routing, best practice is to namespace all of your data routes to `/api`, so that they don't clash with other routing schemes, like React Router.
+## Project Setup
 
-At some point, you'll likely want to install and configure a database driver for Postgres or MongoDB-- Refer to past projects for hints on how to do this.
+1. This project requires a local or remote installation of PostgreSql.
+Log into PostgreSql and run the following commands: 
+```
+CREATE ROLE labber WITH LOGIN password 'labber';
+CREATE DATABASE getogether OWNER labber;
+```
+Create the .env file inside the 'express-back-end' folder with your correct information: 
+e.g. 
+  - username: `labber` 
+  - password: `labber` 
+  - database: `getogether`
 
-And don't forget to update the README!
+2. Follow README.md inside the 'express-back-end' folder to create and seed the database tables locally.
 
-## Example Projects
 
-You might want to look at examples of projects that have used this boilerplate for hints on how to extend it. Here are a few:
+## Dependencies
 
-* [Later Cart](https://github.com/bonitac/later-cart)
-* [Buddi.io](https://github.com/Danny-Tran/buddi.io)
-
-If you'd like your project added to the list, please shoot me a message.
-
-## Contact
-
-Please contact me on Slack (@garrettgsb) or Nima at `nima@lighthouselabs.com` if you have any questions, requests, or feedback, or post an issue to this repo. If you are using the boilerplate, I'd love to hear from you as well!
-
-## Use prettier
-npx prettier --write .
+- Node 16.x or above
+- React 18.x or above
