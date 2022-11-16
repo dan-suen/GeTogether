@@ -19,7 +19,7 @@ export default function TopNav(props) {
   return (
     <Navbar expand="lg" sticky="top">
       <Container>
-        <button onClick ={navigateHome} className="navbar-brand">Getogether</button>
+        <a href="/" className="navbar-brand">Getogether</a>
 
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav>

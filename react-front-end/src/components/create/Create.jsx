@@ -9,7 +9,7 @@ import {  useNavigate } from 'react-router-dom';
 
 
 const Create = () => {
-  const hrs = [...Array(26).keys()];
+  const hrs = [...Array(24).keys()];
   const mins = [...Array(60).keys()]; 
 
   const hrsList = hrs.map((hr,i) => {
@@ -148,7 +148,6 @@ const Create = () => {
     if(!selectDay){
       setValidate(prev => { return {...prev, validDate: ""}});
         DateInput.current.focus();
-      
       return;
     }
 
@@ -163,8 +162,8 @@ const Create = () => {
       return;
     }
 
-    
-     axios.post('/create', JSON.stringify(formData)).then( (data) => {
+    const newformData = {...formData, title: encodeURIComponent(formData.title), basicUrl: encodeURIComponent(formData.basicUrl), description: encodeURIComponent(formData.description)}
+     axios.post('/create', JSON.stringify(newformData)).then( (data) => {
         //console.log(data.data);
         axios.get('/events').then(() => {
           
