@@ -1,6 +1,6 @@
 const Express = require('express');
 const App = Express();
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
 const morgan = require('morgan');
 const cookieSession = require('cookie-session');
 const bodyParser = require('body-parser')

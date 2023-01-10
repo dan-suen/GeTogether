@@ -6,7 +6,9 @@
   "author": "garrettgsb",
   "license": "MIT",
   "scripts": {
-    "go": "nodemon server.js"
+    "go": "nodemon server.js",
+    "start":"node server.js",
+    "heroku-postbuild": "cd express-back-end && npm install"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

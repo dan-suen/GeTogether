@@ -10,7 +10,11 @@ const dbParams = {
   database: process.env.DB_NAME
 };
 
-const db = new Pool(dbParams);
+const proParams = {
+  connectionString: process.env.DATABASE_URL
+};
+
+const db = new Pool(process.env.NODE_ENV === "production" ? proParams : dbParams);
 
 db.connect();
 console.log(process.env.DB_HOST)
